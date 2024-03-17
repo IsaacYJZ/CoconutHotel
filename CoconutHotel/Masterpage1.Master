@@ -18,9 +18,9 @@
         <!-- header content here -->
         <img src="Images/coconut.png" alt="Coconut Hotel Logo" class="logo" />
 
-             <div class="header-button">
+            <!--  <div class="header-button">
                 <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
-            </div>
+            </div>  -->
 
         <h1>Welcome to Coconut Hotel</h1>
         <h4>FEELING LIKE STAYING IN A COCONUT</h4>
