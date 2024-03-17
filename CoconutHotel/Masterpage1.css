@@ -1,0 +1,64 @@
+﻿.header {
+    background-image: url('Images/dark.jpg'); /* Adjust the path as necessary */
+    background-repeat: no-repeat;
+    background-size: cover; /* This will make sure that the image covers the entire header */
+    background-position: center center; /* This centers the image in the header */
+    padding: 60px;
+    text-align: center;
+
+    display: flex; /* Use flexbox to align children */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Space out children */
+}
+
+.header-button {
+    margin-left: auto; /* Push the button to the right */
+    margin-right: 20px; /* Add some space on the right side */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    color: white;
+    font-family: 'Courier New, Courier, monospace';
+}
+
+h4 {
+    color:white;
+    font-family: 'Courier New, Courier, monospace';
+
+}
+
+.header-button {
+
+
+}
+
+
+
+.footer {
+    background-color: rgb(26, 48, 70);
+    padding: 10px;
+    text-align: center;
+}
+
+.footer-text {
+    display: inline-block;
+    text-align: left; 
+    max-width: 1000px; 
+}
+
+p.f1 {
+    color: white;
+    font-family: 'Courier New, Courier, monospace';
+}
+
+p.f2 {
+    color: grey;
+    font-family: 'Courier New, Courier, monospace';
+}
