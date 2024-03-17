@@ -6,15 +6,9 @@
     padding: 60px;
     text-align: center;
 
-    display: flex; /* Use flexbox to align children */
-    align-items: center; /* Align items vertically in the center */
-    justify-content: space-between; /* Space out children */
+
 }
 
-.header-button {
-    margin-left: auto; /* Push the button to the right */
-    margin-right: 20px; /* Add some space on the right side */
-}
 
 html, body {
     margin: 0;
@@ -33,12 +27,6 @@ h4 {
     font-family: 'Courier New, Courier, monospace';
 
 }
-
-.header-button {
-
-
-}
-
 
 
 .footer {

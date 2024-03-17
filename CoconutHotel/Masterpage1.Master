@@ -13,42 +13,37 @@
             margin-left: 40px;
         }
     </style>
-
-        <div class="header">
+</head>
+<body>
+    <div class="header">
         <!-- header content here -->
         <img src="Images/coconut.png" alt="Coconut Hotel Logo" class="logo" />
 
-            <!--  <div class="header-button">
-                <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
-            </div>  -->
 
         <h1>Welcome to Coconut Hotel</h1>
         <h4>FEELING LIKE STAYING IN A COCONUT</h4>
         <h1>Book direct with Coconut Hotel for BEST RATES</h1>
 
         <h4>Promo code: BOOKDIRECT</h4>
-        <h4 >Stay with us and take it slow</h4>
+        <h4>Stay with us and take it slow</h4>
 
-        </div>
-</head>
-<body>
+    </div>
 
-    
-    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"/>
-    
-    
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+
+
     <div class="footer">
         <!-- footer content here -->
-        <div class ="footer-text">
-        <h1>Coconut Hotel</h1>
-        <p class="f1">Reservation +0611-1130 3353(24 hours)</p>
-        <p class="f1">99, Jalan C M Hashim, Tanjung Tokong, 11200 Tanjung Bungah, Pulau Pinang</p>
-        <p class="f1">--</p>
+        <div class="footer-text">
+            <h1>Coconut Hotel</h1>
+            <p class="f1">Reservation +0611-1130 3353(24 hours)</p>
+            <p class="f1">99, Jalan C M Hashim, Tanjung Tokong, 11200 Tanjung Bungah, Pulau Pinang</p>
+            <p class="f1">--</p>
 
-        <P class="f2">#Coconut Hotel</P>
-        <p class="f2">© 2024 • Coconut Hotel All Rights Reserved • Coconut Hotel Management Sdn. Bhd 823281- K </p>
+            <p class="f2">#Coconut Hotel</p>
+            <p class="f2">© 2024 • Coconut Hotel All Rights Reserved • Coconut Hotel Management Sdn. Bhd 823281- K </p>
         </div>
-    </div> 
+    </div>
 
 </body>
 </html>
