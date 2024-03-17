@@ -9,28 +9,32 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
-        .auto-style1 {
-            margin-left: 40px;
+        .auto-style2 {
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            margin-right: auto;
+            width: 57px;
+            height: 55px;
         }
     </style>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
 </head>
+
 <body>
     <div class="header">
         <!-- header content here -->
-        <img src="Images/coconut.png" alt="Coconut Hotel Logo" class="logo" />
+        <div class ="logo">
+            <img src="Images/coconut.png" alt="Coconut Hotel Logo" class="auto-style2" />
+        </div>
 
-
-        <h1>Welcome to Coconut Hotel</h1>
-        <h4>FEELING LIKE STAYING IN A COCONUT</h4>
-        <h1>Book direct with Coconut Hotel for BEST RATES</h1>
-
-        <h4>Promo code: BOOKDIRECT</h4>
-        <h4>Stay with us and take it slow</h4>
-
+        <div class="Header">
+            <h1>Welcome to Coconut Hotel</h1>
+        </div>
     </div>
 
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
-
+    
 
     <div class="footer">
         <!-- footer content here -->
