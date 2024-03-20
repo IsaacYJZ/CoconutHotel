@@ -29,11 +29,19 @@
             width: 439px;
         }
 
+        .auto-style9 {
+            width: 98px;
+        }
+
+        .auto-style10 {
+            width: 85px;
+        }
+
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <form id="form1" runat="server">
+
 
         <link href="Payment.css" rel="stylesheet" type="text/css" />
 
@@ -63,6 +71,11 @@
                     <td>
                         <asp:Label ID="lblTotal" runat="server"></asp:Label></td>
                 </tr>
+                <tr>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
             </table>
         </div>
         <br />
@@ -71,17 +84,17 @@
         <div>
             <table class="container">
                 <tr>
-                    <td class="auto-style6">Payment Method :</td>
+                    <td class="auto-style9">Payment Method :</td>
                     <td class="auto-style8">
                         <asp:Label ID="lblPaymentMethod" runat="server"></asp:Label>
 
-                        <asp:LinkButton ID="lbChangeMethod" runat="server">(Change)</asp:LinkButton>
+                        <asp:LinkButton ID="lbChangeMethod" runat="server" OnClick="lbChangeMethod_Click">(Change)</asp:LinkButton>
 
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="auto-style6">Account</td>
+                    <td class="auto-style9">Account</td>
                     <td class="auto-style8">
                         <asp:Label ID="lblAccount" runat="server"></asp:Label>
 
@@ -89,20 +102,18 @@
                 </tr>
 
                 <tr>
-                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style8">
-                        <asp:Button ID="btnPurchase" runat="server" Text="Purchase" />
-
+                        <div class="auto-style10">
+                            <asp:Button ID="btnPurchase" runat="server" Text="Purchase" />
+                        </div>
                     </td>
                 </tr>
             </table>
 
-            <div class="purchase-button">
-            </div>
-
         </div>
 
-    </form>
+
 
 </asp:Content>
 

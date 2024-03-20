@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ChangePayment.aspx" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\coconut.png" />
     <Content Include="Images\darkbackground.jpg" />
@@ -77,6 +78,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangePayment.aspx.cs">
+      <DependentUpon>ChangePayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePayment.aspx.designer.cs">
+      <DependentUpon>ChangePayment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Masterpage1.Master.cs">
       <DependentUpon>Masterpage1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

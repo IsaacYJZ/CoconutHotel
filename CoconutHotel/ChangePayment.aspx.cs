@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace CoconutHotel
 {
-    public partial class PaymentPage : System.Web.UI.Page
+    public partial class ChangePayment : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-        }
 
-        protected void lbChangeMethod_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ChangePayment.aspx");
         }
     }
 }
