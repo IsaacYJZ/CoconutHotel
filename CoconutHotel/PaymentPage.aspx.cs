@@ -11,7 +11,17 @@ namespace CoconutHotel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void txtDate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void imgBtnCalendar_Click(object sender, ImageClickEventArgs e)
+        {
+            pnlCalendar.Style["display"] = "block"; // Show the calendar
         }
     }
 }

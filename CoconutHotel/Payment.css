@@ -1,0 +1,13 @@
+﻿h1.payment-header {
+    color: black;
+    font-family: 'Courier New, Courier, monospace';
+}
+
+.payment-header {
+    margin-left:10px;
+}
+
+.container {
+    margin-left: 10px;
+
+}

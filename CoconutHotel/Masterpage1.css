@@ -1,69 +1,69 @@
-﻿.header {
-    background-image: url('Images/dark.jpg'); /* Adjust the path as necessary */
-    background-repeat: no-repeat;
-    background-size: cover; /* This will make sure that the image covers the entire header */
-    background-position: center center; /* This centers the image in the header */
-    padding: 10px;
-    display: flex;
-    align-items: center; /* Align items vertically */
-}
+﻿    .header {
+        background-image: url('Images/dark.jpg'); /* Adjust the path as necessary */
+        background-repeat: no-repeat;
+        background-size: cover; /* This will make sure that the image covers the entire header */
+        background-position: center center; /* This centers the image in the header */
+        padding: 10px;
+        display: flex;
+        align-items: center; /* Align items vertically */
+    }
 
-.logo-image {
-    width: 50px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 10px; /* Add spacing between logo and text */
-}
+    .logo-image {
+        width: 30px; /* Adjust width as needed */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 10px; /* Add spacing between logo and text */
+    }
 
-.logo-text {
-    font-size: 18px; /* Adjust font size as needed */
-    font-weight: bold;
-}
+    .logo-text {
+        font-size: 10px; /* Adjust font size as needed */
+        font-weight: bold;
+    }
 
-.header-text {
-    /* Additional styling for header text */
-    font-size: 18px; /* Adjust font size as needed */
-    font-weight: bold;
-    margin-left: 10px; /* Add spacing between logo and header text */
-}
+    .header-text {
+        /* Additional styling for header text */
+        font-size: 10px; /* Adjust font size as needed */
+        font-weight: bold;
+        margin-left: 10px; /* Add spacing between logo and header text */
+    }
     
 
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-}
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
 
-h1 {
-    color: white;
-    font-family: 'Courier New, Courier, monospace';
-}
+    h1 {
+        color: white;
+        font-family: 'Courier New, Courier, monospace';
+    }
 
-h4 {
-    color:white;
-    font-family: 'Courier New, Courier, monospace';
+    h4 {
+        color:white;
+        font-family: 'Courier New, Courier, monospace';
 
-}
+    }
 
 
-.footer {
-    background-color: rgb(26, 48, 70);
-    padding: 10px;
-    text-align: center;
-}
+    .footer {
+        background-color: rgb(26, 48, 70);
+        padding: 10px;
+        text-align: center;
+    }
 
-.footer-text {
-    display: inline-block;
-    text-align: left; 
-    max-width: 1000px; 
-}
+    .footer-text {
+        display: inline-block;
+        text-align: left; 
+        max-width: 1000px; 
+    }
 
-p.f1 {
-    color: white;
-    font-family: 'Courier New, Courier, monospace';
-}
+    p.f1 {
+        color: white;
+        font-family: 'Courier New, Courier, monospace';
+    }
 
-p.f2 {
-    color: grey;
-    font-family: 'Courier New, Courier, monospace';
-}
+    p.f2 {
+        color: grey;
+        font-family: 'Courier New, Courier, monospace';
+    }

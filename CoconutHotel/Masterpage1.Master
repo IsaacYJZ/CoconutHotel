@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Masterpage1.master.cs" Inherits="CoconutHotel.Masterpage1" %>
+﻿    <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Masterpage1.master.cs" Inherits="CoconutHotel.Masterpage1" %>
 
 <!DOCTYPE html>
 
@@ -19,22 +19,22 @@
         }
     </style>
 
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+
 </head>
 
 <body>
     <div class="header">
         <!-- header content here -->
-        <div class ="logo">
+        <div class="logo">
             <img src="Images/coconut.png" alt="Coconut Hotel Logo" class="auto-style2" />
         </div>
 
-        <div class="Header">
+        <div class="header-text">
             <h1>Welcome to Coconut Hotel</h1>
         </div>
     </div>
 
-    
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
 
     <div class="footer">
         <!-- footer content here -->
