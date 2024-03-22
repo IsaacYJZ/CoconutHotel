@@ -15,6 +15,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+<form id="form1" runat="server">
+
     <link href="Payment.css" rel="stylesheet" type="text/css" />
 
     <div class=" title">
@@ -50,11 +52,12 @@
 
                 </td>
                 <td class="auto-style3">
-                    <asp:Button ID="Button1" runat="server" Text="Button" Width="76px" />
+                    <asp:Button ID="btnComfirm" runat="server" Text="Comfirm" Width="76px" />
                 </td>
             </tr>
         </table>
 
     </div>
+</form>
 
 </asp:Content>

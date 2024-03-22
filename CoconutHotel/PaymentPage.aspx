@@ -37,15 +37,15 @@
             width: 85px;
         }
 
-        </style>
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+<form id="form1" runat="server">
 
+            <link href="Payment.css" rel="stylesheet" type="text/css" />
 
-        <link href="Payment.css" rel="stylesheet" type="text/css" />
-
-        <div class=" title">
+        <div class="title">
             <h1 class="payment-header">Payment Page</h1>
         </div>
 
@@ -79,6 +79,7 @@
             </table>
         </div>
         <br />
+        &nbsp;&nbsp;&nbsp;
         <br />
 
         <div>
@@ -113,7 +114,6 @@
 
         </div>
 
-
+</form>
 
 </asp:Content>
-
