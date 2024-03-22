@@ -67,17 +67,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="booking.aspx" />
+    <Content Include="bookingImg\background.jpg" />
+    <Content Include="bookingImg\scene1.jpg" />
+    <Content Include="bookingImg\scene2.jpg" />
+    <Content Include="bookingImg\scene3.jpeg" />
+    <Content Include="RoomBooking.aspx" />
+    <Content Include="roomBooking.css" />
+    <Content Include="roomBooking.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="booking.aspx.cs">
-      <DependentUpon>booking.aspx</DependentUpon>
+    <Compile Include="RoomBooking.aspx.cs">
+      <DependentUpon>RoomBooking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="booking.aspx.designer.cs">
-      <DependentUpon>booking.aspx</DependentUpon>
+    <Compile Include="RoomBooking.aspx.designer.cs">
+      <DependentUpon>RoomBooking.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +95,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

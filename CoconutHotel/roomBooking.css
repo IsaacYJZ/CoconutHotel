@@ -1,0 +1,58 @@
+﻿body {
+    background-image: url('bookingImg/background.jpg'); /* Replace 'background.jpg' with the path to your background image */
+    background-size: cover; /* Ensure the background image covers the entire viewport */
+    background-position: center; /* Center the background image */
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 20px;
+}
+
+.form-container {
+    width: 60%; /* Adjust the width of the form container */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+.textbox,
+.dropdown {
+    width: calc(100% - 16px); /* Adjust the width of the text fields */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.slideshow-container {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.mySlides {
+    width: 100%; /* Ensures the image fills its container */
+    height: 700px; /* Set a standard height for the images */
+    display: none;
+    max-width: 100%; /* Ensures the image doesn't exceed its container's width */
+}
