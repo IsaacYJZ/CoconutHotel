@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace CoconutHotel
 {
-    public partial class Admin : System.Web.UI.MasterPage
+    public partial class AdminHomePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
         {
 
         }
