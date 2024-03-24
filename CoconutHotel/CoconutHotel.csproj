@@ -174,8 +174,6 @@
   <ItemGroup>
 	  <Folder Include="App_Data\" />
 	  <Folder Include="Css\" />
-	  <Folder Include="obj\" />
-	  <Folder Include="bin\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
