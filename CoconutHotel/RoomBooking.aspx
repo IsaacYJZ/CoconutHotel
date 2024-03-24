@@ -18,37 +18,48 @@
                     Departure Date:<br />
                 </label>
                 <asp:Calendar ID="departureCal" runat="server" OnSelectionChanged="departureCal_SelectionChanged"></asp:Calendar>
-                &nbsp;<asp:TextBox ID="departureDate" runat="server" CssClass="textbox"></asp:TextBox><br />
+                &nbsp;<asp:TextBox ID="departureDate" runat="server" CssClass="textbox" Width="267px"></asp:TextBox>
+                <br />
+                <br />
+                <br />
 
                 <label for="arrivalDate">
                     Arrival Date:<asp:Calendar ID="arrivalCal" runat="server" OnSelectionChanged="arrivalCal_SelectionChanged"></asp:Calendar>
                 </label>
-                &nbsp;<asp:TextBox ID="arrivalDate" runat="server" CssClass="textbox"></asp:TextBox><br />
+                &nbsp;<asp:TextBox ID="arrivalDate" runat="server" CssClass="textbox" Width="265px"></asp:TextBox>
+                <br />
+                <br />
+                <br />
 
 
 
                 <label for="adults">Adults:</label>
-                <asp:DropDownList ID="adultsDropdown" runat="server" CssClass="dropdown">
+                <asp:DropDownList ID="adultsDropdown" runat="server" CssClass="dropdown" Width="86px">
                     <asp:ListItem Text="1" Value="1"></asp:ListItem>
                     <asp:ListItem Text="2" Value="2"></asp:ListItem>
                     <asp:ListItem Text="3" Value="3"></asp:ListItem>
                     <asp:ListItem Text="4" Value="4"></asp:ListItem>
-                </asp:DropDownList><br />
+                </asp:DropDownList>
+                <br />
+                <br />
 
                 <label for="children">Children:</label>
-                <asp:DropDownList ID="childrenDropdown" runat="server" CssClass="dropdown">
+                <asp:DropDownList ID="childrenDropdown" runat="server" CssClass="dropdown" Width="68px">
                     <asp:ListItem Text="0" Value="0"></asp:ListItem>
                     <asp:ListItem Text="1" Value="1"></asp:ListItem>
                     <asp:ListItem Text="2" Value="2"></asp:ListItem>
                     <asp:ListItem Text="3" Value="3"></asp:ListItem>
-                </asp:DropDownList><br />
+                </asp:DropDownList>
+                <br />
+                <br />
+                <br />
 
-                <asp:Button ID="submitBtn" runat="server" Text="Book Now" CssClass="submit-button" />
+                <asp:Button ID="submitBtn" runat="server" Text="Check Availability" CssClass="submit-button" />
             </div>
             <div class="slideshow-container">
-                <img class="mySlides" src="bookingImg/scene1.jpg" alt="Slide 1" />
-                <img class="mySlides" src="bookingImg/scene2.jpg" alt="Slide 2" />
-                <img class="mySlides" src="bookingImg/scene3.jpeg" alt="Slide 3" />
+                <img class="mySlides" src="bookingImg/banner1.png" alt="Slide 1" />
+                <img class="mySlides" src="bookingImg/banner2.png" alt="Slide 2" />
+                <img class="mySlides" src="bookingImg/banner3.png" alt="Slide 3" />
             </div>
         </div>
     </form>

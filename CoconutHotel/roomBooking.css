@@ -1,18 +1,35 @@
 ﻿body {
-    background-image: url('bookingImg/background.jpg'); /* Replace 'background.jpg' with the path to your background image */
-    background-size: cover; /* Ensure the background image covers the entire viewport */
-    background-position: center; /* Center the background image */
+    background-image: url('bookingImg/backgrounds.png');
+    background-size: 100% 100%; /* Ensure the background image covers the entire body */
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
 }
+
 
 .container {
     display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
+    justify-content: center;
+    align-items: center;
     padding: 20px;
 }
 
 .form-container {
-    width: 60%; /* Adjust the width of the form container */
+    width: 40%;
+    /* Adjusted width for the left side */
+}
+
+.slideshow-container {
+    width: 60%;
+    /* Adjusted width for the right side */
+    position: relative;
+    overflow: hidden;
+}
+
+.mySlides {
+    width: 100%;
+    height: 700px;
+    display: none;
+    max-width: 100%;
 }
 
 .form-group {
@@ -26,33 +43,20 @@
 
 .textbox,
 .dropdown {
-    width: calc(100% - 16px); /* Adjust the width of the text fields */
-    padding: 8px;
+    padding:7px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 16px;
+    margin-left: 0px;
 }
 
 .submit-button {
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-}
-
-.slideshow-container {
-    width: 50%;
-    position: relative;
-    overflow: hidden;
-}
-
-.mySlides {
-    width: 100%; /* Ensures the image fills its container */
-    height: 700px; /* Set a standard height for the images */
-    display: none;
-    max-width: 100%; /* Ensures the image doesn't exceed its container's width */
 }

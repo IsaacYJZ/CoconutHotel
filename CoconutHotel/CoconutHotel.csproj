@@ -67,10 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bookingImg\background.jpg" />
-    <Content Include="bookingImg\scene1.jpg" />
-    <Content Include="bookingImg\scene2.jpg" />
-    <Content Include="bookingImg\scene3.jpeg" />
+    <Content Include="bookingImg\banner3.png" />
+    <Content Include="bookingImg\banner1.png" />
+    <Content Include="bookingImg\banner2.png" />
+    <Content Include="bookingImg\backgrounds.png" />
     <Content Include="RoomBooking.aspx" />
     <Content Include="roomBooking.css" />
     <Content Include="roomBooking.js" />
