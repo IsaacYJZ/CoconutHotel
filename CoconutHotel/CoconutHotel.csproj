@@ -76,6 +76,16 @@
     <Content Include="Payment.css" />
     <Content Include="PaymentPage.aspx" />
     <Content Include="Web.config" />
+<!-- Additional content files from the 'Oscar' branch -->
+	<Content Include="RoomAdmin.aspx" />
+	<Content Include="AdminHomePage.aspx" />
+	<Content Include="BookingAdmin.aspx" />
+	<Content Include="css\Admin.css" />
+	<Content Include="css\AdminHomePage.css" />
+	<Content Include="css\BookingAdmin.css" />
+	<Content Include="css\UserProfileAdmin.css" />
+	<Content Include="js\Admin.js" />
+	<Content Include="UserProfileAdmin.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChangePayment.aspx.cs">
