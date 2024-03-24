@@ -1,0 +1,53 @@
+﻿    <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Masterpage1.master.cs" Inherits="CoconutHotel.Masterpage1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Masterpage1.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style2 {
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            margin-right: auto;
+            width: 57px;
+            height: 55px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="header">
+        <!-- header content here -->
+        <div class="logo">
+            <img src="Images/coconut.png" alt="Coconut Hotel Logo" class="auto-style2" />
+        </div>
+
+        <div class="header-text">
+            <h1>Welcome to Coconut Hotel</h1>
+        </div>
+    </div>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+
+    <div class="footer">
+        <!-- footer content here -->
+        <div class="footer-text">
+            <h1>Coconut Hotel</h1>
+            <p class="f1">Reservation +0611-1130 3353(24 hours)</p>
+            <p class="f1">99, Jalan C M Hashim, Tanjung Tokong, 11200 Tanjung Bungah, Pulau Pinang</p>
+            <p class="f1">--</p>
+
+            <p class="f2">#Coconut Hotel</p>
+            <p class="f2">© 2024 • Coconut Hotel All Rights Reserved • Coconut Hotel Management Sdn. Bhd 823281- K </p>
+        </div>
+    </div>
+
+</body>
+</html>
