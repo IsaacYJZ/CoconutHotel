@@ -11,7 +11,9 @@
     filter: blur(5px); /* Apply a blur effect to the background image */
     z-index: -1; /* Ensure the blur container is behind other content */
 }
-
+.calendarStyle {
+    background-color: #ffffff; /* white background */
+}
 .container {
     display: flex;
     justify-content: space-between;
@@ -20,14 +22,18 @@
 }
 
 .form-container {
-    width: 40%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+    .form-container label {
+        font-size: 20px; /* Adjust the font size to your preference */
+    }
+
 .slideshow-container {
-    width: 60%;
+    width: 65%;
     position: relative;
     overflow: hidden;
 }

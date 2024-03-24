@@ -10,24 +10,29 @@
 
 </head>
 <body>
-        <div class="background-container"></div> <!-- Background blur container -->
+    <div class="background-container"></div>
+    <!-- Background blur container -->
 
     <form id="form1" runat="server">
         <div class="container">
             <div class="form-container">
                 <h2>Hotel Booking</h2>
                 <label for="departureDate">
-                    Departure Date:<br /><asp:Calendar ID="departureCal" runat="server" OnSelectionChanged="departureCal_SelectionChanged"></asp:Calendar>
+                    Departure Date:
+
                 </label>
-                    
+                <asp:Calendar ID="departureCal" CssClass="calendarStyle" runat="server" OnSelectionChanged="departureCal_SelectionChanged"></asp:Calendar>
+
                 &nbsp;<asp:TextBox ID="departureDate" runat="server" CssClass="textbox" Width="267px"></asp:TextBox>
+
                 <br />
                 <br />
                 <br />
 
                 <label for="arrivalDate">
-                    Arrival Date:<asp:Calendar ID="arrivalCal" runat="server" OnSelectionChanged="arrivalCal_SelectionChanged"></asp:Calendar>
+                    Arrival Date:
                 </label>
+                <asp:Calendar ID="arrivalCal" CssClass="calendarStyle" runat="server" OnSelectionChanged="arrivalCal_SelectionChanged"></asp:Calendar>
                 &nbsp;<asp:TextBox ID="arrivalDate" runat="server" CssClass="textbox" Width="265px"></asp:TextBox>
                 <br />
                 <br />
@@ -53,10 +58,10 @@
                     <asp:ListItem Text="3" Value="3"></asp:ListItem>
                 </asp:DropDownList>
                 <br />
-                <br />
-                <br />
 
-                <asp:Button ID="submitBtn" runat="server" Text="Check Availability" CssClass="submit-button" />
+
+
+                <asp:Button ID="submitBtn" runat="server" Text="Check Availability" CssClass="submit-button" OnClick="submitBtn_Click"/>
             </div>
             <div class="slideshow-container">
                 <img class="mySlides" src="bookingImg/banner1.png" alt="Slide 1" />
