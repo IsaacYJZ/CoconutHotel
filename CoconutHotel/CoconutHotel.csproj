@@ -77,6 +77,16 @@
     <Content Include="js\Admin.js" />
     <Content Include="UserProfileAdmin.aspx" />
     <Content Include="Web.config" />
+	<!-- Content files from the 'main' branch -->
+	<Content Include="ChangePayment.aspx" />
+	<Content Include="Images\background.jpg" />
+	<Content Include="Images\coconut.png" />
+	<Content Include="Images\darkbackground.jpg" />
+	<Content Include="Images\dark.jpg" />
+	<Content Include="Masterpage1.css" />
+	<Content Include="Payment.css" />
+	<Content Include="PaymentPage.aspx" />
+	<Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
