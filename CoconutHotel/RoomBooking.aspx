@@ -10,14 +10,16 @@
 
 </head>
 <body>
+        <div class="background-container"></div> <!-- Background blur container -->
+
     <form id="form1" runat="server">
         <div class="container">
             <div class="form-container">
                 <h2>Hotel Booking</h2>
                 <label for="departureDate">
-                    Departure Date:<br />
+                    Departure Date:<br /><asp:Calendar ID="departureCal" runat="server" OnSelectionChanged="departureCal_SelectionChanged"></asp:Calendar>
                 </label>
-                <asp:Calendar ID="departureCal" runat="server" OnSelectionChanged="departureCal_SelectionChanged"></asp:Calendar>
+                    
                 &nbsp;<asp:TextBox ID="departureDate" runat="server" CssClass="textbox" Width="267px"></asp:TextBox>
                 <br />
                 <br />
@@ -34,7 +36,7 @@
 
 
                 <label for="adults">Adults:</label>
-                <asp:DropDownList ID="adultsDropdown" runat="server" CssClass="dropdown" Width="86px">
+                <asp:DropDownList ID="adultsDropdown" runat="server" CssClass="dropdown" Width="68px">
                     <asp:ListItem Text="1" Value="1"></asp:ListItem>
                     <asp:ListItem Text="2" Value="2"></asp:ListItem>
                     <asp:ListItem Text="3" Value="3"></asp:ListItem>
