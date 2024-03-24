@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="css/UserProfileAdmin.css" rel="stylesheet" />
+<link href="Css/UserProfileAdmin.css" rel="stylesheet" />
 
 <h1>UserProfile</h1>
 
@@ -41,16 +41,10 @@
 								<a href="#" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link danger">
+								<a href="#" class="table-link danger" onclick="confirmDelete()">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -77,16 +71,10 @@
 								<a href="#" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link danger">
+								<a href="#" class="table-link danger" onclick="confirmDelete()">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -113,16 +101,10 @@
 								<a href="#" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link danger">
+								<a href="#" class="table-link danger" onclick="confirmDelete()">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -149,16 +131,10 @@
 								<a href="#" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link danger">
+								<a href="#" class="table-link danger" onclick="confirmDelete()">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -185,16 +161,10 @@
 								<a href="#" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link danger">
+								<a href="#" class="table-link danger" onclick="confirmDelete()">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -221,16 +191,10 @@
 								<a href="#" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link danger">
+								<a href="#" class="table-link danger" onclick="confirmDelete()">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -257,16 +221,10 @@
 								<a href="#" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link danger">
+								<a href="#" class="table-link danger" onclick="confirmDelete()">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -293,16 +251,10 @@
 								<a href="#" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link danger">
+								<a href="#" class="table-link danger" onclick="confirmDelete()">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -329,16 +281,10 @@
 								<a href="#" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link danger">
+								<a href="#" class="table-link danger" onclick="confirmDelete()">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -365,16 +311,10 @@
 								<a href="#" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link danger">
+								<a href="#" class="table-link danger" onclick="confirmDelete()">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -384,6 +324,18 @@
 						</tr>
 					</tbody>
 				</table>
+				   <!-- Edit form -->
+                    <div id="editForm" class="edit-form">
+                        <h2>Edit User Profile</h2>
+                        <form id="editProfileForm">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" value="Mila Kunis">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" value="mila@kunis.com">
+                            <button type="submit">Save Changes</button>
+                        </form>
+                    </div>
+                    <!-- End of edit form -->
 			</div>
 			<ul class="pagination pull-right">
 				<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
@@ -398,6 +350,42 @@
 	</div>
 </div>
 </div>
+	<script>
+        // Function to show edit form
+        function showEditForm() {
+            document.getElementById('editForm').style.display = 'block';
+        }
+
+        // Function to hide edit form
+        function hideEditForm() {
+            document.getElementById('editForm').style.display = 'none';
+        }
+
+        // Attach event listener to the edit button
+        document.querySelectorAll('.fa.fa-pencil').forEach(function (editIcon) {
+            editIcon.addEventListener('click', function (event) {
+                // Prevent the default link behavior
+                event.preventDefault();
+                // Show the edit form
+                showEditForm();
+            });
+        });
+
+        // Attach event listener to the form submit button
+        document.getElementById('editProfileForm').addEventListener('submit', function (event) {
+            // Prevent the form from submitting
+            event.preventDefault();
+            // Perform form submission handling (e.g., save changes)
+            // For demonstration purposes, let's just hide the edit form
+            hideEditForm();
+        });
+
+        function confirmDelete() {
+            if (confirm("Are you sure you want to delete this user?")) {
+                window.location.href = "#"; // Replace with your delete page URL
+            }
+        }
+    </script>
 </asp:Content>
 
 

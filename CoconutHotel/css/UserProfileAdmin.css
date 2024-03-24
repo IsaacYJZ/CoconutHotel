@@ -1,9 +1,4 @@
-﻿body {
-    margin-top: 20px;
-}
-
-
-/* USER LIST TABLE */
+﻿/* USER LIST TABLE */
 .user-list tbody td > img {
     position: relative;
     max-width: 50px;
@@ -208,3 +203,45 @@
 .table-stats .table-line-plus .status-social-icon {
     color: #a75d54;
 }
+/* Edit form styles */
+.edit-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .edit-form h2 {
+        margin-top: 0;
+    }
+
+    .edit-form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .edit-form input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .edit-form button {
+        background: #337ab7;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+        .edit-form button:hover {
+            background: #286090;
+        }

@@ -2,9 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="css/UserProfileAdmin.css" rel="stylesheet" />
-<link href="css/AdminHomePage.css" rel="stylesheet" />
+<link href="Css/UserProfileAdmin.css" rel="stylesheet" />
+<link href="Css/AdminHomePage.css" rel="stylesheet" />
 
 <div class="container">
 	<h2>Dashboard</h2>
