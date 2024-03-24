@@ -15,8 +15,10 @@
 
 .form-container {
     width: 40%;
-    /* Adjusted width for the left side */
+    justify-content: center;
+    align-items: center;
 }
+
 
 .slideshow-container {
     width: 60%;
