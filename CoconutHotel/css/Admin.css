@@ -1,0 +1,92 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
+body {
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+/* Toggle Styles */
+
+#viewport {
+    padding-left: 250px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#content {
+    width: 97%;
+    position: relative;
+    margin-right: 0;
+    top: 4px;
+    left: 3px;
+}
+
+/* Sidebar Styles */
+
+#sidebar {
+    z-index: 1000;
+    position: fixed;
+    left: 0px;
+    width: 240px;
+    height: 100%;
+    overflow-y: auto;
+    background: #37474F;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+    #sidebar header {
+        background-color: #263238;
+        font-size: 24px;
+        line-height: 52px;
+        text-align: center;
+    }
+
+        #sidebar header a {
+            color: #fff;
+            display: block;
+            text-decoration: none;
+        }
+
+            #sidebar header a:hover {
+                color: #fff;
+            }
+
+    #sidebar .nav {
+        padding-left: 0;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+        #sidebar .nav li {
+            width: 100%; /* Set width to 100% */
+        }
+
+        #sidebar .nav a {
+            background: none;
+            border-bottom: 1px solid #455A64;
+            color: #CFD8DC;
+            font-size: 16px;
+            padding: 12px 24px;
+            display: block;
+            transition: background-color 0.3s ease;
+            width: 100%; /* Set width to 100% */
+        }
+
+            #sidebar .nav a:hover {
+                background: #263238;
+                color: #ECEFF1;
+                padding: 12px 24px;
+                width: 100%; /* Set width to 100% */
+            }
+
+            #sidebar .nav a i {
+                margin-right: 12px;
+            }
+            
+
