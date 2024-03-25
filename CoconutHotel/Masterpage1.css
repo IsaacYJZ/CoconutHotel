@@ -3,7 +3,7 @@
         background-repeat: no-repeat;
         background-size: cover; /* This will make sure that the image covers the entire header */
         background-position: center center; /* This centers the image in the header */
-        padding: 10px;
+        padding: 1px;
         display: flex;
         align-items: center; /* Align items vertically */
     }
