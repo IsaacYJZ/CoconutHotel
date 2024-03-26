@@ -14,7 +14,7 @@
 .calendarStyle {
     background-color: #ffffff; /* white background */
 }
-.container {
+.book-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,7 +63,7 @@
     font-size: 16px;
 }
 
-.submit-button {
+.available-button {
     background-color: #4caf50;
     color: white;
     padding: 10px 20px;

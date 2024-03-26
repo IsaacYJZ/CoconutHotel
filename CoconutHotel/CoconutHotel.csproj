@@ -71,13 +71,44 @@
     <Content Include="bookingImg\banner1.png" />
     <Content Include="bookingImg\banner2.png" />
     <Content Include="bookingImg\backgrounds.png" />
+    <Content Include="roomCss\bootstrap.min.css" />
+    <Content Include="roomCss\flaticon.css" />
+    <Content Include="roomCss\font-awesome.min.css" />
+    <Content Include="roomCss\jquery-ui.min.css" />
+    <Content Include="roomCss\linearicons.css" />
+    <Content Include="roomCss\magnific-popup.css" />
+    <Content Include="roomCss\nice-select.css" />
+    <Content Include="roomCss\owl.carousel.min.css" />
+    <Content Include="roomCss\slicknav.min.css" />
+    <Content Include="roomCss\style.css" />
+    <Content Include="Room.aspx" />
     <Content Include="RoomBooking.aspx" />
     <Content Include="roomBooking.css" />
     <Content Include="roomBooking.js" />
+    <Content Include="roomFonts\Flaticon.svg" />
+    <Content Include="roomFonts\fontawesome-webfont.svg" />
+    <Content Include="roomFonts\Linearicons-Free.svg" />
+    <Content Include="roomImg\rooms-1.jpg" />
+    <Content Include="roomImg\rooms-2.jpg" />
+    <Content Include="roomJs\bootstrap.min.js" />
+    <Content Include="roomJs\jquery-3.3.1.min.js" />
+    <Content Include="roomJs\jquery-ui.min.js" />
+    <Content Include="roomJs\jquery.magnific-popup.min.js" />
+    <Content Include="roomJs\jquery.nice-select.min.js" />
+    <Content Include="roomJs\jquery.slicknav.js" />
+    <Content Include="roomJs\main.js" />
+    <Content Include="roomJs\owl.carousel.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room.aspx.cs">
+      <DependentUpon>Room.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Room.aspx.designer.cs">
+      <DependentUpon>Room.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RoomBooking.aspx.cs">
       <DependentUpon>RoomBooking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -87,7 +118,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="roomCss\style.css.map" />
     <None Include="packages.config" />
+    <Content Include="roomFonts\Flaticon.eot" />
+    <Content Include="roomFonts\Flaticon.ttf" />
+    <Content Include="roomFonts\Flaticon.woff" />
+    <Content Include="roomFonts\Linearicons-Free.eot" />
+    <Content Include="roomFonts\Linearicons-Free.ttf" />
+    <Content Include="roomFonts\Linearicons-Free.woff" />
+    <Content Include="roomFonts\Linearicons-Free.woff2" />
+    <Content Include="roomFonts\fontawesome-webfont.eot" />
+    <Content Include="roomFonts\fontawesome-webfont.ttf" />
+    <Content Include="roomFonts\fontawesome-webfont.woff" />
+    <Content Include="roomFonts\fontawesome-webfont.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
