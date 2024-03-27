@@ -1,90 +1,281 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoomBooking.aspx.cs" Inherits="CoconutHotel.RoomBooking" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage1.Master" AutoEventWireup="true" CodeBehind="RoomBooking.aspx.cs" Inherits="CoconutHotel.RoomBooking" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<!DOCTYPE html>
+     <link rel="stylesheet" href="roomCss/style.css" />
+    <link rel="stylesheet" href="roomCss/bootstrap.min.css" />
+    <link rel="stylesheet" href="roomCss/font-awesome.min.css" />
+    <link href="roomCss/jquery-ui.min.css" rel="stylesheet" />
+    <link href="roomCss/linearicons.css" rel="stylesheet" />
+    <link href="roomCss/magnific-popup.css" rel="stylesheet" />
+    <link href="roomCss/nice-select.css" rel="stylesheet" />
+    <link href="roomCss/owl.carousel.min.css" rel="stylesheet" />
+    <link href="roomCss/slicknav.min.css" rel="stylesheet" />
+    <link href="roomCss/slicknav.min.css" rel="stylesheet" />
+    <link href="roomCss/style.css.map" rel="stylesheet" />
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Hotel Booking</title>
-    <link rel="stylesheet" href="roomBooking.css" />
-    <script src="roomBooking.js"></script>
+    <link href="roomCss/flaticon.css" rel="stylesheet" />
+    <link href="roomFonts/Flaticon.eot" rel="stylesheet" />
+    <link href="roomFonts/Flaticon.svg" rel="stylesheet" />
+    <link href="roomFonts/Flaticon.ttf" rel="stylesheet" />
+    <link href="roomFonts/Flaticon.woff" rel="stylesheet" />
 
-</head>
-<body>
-    <div class="background-container"></div>
-    <!-- Background blur container -->
+    <link href="roomFonts/Linearicons-Free.eot" rel="stylesheet" />
+    <link href="roomFonts/Linearicons-Free.svg" rel="stylesheet" />
+    <link href="roomFonts/Linearicons-Free.ttf" rel="stylesheet" />
+    <link href="roomFonts/Linearicons-Free.woff" rel="stylesheet" />
+    <link href="roomFonts/Linearicons-Free.woff2" rel="stylesheet" />
+
+    <link href="roomFonts/fontawesome-webfont.eot" rel="stylesheet" />
+    <link href="roomFonts/fontawesome-webfont.svg" rel="stylesheet" />
+    <link href="roomFonts/fontawesome-webfont.ttf" rel="stylesheet" />
+    <link href="roomFonts/fontawesome-webfont.woff" rel="stylesheet" />
+    <link href="roomFonts/fontawesome-webfont.woff2" rel="stylesheet" />
 
     <form id="form1" runat="server">
-        <div class="book-container">
-            <div class="form-container">
-                <h2>Hotel Booking</h2>
-                <label for="checkInDate">
-                    Check-In Date:
+        <div class="user-selection">
+            <p>Check-In Date: <span id="CheckInDate" runat="server"></span></p>
+            <p>Check-Out Date: <span id="CheckOutDate" runat="server"></span></p>
+            <p>Adults: <span id="Adults" runat="server"></span></p>
+            <p>Children: <span id="Children" runat="server"></span></p>
+        </div>
+        <div>
+            <!-- Rooms Section Begin -->
+            <section class="room-section spad">
+                <div class="container">
+                    <div class="rooms-page-item">
 
-                </label>
-                <asp:Calendar ID="checkInCal" CssClass="calendarStyle" runat="server" OnSelectionChanged="checkInCal_SelectionChanged"></asp:Calendar>
-
-                &nbsp;<asp:TextBox ID="checkInDate" runat="server" CssClass="textbox" Width="267px"></asp:TextBox>
-
-                <br />
-                <br />
-                <br />
-
-                <label for="checkOutDate">
-                    Check-Out Date:
-                </label>
-                <asp:Calendar ID="checkOutCal" CssClass="calendarStyle" runat="server" OnSelectionChanged="checkOutCal_SelectionChanged"></asp:Calendar>
-                &nbsp;<asp:TextBox ID="checkOutDate" runat="server" CssClass="textbox" Width="265px"></asp:TextBox>
-                <br />
-                <br />
-                <br />
-
-
-
-                <label for="adults">Adults:</label>
-                <asp:DropDownList ID="adultsDropdown" runat="server" CssClass="dropdown" Width="68px">
-                    <asp:ListItem Text="1" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
-                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
-                    <asp:ListItem Text="4" Value="4"></asp:ListItem>
-                </asp:DropDownList>
-                <br />
-                <br />
-
-                <label for="children">Children:</label>
-                <asp:DropDownList ID="childrenDropdown" runat="server" CssClass="dropdown" Width="68px">
-                    <asp:ListItem Text="0" Value="0"></asp:ListItem>
-                    <asp:ListItem Text="1" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
-                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
-                </asp:DropDownList>
-                <br />
-
-
-
-                <asp:Button ID="submitBtn" runat="server" Text="Check Availability" CssClass="available-button" OnClick="submitBtn_Click"/>
-            </div>
-            <div class="slideshow-container">
-                <img class="mySlides" src="bookingImg/banner1.png" alt="Slide 1" />
-                <img class="mySlides" src="bookingImg/banner2.png" alt="Slide 2" />
-                <img class="mySlides" src="bookingImg/banner3.png" alt="Slide 3" />
-            </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="room-pic-slider owl-carousel">
+                                    <div class="single-room-pic">
+                                        <img src="roomImg/rooms-1.jpg" alt="" />
+                                    </div>
+                                    <div class="single-room-pic">
+                                        <img src="roomImg/rooms-2.jpg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="room-text">
+                                    <div class="room-title">
+                                        <h2>Standard Room</h2>
+                                        <div class="room-price">
+                                            <span>From</span>
+                                            <h2>$99</h2>
+                                            <sub>/night</sub>
+                                        </div>
+                                    </div>
+                                    <div class="room-desc">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris, bibendum
+                                    eget sapien ac, ultrices rhoncus ipsum.
+                                        </p>
+                                    </div>
+                                    <div class="room-features">
+                                        <div class="room-info">
+                                            <i class="flaticon-019-television"></i>
+                                            <span>Smart TV</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-029-wifi"></i>
+                                            <span>High Wi-fii</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-003-air-conditioner"></i>
+                                            <span>AC</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-036-parking"></i>
+                                            <span>Parking</span>
+                                        </div>
+                                        <div class="room-info last">
+                                            <i class="flaticon-007-swimming-pool"></i>
+                                            <span>Pool</span>
+                                        </div>
+                                    </div>
+                                    <asp:Button ID="bookBtn" runat="server" Text="Book Now" CssClass="primary-btn" OnClick="bookBtn_Click" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rooms-page-item">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="room-pic-slider owl-carousel">
+                                    <div class="single-room-pic">
+                                        <img src="img/room/rooms-3.jpg" alt="">
+                                    </div>
+                                    <div class="single-room-pic">
+                                        <img src="img/room/rooms-2.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="room-text">
+                                    <div class="room-title">
+                                        <h2>Double Room</h2>
+                                        <div class="room-price">
+                                            <span>From</span>
+                                            <h2>$179</h2>
+                                            <sub>/night</sub>
+                                        </div>
+                                    </div>
+                                    <div class="room-desc">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris, bibendum
+                                    eget sapien ac, ultrices rhoncus ipsum.
+                                        </p>
+                                    </div>
+                                    <div class="room-features">
+                                        <div class="room-info">
+                                            <i class="flaticon-019-television"></i>
+                                            <span>Smart TV</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-029-wifi"></i>
+                                            <span>High Wi-fii</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-003-air-conditioner"></i>
+                                            <span>AC</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-036-parking"></i>
+                                            <span>Parking</span>
+                                        </div>
+                                        <div class="room-info last">
+                                            <i class="flaticon-007-swimming-pool"></i>
+                                            <span>Pool</span>
+                                        </div>
+                                    </div>
+                                    <asp:Button ID="bookBtn1" runat="server" Text="Book Now" CssClass="primary-btn" OnClick="bookBtn_Click" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rooms-page-item">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="room-pic-slider owl-carousel">
+                                    <div class="single-room-pic">
+                                        <img src="img/room/rooms-4.jpg" alt="">
+                                    </div>
+                                    <div class="single-room-pic">
+                                        <img src="img/room/rooms-2.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="room-text">
+                                    <div class="room-title">
+                                        <h2>Junior Suite</h2>
+                                        <div class="room-price">
+                                            <span>From</span>
+                                            <h2>$252</h2>
+                                            <sub>/night</sub>
+                                        </div>
+                                    </div>
+                                    <div class="room-desc">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris, bibendum
+                                    eget sapien ac, ultrices rhoncus ipsum.
+                                        </p>
+                                    </div>
+                                    <div class="room-features">
+                                        <div class="room-info">
+                                            <i class="flaticon-019-television"></i>
+                                            <span>Smart TV</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-029-wifi"></i>
+                                            <span>High Wi-fii</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-003-air-conditioner"></i>
+                                            <span>AC</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-036-parking"></i>
+                                            <span>Parking</span>
+                                        </div>
+                                        <div class="room-info last">
+                                            <i class="flaticon-007-swimming-pool"></i>
+                                            <span>Pool</span>
+                                        </div>
+                                    </div>
+                                    <asp:Button ID="bookBtn2" runat="server" Text="Book Now" CssClass="primary-btn" OnClick="bookBtn_Click" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rooms-page-item">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="room-pic-slider owl-carousel">
+                                    <div class="single-room-pic">
+                                        <img src="img/room/rooms-5.jpg" alt="">
+                                    </div>
+                                    <div class="single-room-pic">
+                                        <img src="img/room/rooms-2.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="room-text">
+                                    <div class="room-title">
+                                        <h2>Standard Room</h2>
+                                        <div class="room-price">
+                                            <span>From</span>
+                                            <h2>$99</h2>
+                                            <sub>/night</sub>
+                                        </div>
+                                    </div>
+                                    <div class="room-desc">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris, bibendum
+                                    eget sapien ac, ultrices rhoncus ipsum.
+                                        </p>
+                                    </div>
+                                    <div class="room-features">
+                                        <div class="room-info">
+                                            <i class="flaticon-019-television"></i>
+                                            <span>Smart TV</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-029-wifi"></i>
+                                            <span>High Wi-fii</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-003-air-conditioner"></i>
+                                            <span>AC</span>
+                                        </div>
+                                        <div class="room-info">
+                                            <i class="flaticon-036-parking"></i>
+                                            <span>Parking</span>
+                                        </div>
+                                        <div class="room-info last">
+                                            <i class="flaticon-007-swimming-pool"></i>
+                                            <span>Pool</span>
+                                        </div>
+                                    </div>
+                                    <asp:Button ID="bookBtn3" runat="server" Text="Book Now" CssClass="primary-btn" OnClick="bookBtn_Click" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Rooms Section End -->
         </div>
     </form>
-    <script>
-        var slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
-        }
-    </script>
-</body>
-</html>
+    <script src="roomJs/jquery-3.3.1.min.js"></script>
+    <script src="roomJs/bootstrap.min.js"></script>
+    <script src="roomJs/jquery-ui.min.js"></script>
+    <script src="roomJs/jquery.nice-select.min.js"></script>
+    <script src="roomJs/jquery.magnific-popup.min.js"></script>
+    <script src="roomJs/jquery.slicknav.js"></script>
+    <script src="roomJs/owl.carousel.min.js"></script>
+    <script src="roomJs/main.js"></script>
+</asp:Content>

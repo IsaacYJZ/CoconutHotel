@@ -294,227 +294,10 @@ ol {
 	margin-bottom: 0;
 }
 
-/*---------------------
-  Header
------------------------*/
 
-.header-section {
-	background: #353535;
-	padding: 38px 0;
-	position: absolute;
-	left: 0;
-	width: 100%;
-}
 
-.header-section.other-page {
-	border-bottom: 1px solid #ae9548;
-}
 
-.header-section.other-page .inner-header .main-menu {
-	margin-right: 0;
-}
 
-.header-section.other-page .inner-header .main-menu ul li {
-	margin-right: 38px;
-}
-
-.header-section.other-page .inner-header .top-widget {
-	float: right;
-}
-
-.header-section.other-page .inner-header .top-widget .top-info {
-	float: left;
-}
-
-.header-section.other-page .inner-header .top-widget .top-info.address {
-	margin-right: 40px;
-}
-
-.header-section.other-page .inner-header .top-widget .top-info.phone-num {
-	float: right;
-	position: relative;
-}
-
-.header-section.other-page .inner-header .top-widget .top-info.phone-num img {
-	position: absolute;
-	left: 0;
-	top: -3px;
-}
-
-.header-section.other-page .inner-header .top-widget .top-info.phone-num span {
-	font-size: 14px;
-	font-family: "Open Sans", sans-serif;
-	font-weight: 400;
-	color: #ffffff;
-	letter-spacing: 0.5px;
-	line-height: 18px;
-	display: inline-block;
-	margin-left: 45px;
-}
-
-.inner-header .logo {
-	float: left;
-	padding-left: 35px;
-	margin-right: 30px;
-}
-
-.inner-header .logo a {
-	display: block;
-}
-
-.inner-header .main-menu {
-	float: left;
-	margin-right: 25px;
-}
-
-.inner-header .main-menu ul li {
-	list-style: none;
-	display: inline-block;
-	margin-right: 40px;
-	position: relative;
-}
-
-.inner-header .main-menu ul li:hover a {
-	color: #ae9548;
-}
-
-.inner-header .main-menu ul li .drop-menu {
-	position: absolute;
-	left: 0;
-	top: 70px;
-	background: #ffffff;
-	width: 220px;
-	opacity: 0;
-	visibility: hidden;
-	z-index: -1;
-	-webkit-transition: 0.3s;
-	transition: 0.3s;
-}
-
-.inner-header .main-menu ul li .drop-menu li {
-	display: block;
-	margin-right: 0;
-}
-
-.inner-header .main-menu ul li .drop-menu li:hover a {
-	color: #ae9548;
-}
-
-.inner-header .main-menu ul li .drop-menu li a {
-	color: #242424;
-	display: block;
-	padding: 7px 20px;
-	font-size: 20px;
-	font-weight: 400;
-	letter-spacing: 0.5px;
-}
-
-.inner-header .main-menu ul li a {
-	font-size: 20px;
-	font-weight: 400;
-	color: #ffffff;
-	letter-spacing: 0.5px;
-}
-
-.inner-header .main-menu ul li:hover>.drop-menu {
-	top: 30px;
-	opacity: 1;
-	visibility: visible;
-	z-index: 999;
-}
-
-.inner-header .top-info {
-	float: right;
-	position: relative;
-}
-
-.inner-header .top-info img {
-	position: absolute;
-	left: 0;
-	top: 2px;
-}
-
-.inner-header .top-info span {
-	font-size: 14px;
-	font-family: "Open Sans", sans-serif;
-	font-weight: 400;
-	color: #ffffff;
-	line-height: 18px;
-	display: inline-block;
-	margin-left: 45px;
-	max-width: 160px;
-}
-
-.slicknav_menu {
-	display: none;
-}
-
-/*---------------------
-  Hero Slider
------------------------*/
-
-.slider-item .single-slider-item {
-	height: 938px;
-	padding-top: 395px;
-}
-
-.slider-item .single-slider-item h1 {
-	font-size: 96px;
-	color: #ffffff;
-	line-height: 96px;
-}
-
-.slider-nav {
-	position: absolute;
-	right: 0;
-	top: 0;
-}
-
-.slider-nav .single-slider-nav {
-	display: inline-block;
-	margin-right: 26px;
-}
-
-.slider-nav .single-slider-nav.last {
-	margin-right: 0;
-}
-
-.slider-nav .single-slider-nav:hover .nav-text {
-	background: #ffffff;
-	border: 1px solid #ae9548;
-	border-top: 0;
-}
-
-.slider-nav .single-slider-nav:hover .nav-text p {
-	color: #081624;
-}
-
-.slider-nav .single-slider-nav .nav-text {
-	background: #353535;
-	padding: 8px 15px;
-	position: relative;
-	-webkit-transition: all 0.3s;
-	transition: all 0.3s;
-	border: 1px solid #353535;
-	border-top: 0;
-}
-
-.slider-nav .single-slider-nav .nav-text p {
-	color: #ffffff;
-	font-size: 16px;
-	font-family: "Open Sans", sans-serif;
-	font-weight: 700;
-	text-transform: uppercase;
-	margin-bottom: 0;
-}
-
-.slider-nav .single-slider-nav .nav-text p i {
-	position: absolute;
-	right: 15px;
-	top: 11px;
-	font-size: 20px;
-	color: #ae9548;
-}
 
 /*---------------------
   Room Availability
@@ -1053,154 +836,9 @@ ol {
 	font-weight: 400;
 }
 
-/*---------------------
-  Footer Room Pic
------------------------*/
-
-.footer-room-pic img {
-	width: 25%;
-}
-
-/*---------------------
-  Footer
------------------------*/
-
-.pb-50 {
-	padding-bottom: 50px;
-}
-
-.footer-section {
-	background: #353535;
-	padding-top: 43px;
-	overflow: hidden;
-}
-
-.footer-section .footer-logo {
-	margin-bottom: 50px;
-}
-
-.footer-section .footer-logo a {
-	display: block;
-}
-
-.footer-section .single-footer-widget {
-	margin-bottom: 25px;
-}
-
-.footer-section .single-footer-widget h5 {
-	font-size: 18px;
-	line-height: 42px;
-	color: #ae9548;
-}
-
-.footer-section .single-footer-widget .widget-text {
-	position: relative;
-}
-
-.footer-section .single-footer-widget .widget-text i {
-	position: absolute;
-	left: 0;
-	top: 5px;
-	font-size: 18px;
-	color: #ae9548;
-}
-
-.footer-section .single-footer-widget .widget-text p {
-	font-size: 14px;
-	line-height: 24px;
-	letter-spacing: 0.5px;
-	color: #ffffff;
-	margin-left: 30px;
-}
-
-.footer-section .copyright-area {
-	overflow: hidden;
-	padding: 30px 0;
-	border-top: 1px solid #ae9548;
-}
-
-.footer-section .copyright-area .copyright-text {
-	float: left;
-	font-size: 13px;
-	font-family: "Open Sans", sans-serif;
-	font-weight: 400;
-	color: #ffffff;
-	line-height: 24px;
-}
-
-.footer-section .copyright-area .copyright-text i {
-	color: #ff2410;
-}
-
-.footer-section .copyright-area .copyright-text a {
-	color: #ffffff;
-	text-decoration: underline;
-}
-
-.footer-section .copyright-area .privacy-links {
-	float: right;
-	margin-right: 35px;
-}
-
-.footer-section .copyright-area .privacy-links a {
-	display: inline-block;
-	font-size: 12px;
-	line-height: 14px;
-	color: #ffffff;
-	margin-right: 30px;
-}
 
 /*--------------------------- Other Pages Styles --------------------------*/
 
-/*---------------------
-  Hero Section
------------------------*/
-
-.hero-section {
-	height: 428px;
-	padding-top: 207px;
-}
-
-.hero-text {
-	position: relative;
-	padding-left: 270px;
-}
-
-.hero-text h1 {
-	font-size: 96px;
-	color: #ffffff;
-	line-height: 96px;
-}
-
-.hero-text .page-nav a {
-	display: inline-block;
-	color: #ffffff;
-	font-size: 24px;
-	font-weight: 500;
-	font-family: "Taviraj", serif;
-	position: absolute;
-	left: 49px;
-	top: 30%;
-}
-
-.hero-text .page-nav a i {
-	color: #ae9548;
-	position: relative;
-	top: 2px;
-}
-
-.hero-text .page-nav a.left-nav i {
-	margin-right: 20px;
-}
-
-.hero-text .page-nav a.right-nav {
-	left: auto;
-	right: 49px;
-}
-
-.hero-text .page-nav a.right-nav i {
-	margin-left: 20px;
-}
 
 /*---------------------
   About Room
@@ -2042,17 +1680,6 @@ ol {
 	top: 5px;
 }
 
-/*---------------------
-  Map
------------------------*/
-
-.map {
-	height: 560px;
-}
-
-.map iframe {
-	width: 100%;
-}
 
 /*----------------------- Responsive Media Styles -------------------------*/
 
@@ -2152,20 +1779,7 @@ ol {
 	.slider-item .single-slider-item {
 		padding-top: 300px;
 	}
-	.hero-text {
-		padding-left: 0;
-	}
-	.hero-text .page-nav a,
-	.hero-text .page-nav a.right-nav {
-		position: relative;
-		top: 0;
-		left: 0;
-		right: 0;
-		margin-right: 30px;
-	}
-	.hero-text .page-nav a.right-nav {
-		margin-right: 0;
-	}
+
 	.slider-nav {
 		position: relative;
 		display: block;
@@ -2332,19 +1946,8 @@ ol {
 	.follow-instagram h2 {
 		line-height: 45px;
 	}
-	.footer-section .copyright-area {
-		text-align: center;
-	}
-	.footer-section .copyright-area .copyright-text {
-		float: none;
-	}
-	.footer-section .copyright-area .privacy-links {
-		float: none;
-		margin-right: 0;
-	}
-	.footer-section .copyright-area .privacy-links a:last-child {
-		margin-right: 0;
-	}
+	
+	
 	.video-tour .video-text h2 {
 		text-align: center;
 	}
@@ -2372,21 +1975,7 @@ ol {
 	.rooms-page-item .room-pic-slider .single-room-pic img {
 		height: auto;
 	}
-	.hero-text {
-		padding-left: 0;
-	}
-	.hero-text .page-nav a,
-	.hero-text .page-nav a.right-nav {
-		position: relative;
-		top: 0;
-		left: 0;
-		right: 0;
-		margin-right: 30px;
-		font-size: 20px;
-	}
-	.hero-text .page-nav a.right-nav {
-		margin-right: 0;
-	}
+	
 	.single-services-item .services-text h2 {
 		font-size: 35px;
 	}
@@ -2404,9 +1993,7 @@ ol {
 	.slider-nav .single-slider-nav {
 		margin-bottom: 30px;
 	}
-	.inner-header .logo {
-		margin-right: 0;
-	}
+	
 	.section-title h1 {
 		font-size: 57px;
 	}
@@ -2455,12 +2042,8 @@ ol {
 	.blog-post .single-blog-post .blog-text .blog-widget .blog-info {
 		margin-right: 13px;
 	}
-	.header-section.other-page .inner-header .logo {
-		margin-right: 0;
-	}
-	.hero-text h1 {
-		font-size: 75px;
-	}
+	
+	
 	.contact-form {
 		padding-left: 30px;
 		padding-top: 45px;

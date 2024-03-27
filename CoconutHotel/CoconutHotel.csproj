@@ -1,284 +1,265 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-	<PropertyGroup>
-		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-		<ProductVersion>
-		</ProductVersion>
-		<SchemaVersion>2.0</SchemaVersion>
-		<ProjectGuid>{42B18CEB-5B7B-4FB5-8CE0-E6D1B763914A}</ProjectGuid>
-		<ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
-		<OutputType>Library</OutputType>
-		<AppDesignerFolder>Properties</AppDesignerFolder>
-		<RootNamespace>CoconutHotel</RootNamespace>
-		<AssemblyName>CoconutHotel</AssemblyName>
-		<TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-		<UseIISExpress>true</UseIISExpress>
-		<Use64BitIISExpress />
-		<IISExpressSSLPort />
-		<IISExpressAnonymousAuthentication />
-		<IISExpressWindowsAuthentication />
-		<IISExpressUseClassicPipelineMode />
-		<UseGlobalApplicationHostFile />
-		<NuGetPackageImportStamp>
-		</NuGetPackageImportStamp>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>full</DebugType>
-		<Optimize>false</Optimize>
-		<OutputPath>bin\</OutputPath>
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>pdbonly</DebugType>
-		<Optimize>true</Optimize>
-		<OutputPath>bin\</OutputPath>
-		<DefineConstants>TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<ItemGroup>
-		<Reference Include="Microsoft.CSharp" />
-		<Reference Include="System.Web.DynamicData" />
-		<Reference Include="System.Web.Entity" />
-		<Reference Include="System.Web.ApplicationServices" />
-		<Reference Include="System.ComponentModel.DataAnnotations" />
-		<Reference Include="System" />
-		<Reference Include="System.Data" />
-		<Reference Include="System.Core" />
-		<Reference Include="System.Data.DataSetExtensions" />
-		<Reference Include="System.Web.Extensions" />
-		<Reference Include="System.Xml.Linq" />
-		<Reference Include="System.Drawing" />
-		<Reference Include="System.Web" />
-		<Reference Include="System.Xml" />
-		<Reference Include="System.Configuration" />
-		<Reference Include="System.Web.Services" />
-		<Reference Include="System.EnterpriseServices" />
-	</ItemGroup>
-	<ItemGroup>
-		<Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-			<HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-		</Reference>
-	</ItemGroup>
-	<ItemGroup>
-		<Content Include="RoomBooking.aspx" />
-		<Content Include="Room.aspx" />
-
-		<Content Include="roomBooking.css" />
-		<Content Include="roomBooking.js" />
-
-		<Content Include="Admin.sitemap" />
-		<Content Include="Admin.Master" />
-		<Content Include="RoomAdmin.aspx" />
-		<Content Include="AdminHomePage.aspx" />
-		<Content Include="BookingAdmin.aspx" />
-		<Content Include="css\Admin.css" />
-		<Content Include="css\AdminHomePage.css" />
-		<Content Include="css\BookingAdmin.css" />
-		<Content Include="css\UserProfileAdmin.css" />
-		<Content Include="js\Admin.js" />
-
-		<Content Include="bookingImg\backgrounds.png" />
-		<Content Include="bookingImg\banner1.png" />
-		<Content Include="bookingImg\banner2.png" />
-		<Content Include="bookingImg\banner3.png" />
-
-		<Content Include="roomCss\bootstrap.min.css" />
-		<Content Include="roomCss\flaticon.css" />
-		<Content Include="roomCss\font-awesome.min.css" />
-		<Content Include="roomCss\jquery-ui.min.css" />
-		<Content Include="roomCss\linearicons.css" />
-		<Content Include="roomCss\magnific-popup.css" />
-		<Content Include="roomCss\nice-select.css" />
-		<Content Include="roomCss\owl.carousel.min.css" />
-		<Content Include="roomCss\slicknav.min.css" />
-		<Content Include="roomCss\style.css" />
-		<Content Include="roomCss\style.css.map" />
-
-
-
-		<Content Include="roomFonts\Flaticon.eot" />
-		<Content Include="roomFonts\Flaticon.svg" />
-		<Content Include="roomFonts\Flaticon.ttf" />
-		<Content Include="roomFonts\Flaticon.woff" />
-
-		<Content Include="roomFonts\fontawesome-webfont.eot" />
-		<Content Include="roomFonts\fontawesome-webfont.svg" />
-		<Content Include="roomFonts\fontawesome-webfont.ttf" />
-		<Content Include="roomFonts\fontawesome-webfont.woff" />
-		<Content Include="roomFonts\fontawesome-webfont.woff2" />
-
-		<Content Include="roomFonts\Linearicons-Free.eot" />
-		<Content Include="roomFonts\Linearicons-Free.svg" />
-		<Content Include="roomFonts\Linearicons-Free.ttf" />
-		<Content Include="roomFonts\Linearicons-Free.woff" />
-		<Content Include="roomFonts\Linearicons-Free.woff2" />
-
-		<Content Include="roomImg\rooms-1.jpg" />
-		<Content Include="roomImg\rooms-2.jpg" />
-
-		<Content Include="roomJs\bootstrap.min.js" />
-		<Content Include="roomJs\jquery-3.3.1.min.js" />
-		<Content Include="roomJs\jquery-ui.min.js" />
-		<Content Include="roomJs\jquery.magnific-popup.min.js" />
-		<Content Include="roomJs\jquery.nice-select.min.js" />
-		<Content Include="roomJs\jquery.slicknav.js" />
-		<Content Include="roomJs\main.js" />
-		<Content Include="roomJs\owl.carousel.min.js" />
-
-
-		<Content Include="UserProfileAdmin.aspx" />
-		<!-- Content files from the 'main' branch -->
-		<Content Include="Masterpage1.Master" />
-		<Content Include="ChangePayment.aspx" />
-		<Content Include="Images\background.jpg" />
-		<Content Include="Images\coconut.png" />
-		<Content Include="Images\darkbackground.jpg" />
-		<Content Include="Images\dark.jpg" />
-		<Content Include="Masterpage1.css" />
-		<Content Include="Payment.css" />
-		<Content Include="PaymentPage.aspx" />
-		<Content Include="Web.config" />
-	</ItemGroup>
-	<ItemGroup>
-
-		<Compile Include="Room.aspx.cs">
-			<DependentUpon>Room.aspx</DependentUpon>
-			<SubType>ASPXCodeBehind</SubType>
-		</Compile>
-		<Compile Include="RoomBooking.aspx.cs">
-			<DependentUpon>RoomBooking.aspx</DependentUpon>
-			<SubType>ASPXCodeBehind</SubType>
-		</Compile>
-		<Compile Include="ChangePayment.aspx.cs">
-			<DependentUpon>ChangePayment.aspx</DependentUpon>
-			<SubType>ASPXCodeBehind</SubType>
-		</Compile>
-
-		<Compile Include="ChangePayment.aspx.designer.cs">
-			<DependentUpon>ChangePayment.aspx</DependentUpon>
-		</Compile>
-		<Compile Include="Masterpage1.Master.cs">
-			<DependentUpon>Masterpage1.Master</DependentUpon>
-			<SubType>ASPXCodeBehind</SubType>
-		</Compile>
-		<Compile Include="Masterpage1.Master.designer.cs">
-			<DependentUpon>Masterpage1.Master</DependentUpon>
-		</Compile>
-		<Compile Include="PaymentPage.aspx.cs">
-			<DependentUpon>PaymentPage.aspx</DependentUpon>
-			<SubType>ASPXCodeBehind</SubType>
-		</Compile>
-		<Compile Include="PaymentPage.aspx.designer.cs">
-			<DependentUpon>PaymentPage.aspx</DependentUpon>
-		</Compile>
-		<Compile Include="Properties\AssemblyInfo.cs" />
-	</ItemGroup>
-	<ItemGroup>
-		<Content Include="Masterpage1.Master" />
-		<None Include="packages.config" />
-		<None Include="Web.Debug.config">
-			<DependentUpon>Web.config</DependentUpon>
-		</None>
-		<None Include="Web.Release.config">
-			<DependentUpon>Web.config</DependentUpon>
-		</None>
-
-		<Compile Include="Admin.Master.cs">
-			<DependentUpon>Admin.Master</DependentUpon>
-			<SubType>ASPXCodeBehind</SubType>
-		</Compile>
-		<Compile Include="Admin.Master.designer.cs">
-			<DependentUpon>Admin.Master.aspx</DependentUpon>
-		</Compile>
-		<Compile Include="AdminHomePage.aspx.cs">
-			<DependentUpon>AdminHomePage.aspx</DependentUpon>
-			<SubType>ASPXCodeBehind</SubType>
-		</Compile>
-		<Compile Include="AdminHomePage.aspx.designer.cs">
-			<DependentUpon>AdminHomePage.aspx</DependentUpon>
-		</Compile>
-		<Compile Include="BookingAdmin.aspx.cs">
-			<DependentUpon>BookingAdmin.aspx</DependentUpon>
-			<SubType>ASPXCodeBehind</SubType>
-		</Compile>
-		<Compile Include="BookingAdmin.aspx.designer.cs">
-			<DependentUpon>BookingAdmin.aspx</DependentUpon>
-		</Compile>
-		<Compile Include="RoomAdmin.aspx.cs">
-			<DependentUpon>RoomAdmin.aspx</DependentUpon>
-			<SubType>ASPXCodeBehind</SubType>
-		</Compile>
-		<Compile Include="RoomAdmin.aspx.designer.cs">
-			<DependentUpon>RoomAdmin.aspx</DependentUpon>
-		</Compile>
-
-		<Compile Include="Properties\AssemblyInfo.cs" />
-		<Compile Include="UserProfileAdmin.aspx.cs">
-			<DependentUpon>UserProfileAdmin.aspx</DependentUpon>
-			<SubType>ASPXCodeBehind</SubType>
-		</Compile>
-		<Compile Include="UserProfileAdmin.aspx.designer.cs">
-			<DependentUpon>UserProfileAdmin.aspx</DependentUpon>
-		</Compile>
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="packages.config" />
-		<None Include="Web.Debug.config">
-			<DependentUpon>Web.config</DependentUpon>
-		</None>
-		<None Include="Web.Release.config">
-			<DependentUpon>Web.config</DependentUpon>
-		</None>
-	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="App_Data\" />
-		<Folder Include="Css\" />
-		<Folder Include="bookingImg\" />
-		<Folder Include="roomCss\" />
-		<Folder Include="roomFonts\" />
-		<Folder Include="roomImg\" />
-		<Folder Include="roomJs\" />
-
-	</ItemGroup>
-	<PropertyGroup>
-		<VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-		<VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-	</PropertyGroup>
-	<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-	<Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-	<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
-	<ProjectExtensions>
-		<VisualStudio>
-			<FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-				<WebProjectProperties>
-					<UseIIS>True</UseIIS>
-					<AutoAssignPort>True</AutoAssignPort>
-					<DevelopmentServerPort>62233</DevelopmentServerPort>
-					<DevelopmentServerVPath>/</DevelopmentServerVPath>
-					<IISUrl>http://localhost:62233/</IISUrl>
-					<NTLMAuthentication>False</NTLMAuthentication>
-					<UseCustomServer>False</UseCustomServer>
-					<CustomServerUrl>
-					</CustomServerUrl>
-					<SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-				</WebProjectProperties>
-			</FlavorProperties>
-		</VisualStudio>
-	</ProjectExtensions>
-	<Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-		<PropertyGroup>
-			<ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-		</PropertyGroup>
-		<Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-	</Target>
-	<!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42B18CEB-5B7B-4FB5-8CE0-E6D1B763914A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoconutHotel</RootNamespace>
+    <AssemblyName>CoconutHotel</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CheckAvailability.aspx" />
+    <Content Include="CheckAvailability.css" />
+    <Content Include="Admin.sitemap" />
+    <Content Include="Admin.Master" />
+    <Content Include="RoomAdmin.aspx" />
+    <Content Include="AdminHomePage.aspx" />
+    <Content Include="BookingAdmin.aspx" />
+    <Content Include="css\Admin.css" />
+    <Content Include="css\AdminHomePage.css" />
+    <Content Include="css\BookingAdmin.css" />
+    <Content Include="css\UserProfileAdmin.css" />
+    <Content Include="js\Admin.js" />
+    <Content Include="bookingImg\backgrounds.png" />
+    <Content Include="bookingImg\banner1.png" />
+    <Content Include="bookingImg\banner2.png" />
+    <Content Include="bookingImg\banner3.png" />
+    <Content Include="RoomBooking.aspx" />
+    <Content Include="roomCss\bootstrap.min.css" />
+    <Content Include="roomCss\flaticon.css" />
+    <Content Include="roomCss\font-awesome.min.css" />
+    <Content Include="roomCss\jquery-ui.min.css" />
+    <Content Include="roomCss\linearicons.css" />
+    <Content Include="roomCss\magnific-popup.css" />
+    <Content Include="roomCss\nice-select.css" />
+    <Content Include="roomCss\owl.carousel.min.css" />
+    <Content Include="roomCss\slicknav.min.css" />
+    <Content Include="roomCss\style.css" />
+    <Content Include="roomCss\style.css.map" />
+    <Content Include="roomFonts\Flaticon.eot" />
+    <Content Include="roomFonts\Flaticon.svg" />
+    <Content Include="roomFonts\Flaticon.ttf" />
+    <Content Include="roomFonts\Flaticon.woff" />
+    <Content Include="roomFonts\fontawesome-webfont.eot" />
+    <Content Include="roomFonts\fontawesome-webfont.svg" />
+    <Content Include="roomFonts\fontawesome-webfont.ttf" />
+    <Content Include="roomFonts\fontawesome-webfont.woff" />
+    <Content Include="roomFonts\fontawesome-webfont.woff2" />
+    <Content Include="roomFonts\Linearicons-Free.eot" />
+    <Content Include="roomFonts\Linearicons-Free.svg" />
+    <Content Include="roomFonts\Linearicons-Free.ttf" />
+    <Content Include="roomFonts\Linearicons-Free.woff" />
+    <Content Include="roomFonts\Linearicons-Free.woff2" />
+    <Content Include="roomImg\rooms-1.jpg" />
+    <Content Include="roomImg\rooms-2.jpg" />
+    <Content Include="roomJs\bootstrap.min.js" />
+    <Content Include="roomJs\jquery-3.3.1.min.js" />
+    <Content Include="roomJs\jquery-ui.min.js" />
+    <Content Include="roomJs\jquery.magnific-popup.min.js" />
+    <Content Include="roomJs\jquery.nice-select.min.js" />
+    <Content Include="roomJs\jquery.slicknav.js" />
+    <Content Include="roomJs\main.js" />
+    <Content Include="roomJs\owl.carousel.min.js" />
+    <Content Include="UserProfileAdmin.aspx" />
+    <!-- Content files from the 'main' branch -->
+    <Content Include="Masterpage1.Master" />
+    <Content Include="ChangePayment.aspx" />
+    <Content Include="Images\background.jpg" />
+    <Content Include="Images\coconut.png" />
+    <Content Include="Images\darkbackground.jpg" />
+    <Content Include="Images\dark.jpg" />
+    <Content Include="Masterpage1.css" />
+    <Content Include="Payment.css" />
+    <Content Include="PaymentPage.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckAvailability.aspx.cs">
+      <DependentUpon>CheckAvailability.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckAvailability.aspx.designer.cs">
+      <DependentUpon>CheckAvailability.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePayment.aspx.cs">
+      <DependentUpon>ChangePayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePayment.aspx.designer.cs">
+      <DependentUpon>ChangePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masterpage1.Master.cs">
+      <DependentUpon>Masterpage1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masterpage1.Master.designer.cs">
+      <DependentUpon>Masterpage1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentPage.aspx.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentPage.aspx.designer.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Masterpage1.Master" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminHomePage.aspx.cs">
+      <DependentUpon>AdminHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminHomePage.aspx.designer.cs">
+      <DependentUpon>AdminHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookingAdmin.aspx.cs">
+      <DependentUpon>BookingAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookingAdmin.aspx.designer.cs">
+      <DependentUpon>BookingAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoomAdmin.aspx.cs">
+      <DependentUpon>RoomAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoomAdmin.aspx.designer.cs">
+      <DependentUpon>RoomAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomBooking.aspx.cs">
+      <DependentUpon>RoomBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoomBooking.aspx.designer.cs">
+      <DependentUpon>RoomBooking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfileAdmin.aspx.cs">
+      <DependentUpon>UserProfileAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserProfileAdmin.aspx.designer.cs">
+      <DependentUpon>UserProfileAdmin.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62233</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62233/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
