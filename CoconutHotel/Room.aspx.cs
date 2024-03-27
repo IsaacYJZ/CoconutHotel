@@ -19,10 +19,10 @@ namespace CoconutHotel
             string children = Request.QueryString["children"];
 
             // Display the retrieved values
-            CheckInDate.InnerText = checkIn; // Previously you had CheckOutDate.InnerText = checkIn;
-            CheckOutDate.InnerText = checkOut; // Corrected
-            Adults.InnerText = adults;
-            Children.InnerText = children;
+            //CheckInDate.InnerText = checkIn; // Previously you had CheckOutDate.InnerText = checkIn;
+            //CheckOutDate.InnerText = checkOut; // Corrected
+            //Adults.InnerText = adults;
+            //Children.InnerText = children;
         }
 
         protected void bookBtn_Click(object sender, EventArgs e)
