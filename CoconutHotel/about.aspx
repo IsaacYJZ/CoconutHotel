@@ -11,16 +11,7 @@
 
 <body>
     <section class="sub-header">
-    <nav>"
-        <a href="home.aspx><img src="image/logo.png" alt="Home"></a>
-        <div class="nav-links">
-            <ul>
-                <li><a href="home.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="facilities.html">FACILITIES</a></li>
-            </ul>
-        </div>
-    </nav>
+    
     <h1>About Us</h1>
 </section>
 

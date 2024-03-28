@@ -1,6 +1,8 @@
 ﻿body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-image: url(image/hotel.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(image/hotel.jpg);
+    background-size: cover;
     margin: 0;
     padding: 0;
     display: flex;
@@ -34,17 +36,17 @@
 
 .login-container input[type="submit"] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #007bff; 
     color: white;
-    padding: 15px 0; /* Make button bigger */
+    padding: 15px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s;
 }
 
 .login-container input[type="submit"]:hover {
-    background-color: #87ceeb; /* Sky blue hover */
+    background-color: #28a745 !important; 
 }
 
 .login-container p {
@@ -66,10 +68,11 @@
 }
 
 .login-container a {
-    color: #4CAF50;
+    color: #007bff; /* Blue sign-up link */
     text-decoration: none;
 }
 
 .login-container a:hover {
-    text-decoration: underline;
+     color: #28a745; /* Green hover */
+     text-decoration: underline;
 }

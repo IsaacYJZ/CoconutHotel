@@ -5,11 +5,12 @@
 }
 
 .sub-header {
-    height: 400px;
+    height: 200px;
     width: 100%;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(image/about\ sub\ header.PNG);
     background-position: center;
     background-size: cover;
+    position: relative;
 }
 
     .sub-header h1 {
@@ -21,49 +22,18 @@
         transform: translate(-50%,-50%);
         text-align: center;
     }
-
-nav {
-    display: flex;
-    padding: 2% 6%;
-    justify-content: space-between;
-    align-items: center;
 }
 
-    nav img {
-        width: 150px;
+    .sub-header h1 {
+        width: 90%;
+        color: #fff;
+        position: absolute;
+        top: 50%; /* Change top to 50% */
+        left: 50%;
+        transform: translate(-50%,-50%); /* Add this line */
+        text-align: center;
     }
 
-.nav-links {
-    flex: 1;
-    text-align: right;
-}
-
-    .nav-links ul li {
-        list-style: none;
-        display: inline-block;
-        padding: 8px 12px;
-        position: relative;
-    }
-
-        .nav-links ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .nav-links ul li::after {
-            content: '';
-            width: 0%;
-            height: 2px;
-            background: #03f5f5;
-            display: block;
-            margin: auto;
-            transition: 0.5s;
-        }
-
-        .nav-links ul li:hover::after {
-            width: 100%;
-        }
 
 .gallery {
     margin: 10px 50px;
@@ -82,20 +52,4 @@ nav {
         }
 
 
-.footer {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-    text-align: center;
-    padding: 30px 0;
-}
 
-    .footer h4 {
-        margin-bottom: 25px;
-        margin-top: 20px;
-        font-weight: 600;
-    }
-
-    .footer p {
-        font-size: 11px;
-        color: grey;
-    }

@@ -1,0 +1,197 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+/*header size and background picture*/
+.header {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 500px;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(image/hotel.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+/*navigation tab*/
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+    /*logo image size*/
+    nav img {
+        width: 150px;
+    }
+/*nav button separation*/
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+    /*list style*/
+    .nav-links ul li {
+        list-style: none;
+        display: inline-block;
+        padding: 8px 12px;
+        position: relative;
+    }
+        /*link colour and font*/
+        .nav-links ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        /*link transition*/
+        .nav-links ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #03f5f5;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .nav-links ul li:hover::after {
+            width: 100%;
+        }
+/*text box size*/
+.text-box {
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+    /*title font size*/
+    .text-box h1 {
+        font-size: 62px;
+    }
+    /*paragraph*/
+    .text-box p {
+        margin: 10px 0 10px;
+        font-size: 14px;
+        color: #fff;
+    }
+/*Review styles*/
+#reviews {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.reviews-heading {
+    letter-spacing: 1px;
+    margin: 30px 0px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(71, 71, 71);
+    color: #fff;
+}
+
+.reviews-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.reviews-box {
+    width: 500px;
+    height: 120px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+/*Review profile img*/
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+    .profile-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+/*Review profile*/
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+/*Review profile name*/
+.name-user {
+    display: flex;
+    flex-direction: column;
+}
+
+    .name-user strong {
+        color: #3d3d3d;
+        font-size: 18px;
+        letter-spacing: 0.5px;
+    }
+
+    .name-user span {
+        color: #979797;
+        font-size: 13px;
+    }
+
+.reviews {
+    color: rgb(253, 249, 0);
+}
+
+.box-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.client-comment p {
+    font-size: 15px;
+    color: #666666;
+}
+
+.reviews-box:hover {
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
+}
+
+::selection {
+    color: #fff;
+    background-color: #252525;
+}
+/*footer*/
+.footer {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+    /*footer title*/
+    .footer h4 {
+        margin-bottom: 25px;
+        margin-top: 20px;
+        font-weight: 600;
+    }
+    /*footer paragraph*/
+    .footer p {
+        font-size: 11px;
+        color: grey;
+    }

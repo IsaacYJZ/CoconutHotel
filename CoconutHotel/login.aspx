@@ -14,7 +14,7 @@
             <asp:TextBox ID="txtUsername" runat="server" placeholder="Username" CssClass="form-control"></asp:TextBox>
             <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password" CssClass="form-control"></asp:TextBox>
             <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-primary" OnClick="btnLogin_Click" />
-            <p>Don't have an account? <a href="#">Sign up</a></p>
+            <p>Don't have an account? <asp:HyperLink ID="registerLink" runat="server" NavigateUrl="register.aspx">Sign Up</asp:HyperLink>
         </div>
     </form>
 </body>

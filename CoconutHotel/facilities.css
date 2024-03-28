@@ -5,14 +5,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.sub-header {
-    height: 400px;
-    width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(image/about\ sub\ header.PNG);
-    background-position: center;
-    background-size: cover;
-}
-
     .sub-header h1 {
         width: 90%;
         color: #fff;
@@ -174,20 +166,3 @@ nav {
         color: rgb(109, 108, 108);
     }
 
-.footer {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-    text-align: center;
-    padding: 30px 0;
-}
-
-    .footer h4 {
-        margin-bottom: 25px;
-        margin-top: 20px;
-        font-weight: 600;
-    }
-
-    .footer p {
-        font-size: 11px;
-        color: grey;
-    }

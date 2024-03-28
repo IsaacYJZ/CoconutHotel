@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="about.aspx" />
     <Content Include="about.css" />
+    <Content Include="contact.aspx" />
+    <Content Include="contact.css" />
     <Content Include="facilities.aspx" />
     <Content Include="facilities.css" />
     <Content Include="gallery.aspx" />
@@ -138,6 +140,7 @@
     <Content Include="gallery\yogas.jpg" />
     <Content Include="home.aspx" />
     <Content Include="home.css" />
+    <Content Include="homeLogin.aspx" />
     <Content Include="image\about.PNG" />
     <Content Include="image\about sub header.PNG" />
     <Content Include="image\cafe.jpg" />
@@ -145,22 +148,36 @@
     <Content Include="image\doctor.JPG" />
     <Content Include="image\giftshop.JPG" />
     <Content Include="image\gym.jpg" />
+    <Content Include="image\hotel.jpg" />
     <Content Include="image\laundry.JPG" />
     <Content Include="image\meet.jpg" />
+    <Content Include="image\New video.mp4" />
     <Content Include="image\poolbar.jpg" />
     <Content Include="image\public computer.JPG" />
     <Content Include="image\restauran.jpg" />
+    <Content Include="image\room1.jpg" />
+    <Content Include="image\room2.jpg" />
+    <Content Include="image\room3.jpg" />
     <Content Include="image\roomservice.JPG" />
     <Content Include="image\sauna.jpg" />
     <Content Include="image\skybar.jpg" />
     <Content Include="image\spa.jpeg" />
     <Content Include="image\swimming.jpg" />
+    <Content Include="image\user1.jpg" />
+    <Content Include="image\user2.jpg" />
+    <Content Include="image\user3.jpg" />
+    <Content Include="image\user4.jpg" />
+    <Content Include="image\user5.jpg" />
+    <Content Include="image\user6.jpg" />
     <Content Include="image\yoga.jpg" />
     <Content Include="login.aspx" />
     <Content Include="login.css" />
     <Content Include="register.aspx" />
     <Content Include="register.css" />
+    <Content Include="review.aspx" />
+    <Content Include="review.css" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="about.aspx.cs">
@@ -169,6 +186,13 @@
     </Compile>
     <Compile Include="about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="facilities.aspx.cs">
       <DependentUpon>facilities.aspx</DependentUpon>
@@ -191,6 +215,13 @@
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="homeLogin.aspx.cs">
+      <DependentUpon>homeLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homeLogin.aspx.designer.cs">
+      <DependentUpon>homeLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -205,6 +236,20 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="review.aspx.cs">
+      <DependentUpon>review.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="review.aspx.designer.cs">
+      <DependentUpon>review.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
