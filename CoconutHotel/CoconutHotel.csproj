@@ -109,6 +109,12 @@
     <Content Include="roomFonts\Linearicons-Free.ttf" />
     <Content Include="roomFonts\Linearicons-Free.woff" />
     <Content Include="roomFonts\Linearicons-Free.woff2" />
+    <Content Include="roomImg\rooms-4.jpg" />
+    <Content Include="roomImg\rooms-3.jpg" />
+    <Content Include="roomImg\rooms-5.jpg" />
+    <Content Include="roomImg\rooms-6.jpg" />
+    <Content Include="roomImg\rooms-7.jpg" />
+    <Content Include="roomImg\rooms-8.jpg" />
     <Content Include="roomImg\rooms-1.jpg" />
     <Content Include="roomImg\rooms-2.jpg" />
     <Content Include="roomJs\bootstrap.min.js" />

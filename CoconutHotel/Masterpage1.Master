@@ -29,8 +29,8 @@
             <img src="Images/coconut.png" alt="Coconut Hotel Logo" class="auto-style2" />
         </div>
 
-        <div class="header-text">
-            <h1>Welcome to Coconut Hotel</h1>
+        <div class="headers-text">
+            <h1 class="title">Welcome to Coconut Hotel</h1>
         </div>
     </div>
 

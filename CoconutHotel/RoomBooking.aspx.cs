@@ -26,7 +26,7 @@ namespace CoconutHotel
 
         protected void bookBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("PaymentPage.aspx");
         }
     }
 }

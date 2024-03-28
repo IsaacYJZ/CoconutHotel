@@ -9,7 +9,6 @@
     <form id="form1" runat="server">
         <div class="book-container">
             <div class="form-container">
-                <h2>Hotel Booking</h2>
                 <label for="checkInDate">
                     Check-In Date:
 

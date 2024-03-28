@@ -14,12 +14,12 @@
         margin-right: 10px; /* Add spacing between logo and text */
     }
 
-    .logo-text {
+    .logos-text {
         font-size: 10px; /* Adjust font size as needed */
         font-weight: bold;
     }
 
-    .header-text {
+    .headers-text {
         /* Additional styling for header text */
         font-size: 10px; /* Adjust font size as needed */
         font-weight: bold;
@@ -34,7 +34,7 @@
         width: 100%;
     }
 
-    h1 {
+    h1.title {
         color: white;
         font-family: 'Courier New, Courier, monospace';
     }
