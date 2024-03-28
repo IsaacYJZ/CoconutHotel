@@ -11,8 +11,8 @@
 
 <body>
     <section class="sub-header">
-    <nav>
-        <a href="home.html"><img src="image/logo.png" alt="Home"></a>
+    <nav>"
+        <a href="home.aspx><img src="image/logo.png" alt="Home"></a>
         <div class="nav-links">
             <ul>
                 <li><a href="home.html">HOME</a></li>
