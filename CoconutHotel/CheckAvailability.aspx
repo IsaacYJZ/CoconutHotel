@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage1.Master" AutoEventWireup="true" CodeBehind="CheckAvailability.aspx.cs" Inherits="CoconutHotel.CheckAvailabililty" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-                <link href="CheckAvailability.css" rel="stylesheet" type="text/css" />
+
+    <link href="CheckAvailability.css" rel="stylesheet" type="text/css" />
     <div class="background-container"></div>
     <!-- Background blur container -->
 
@@ -16,6 +18,9 @@
                 <asp:Calendar ID="checkInCal" CssClass="calendarStyle" runat="server" OnSelectionChanged="checkInCal_SelectionChanged"></asp:Calendar>
 
                 &nbsp;<asp:TextBox ID="checkInDate" runat="server" CssClass="textbox" Width="267px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvCheckInDate" runat="server" ControlToValidate="checkInDate" ErrorMessage="Check-In Date is required." Text="*Please Enter Check In Date" ValidationGroup="checkOutGroup"  CssClass="validation-error"></asp:RequiredFieldValidator>
+                <asp:CustomValidator ID="cvDate" runat="server" ControlToValidate="checkInDate" ErrorMessage="Check-in date cannot be before today" OnServerValidate="cvDate_ServerValidate" EnableClientScript="false"  CssClass="validation-error"></asp:CustomValidator>
+
 
                 <br />
                 <br />
@@ -26,11 +31,27 @@
                 </label>
                 <asp:Calendar ID="checkOutCal" CssClass="calendarStyle" runat="server" OnSelectionChanged="checkOutCal_SelectionChanged"></asp:Calendar>
                 &nbsp;<asp:TextBox ID="checkOutDate" runat="server" CssClass="textbox" Width="265px"></asp:TextBox>
-                <br />
-                <br />
-                <br />
+                <%--                <asp:CustomValidator ID="cvDate2" runat="server" ControlToValidate="checkOutDate" ErrorMessage="Check-out date cannot be before today" OnServerValidate="cvDate_ServerValidate" EnableClientScript="false"></asp:CustomValidator>--%>
+
+                <asp:RequiredFieldValidator ID="rfvCheckOutDate" runat="server" ControlToValidate="checkOutDate" ErrorMessage="*Check-out date is required." Text="*Please Enter Check Out Date" ValidationGroup="checkOutGroup"  CssClass="validation-error"></asp:RequiredFieldValidator>
+
+                <asp:CompareValidator ID="cmpCheckInOutDates" runat="server"
+                    ControlToValidate="checkOutDate"
+                    ControlToCompare="checkInDate"
+                    Operator="GreaterThanEqual"
+                    ErrorMessage="*Check-out date cannot be before check-in date"
+                    Type="Date"
+                    Display="Dynamic"
+                    ValidationGroup="checkOutGroup"
+                    EnableClientScript="false"  
+                    CssClass="validation-error">
+
+                </asp:CompareValidator>
 
 
+                <br />
+                <br />
+                <br />
 
                 <label for="adults">Adults:</label>
                 <asp:DropDownList ID="adultsDropdown" runat="server" CssClass="dropdown" Width="68px">
@@ -53,7 +74,7 @@
 
 
 
-                <asp:Button ID="submitBtn" runat="server" Text="Check Availability" CssClass="available-button" OnClick="submitBtn_Click"/>
+                <asp:Button ID="submitBtn" runat="server" Text="Check Availability" CssClass="available-button" OnClick="submitBtn_Click" />
             </div>
             <div class="slideshow-container">
                 <img class="mySlides" src="bookingImg/banner1.png" alt="Slide 1" />
