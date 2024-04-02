@@ -1,0 +1,309 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    min-height: 500px;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(image/hotel.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    nav img {
+        width: 150px;
+    }
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+    .nav-links ul li {
+        list-style: none;
+        display: inline-block;
+        padding: 8px 12px;
+        position: relative;
+    }
+
+        .nav-links ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        /*--CSS Transitions[Online] https://www.w3schools.com/css/css3_transitions.asp [Accessed 21 August 2021]--*/
+        .nav-links ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #03f5f5;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .nav-links ul li:hover::after {
+            width: 100%;
+        }
+
+.text-box {
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+    .text-box h1 {
+        font-size: 62px;
+    }
+
+    .text-box p {
+        margin: 10px 0 10px;
+        font-size: 14px;
+        color: #fff;
+    }
+
+.book-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+    #bookBtn:hover {
+        color: #000;
+        border: 1px solid #03f5f5;
+        background: #03f5f5;
+        transition: 1s;
+    }
+
+.learnMoreBtn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 34px;
+    font-size: 13px;
+    background-color: #007bff;
+    position: relative;
+    cursor: pointer;
+    justify-content: center;
+}
+
+    .learnMoreBtn:hover {
+        color: green;
+        border: 1px solid #03f5f5;
+        background-color: #28a745;
+        transition: 1s;
+    }
+
+.learnMoreBtn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 34px;
+    font-size: 13px;
+    background-color: #007bff;
+    position: relative;
+    cursor: pointer;
+    justify-content: center;
+}
+
+    .learnMoreBtn:hover {
+        color: green;
+        border: 1px solid #03f5f5;
+        background-color: #28a745;
+        transition: 1s;
+    }
+
+
+.row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rooms {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.rooms-cal {
+    flex-basis: 32%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .rooms-cal img {
+        width: 100%;
+        display: block;
+    }
+
+.layer {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transition: 0.5s;
+}
+
+    .layer:hover {
+        background: rgba(33, 159, 163, 0.7);
+    }
+    /*--CSS Transitions and Transforms for Beginners[Online] https://thoughtbot.com/blog/transitions-and-transforms [Accessed 21 August 2021]--*/
+    .layer h3 {
+        width: 100%;
+        font-weight: 500;
+        color: #fff;
+        font-size: 26px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+    }
+
+    .layer:hover h3 {
+        bottom: 49%;
+        opacity: 1;
+        transition: 0.5s;
+    }
+
+.review {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80%;
+    margin: auto;
+    padding-top: 100px;
+    text-align: center;
+}
+
+.review-col {
+    flex-basis: 42%;
+    border-radius: 10px;
+    margin-bottom: 2%;
+    text-align: left;
+    background: lightblue;
+    padding: 25px;
+    cursor: pointer;
+    display: flex;
+}
+
+    .review-col img {
+        height: 40px;
+        margin-left: 5px;
+        margin-right: 30px;
+        border-radius: 50%;
+    }
+
+    .review-col p {
+        font-size: 12px;
+        color: rgb(80, 80, 80);
+        padding: 0;
+    }
+
+    .review-col h3 {
+        margin-top: 15px;
+        text-align: left;
+    }
+
+.review-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #000;
+    padding: 10px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+    .review-btn:hover {
+        color: #000;
+        border: 1px solid lightblue;
+        background: lightblue;
+        transition: 1s;
+    }
+
+.know-col {
+    flex-basis: 100%;
+    font-size: 10px;
+    text-align: center;
+}
+
+.know .page {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+
+    .footer h4 {
+        margin-bottom: 25px;
+        margin-top: 20px;
+        font-weight: 600;
+    }
+
+    .footer p {
+        font-size: 11px;
+        color: grey;
+    }
+
+.promo {
+    width: 80%;
+    margin: auto;
+    padding-top: 80px;
+    flex-basis: 48%;
+    padding-bottom: 10%px;
+}
+
+.promo-col {
+    flex-basis: 48%;
+    padding: 30px 2px;
+}
+
+    .promo-col video {
+        width: 100%;
+    }
+
+    .promo-col h1 {
+        padding-top: 0;
+    }
+
+    .promo-col p {
+        font-size: 12px;
+        color: grey;
+        padding: 15px 0 25px;
+    }
