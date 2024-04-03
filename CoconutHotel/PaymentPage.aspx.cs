@@ -14,9 +14,9 @@ namespace CoconutHotel
             
         }
 
-        protected void lbChangeMethod_Click(object sender, EventArgs e)
+        protected void ddlMethod_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Response.Redirect("ChangePayment.aspx");
+            // Event handler logic will go here
         }
     }
 }
