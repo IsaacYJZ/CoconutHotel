@@ -6,6 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="Masterpage1.css" rel="stylesheet" type="text/css" />
+    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
@@ -29,8 +30,8 @@
             <img src="Images/coconut.png" alt="Coconut Hotel Logo" class="auto-style2" />
         </div>
 
-        <div class="header-text">
-            <h1>Welcome to Coconut Hotel</h1>
+        <div class="headers-text">
+            <h1 class="title">Welcome to Coconut Hotel</h1>
         </div>
     </div>
 

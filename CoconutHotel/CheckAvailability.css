@@ -1,0 +1,87 @@
+﻿.body {
+    font-family: 'Courier New, Courier, monospace';
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-image: url('bookingImg/backgrounds.png');*/
+    background-color: lightgray;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px); /* Apply a blur effect to the background image */
+    z-index: -1; /* Ensure the blur container is behind other content */
+}
+
+.calendarStyle {
+    background-color: #ffffff; /* white background */
+}
+
+.book-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-container {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.validation-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px; /* Adjust as needed */
+}
+
+.form-container label {
+    font-size: 20px; /* Adjust the font size to your preference */
+}
+
+.slideshow-container {
+    width: 65%;
+    position: relative;
+    overflow: hidden;
+}
+
+.mySlides {
+    width: 100%;
+    height: 700px;
+    display: none;
+    max-width: 100%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+.textbox,
+.dropdown {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.available-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}

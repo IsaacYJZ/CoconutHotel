@@ -1,0 +1,88 @@
+﻿
+.registerForm {
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(image/hotel.jpg);
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+    .register-container h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .register-container .form-group {
+        margin-bottom: 20px;
+    }
+
+    .register-container label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 24px); /* Adjusted for border width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.register-container input[type="submit"] {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 0; /* Make button bigger */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+    .register-container input[type="submit"]:hover {
+        background-color: #28a745;
+        ; /* Sky blue hover */
+    }
+
+.register-container p {
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Additional Styles for Interactivity */
+.register-container input[type="text"]:focus,
+.register-container input[type="email"]:focus,
+.register-container input[type="password"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px #4CAF50;
+}
+
+.register-container input[type="submit"]:active {
+    background-color: #45a049;
+    transform: translateY(1px);
+}
+
+.register-container a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+    .register-container a:hover {
+        text-decoration: underline;
+    }

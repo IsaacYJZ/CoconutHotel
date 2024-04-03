@@ -2,9 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="css/UserProfileAdmin.css" rel="stylesheet" />
-<link href="css/AdminHomePage.css" rel="stylesheet" />
+<link href="Css/UserProfileAdmin.css" rel="stylesheet" />
+<link href="Css/AdminHomePage.css" rel="stylesheet" />
 
 <div class="container">
 	<h2>Dashboard</h2>
@@ -68,379 +67,154 @@
 							<th>&nbsp;</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody> 
 						<tr>
-							<td>
-								<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-								<a href="#" class="user-link">Mila Kunis</a>
-								<span class="user-subhead">Admin</span>
-							</td>
-							<td>
-								2013/08/08
-							</td>
-							<td class="text-center">
-								<span class="label label-default">Inactive</span>
-							</td>
-							<td>
-								<a href="#">mila@kunis.com</a>
-							</td>
-							<td style="width: 20%;">
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link danger">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
-								<a href="#" class="user-link">George Clooney</a>
-								<span class="user-subhead">Member</span>
-							</td>
-							<td>
-								2013/08/12
-							</td>
-							<td class="text-center">
-								<span class="label label-success">Active</span>
-							</td>
-							<td>
-								<a href="#">marlon@brando.com</a>
-							</td>
-							<td style="width: 20%;">
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link danger">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
-								<a href="#" class="user-link">Ryan Gossling</a>
-								<span class="user-subhead">Registered</span>
-							</td>
-							<td>
-								2013/03/03
-							</td>
-							<td class="text-center">
-								<span class="label label-danger">Banned</span>
-							</td>
-							<td>
-								<a href="#">jack@nicholson</a>
-							</td>
-							<td style="width: 20%;">
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link danger">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="">
-								<a href="#" class="user-link">Emma Watson</a>
-								<span class="user-subhead">Registered</span>
-							</td>
-							<td>
-								2004/01/24
-							</td>
-							<td class="text-center">
-								<span class="label label-warning">Pending</span>
-							</td>
-							<td>
-								<a href="#">humphrey@bogart.com</a>
-							</td>
-							<td style="width: 20%;">
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link danger">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="">
-								<a href="#" class="user-link">Robert Downey Jr.</a>
-								<span class="user-subhead">Admin</span>
-							</td>
-							<td>
-								2013/12/31
-							</td>
-							<td class="text-center">
-								<span class="label label-success">Active</span>
-							</td>
-							<td>
-								<a href="#">spencer@tracy</a>
-							</td>
-							<td style="width: 20%;">
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link danger">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="">
-								<a href="#" class="user-link">Mila Kunis</a>
-								<span class="user-subhead">Admin</span>
-							</td>
-							<td>
-								2013/08/08
-							</td>
-							<td class="text-center">
-								<span class="label label-default">Inactive</span>
-							</td>
-							<td>
-								<a href="#">mila@kunis.com</a>
-							</td>
-							<td style="width: 20%;">
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link danger">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
-								<a href="#" class="user-link">George Clooney</a>
-								<span class="user-subhead">Member</span>
-							</td>
-							<td>
-								2013/08/12
-							</td>
-							<td class="text-center">
-								<span class="label label-success">Active</span>
-							</td>
-							<td>
-								<a href="#">marlon@brando.com</a>
-							</td>
-							<td style="width: 20%;">
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link danger">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-								<a href="#" class="user-link">Ryan Gossling</a>
-								<span class="user-subhead">Registered</span>
-							</td>
-							<td>
-								2013/03/03
-							</td>
-							<td class="text-center">
-								<span class="label label-danger">Banned</span>
-							</td>
-							<td>
-								<a href="#">jack@nicholson</a>
-							</td>
-							<td style="width: 20%;">
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link danger">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-								<a href="#" class="user-link">Emma Watson</a>
-								<span class="user-subhead">Registered</span>
-							</td>
-							<td>
-								2004/01/24
-							</td>
-							<td class="text-center">
-								<span class="label label-warning">Pending</span>
-							</td>
-							<td>
-								<a href="#">humphrey@bogart.com</a>
-							</td>
-							<td style="width: 20%;">
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link danger">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="">
-								<a href="#" class="user-link">Robert Downey Jr.</a>
-								<span class="user-subhead">Admin</span>
-							</td>
-							<td>
-								2013/12/31
-							</td>
-							<td class="text-center">
-								<span class="label label-success">Active</span>
-							</td>
-							<td>
-								<a href="#">spencer@tracy</a>
-							</td>
-							<td style="width: 20%;">
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-								<a href="#" class="table-link danger">
-									<span class="fa-stack">
-										<i class="fa fa-square fa-stack-2x"></i>
-										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</td>
-						</tr>
+                            <td>
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                        <a href="#" class="user-link">Mila Kunis</a>
+                                        <span class="user-subhead">Admin</span>
+                                    </td>
+                                    <td>
+                                        2013/08/08
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-default">Inactive</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">mila@kunis.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                    <asp:LinkButton ID="ViewUserProfileButton" runat="server" CssClass="table-link" OnClick="ViewUserProfileButton_Click">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </asp:LinkButton>
+                                    </td>
+                                </tr>
+                        			<tr>
+                            <td>
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                        <a href="#" class="user-link">Mila Kunis</a>
+                                        <span class="user-subhead">Admin</span>
+                                    </td>
+                                    <td>
+                                        2013/08/08
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-default">Inactive</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">mila@kunis.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="table-link" OnClick="ViewUserProfileButton_Click">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </asp:LinkButton>
+                                    </td>
+                                </tr>
+                        		<tr>
+                            <td>
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                        <a href="#" class="user-link">Mila Kunis</a>
+                                        <span class="user-subhead">Admin</span>
+                                    </td>
+                                    <td>
+                                        2013/08/08
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-default">Inactive</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">mila@kunis.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="table-link" OnClick="ViewUserProfileButton_Click">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </asp:LinkButton>
+                                    </td>
+                                </tr>
+                        		<tr>
+                            <td>
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                        <a href="#" class="user-link">Mila Kunis</a>
+                                        <span class="user-subhead">Admin</span>
+                                    </td>
+                                    <td>
+                                        2013/08/08
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-default">Inactive</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">mila@kunis.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                    <asp:LinkButton ID="LinkButton3" runat="server" CssClass="table-link" OnClick="ViewUserProfileButton_Click">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </asp:LinkButton>
+                                    </td>
+                                </tr>
+                        		<tr>
+                            <td>
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                        <a href="#" class="user-link">Mila Kunis</a>
+                                        <span class="user-subhead">Admin</span>
+                                    </td>
+                                    <td>
+                                        2013/08/08
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-default">Inactive</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">mila@kunis.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                    <asp:LinkButton ID="LinkButton4" runat="server" CssClass="table-link" OnClick="ViewUserProfileButton_Click">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </asp:LinkButton>
+                                    </td>
+                                </tr>
+                        		<tr>
+                            <td>
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                        <a href="#" class="user-link">Mila Kunis</a>
+                                        <span class="user-subhead">Admin</span>
+                                    </td>
+                                    <td>
+                                        2013/08/08
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="label label-default">Inactive</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">mila@kunis.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                    <asp:LinkButton ID="LinkButton5" runat="server" CssClass="table-link" OnClick="ViewUserProfileButton_Click">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </asp:LinkButton>
+                                    </td>
+                                </tr>
 					</tbody>
 				</table>
 			</div>
-			<ul class="pagination pull-right">
-				<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-			</ul>
 		</div>
 		</div>
 			<div class="col-md-4">
@@ -448,38 +222,28 @@
                 <div class="title">Top Selling Product</div>
                 <ul class="top-sales-details">
                     <li>
-                        <a href="#">
-                            <img weight="50" height="100" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="" >
-                            <span class="product">Vuitton Sunglasses</span>
-                        </a>
+                            <img weight="50" height="100" src="roomImg/rooms-1.jpg" alt=""/>
+                            <span class="product">Room 1</span>
                         <span class="price">$1107</span>
                     </li>
-					                    <li>
-                        <a href="#">
-                            <img weight="50" height="100" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="">
-                            <span class="product">Vuitton Sunglasses</span>
-                        </a>
+					 <li>
+                            <img weight="50" height="100" src="roomImg/rooms-2.jpg" alt=""/>
+                            <span class="product">Room 2</span>
                         <span class="price">$1107</span>
                     </li>
-					                    <li>
-                        <a href="#">
-                            <img weight="50" height="100" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="">
-                            <span class="product">Vuitton Sunglasses</span>
-                        </a>
+					 <li>
+                         <img weight="50" height="100" src="roomImg/rooms-6.jpg" alt=""/>
+                            <span class="product">Room 3</span>
                         <span class="price">$1107</span>
                     </li>
-					                    <li>
-                        <a href="#">
-                            <img weight="50" height="100" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="">
-                            <span class="product">Vuitton Sunglasses</span>
-                        </a>
+					    <li>
+                            <img weight="50" height="100" src="roomImg/rooms-8.jpg" alt=""/>
+                            <span class="product">Room 4</span>
                         <span class="price">$1107</span>
                     </li>
-					                    <li>
-                        <a href="#">
-                            <img weight="50" height="100" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="">
-                            <span class="product">Vuitton Sunglasses</span>
-                        </a>
+					   <li>
+                           <img weight="40" height="100" src="roomImg/rooms-5.jpg" alt=""/>
+                            <span class="product">Room 5</span>
                         <span class="price">$1107</span>
                     </li>
                     <!-- Add more list items for other products -->
@@ -491,5 +255,3 @@
         
 
 </asp:Content>
-
-
