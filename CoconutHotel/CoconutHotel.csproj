@@ -71,6 +71,7 @@
     <Content Include="CheckAvailability.css" />
     <Content Include="Admin.sitemap" />
     <Content Include="Admin.Master" />
+    <Content Include="css\RoomAdmin.css" />
     <Content Include="RoomAdmin.aspx" />
     <Content Include="AdminHomePage.aspx" />
     <Content Include="BookingAdmin.aspx" />
