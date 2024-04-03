@@ -222,28 +222,38 @@
                 <div class="title">Top Selling Product</div>
                 <ul class="top-sales-details">
                     <li>
-                            <img weight="50" height="100" src="roomImg/rooms-1.jpg" alt=""/>
-                            <span class="product">Room 1</span>
+                        <a href="#">
+                            <img weight="50" height="100" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="" >
+                            <span class="product">Vuitton Sunglasses</span>
+                        </a>
                         <span class="price">$1107</span>
                     </li>
-					 <li>
-                            <img weight="50" height="100" src="roomImg/rooms-2.jpg" alt=""/>
-                            <span class="product">Room 2</span>
+					                    <li>
+                        <a href="#">
+                            <img weight="50" height="100" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="">
+                            <span class="product">Vuitton Sunglasses</span>
+                        </a>
                         <span class="price">$1107</span>
                     </li>
-					 <li>
-                         <img weight="50" height="100" src="roomImg/rooms-6.jpg" alt=""/>
-                            <span class="product">Room 3</span>
+					                    <li>
+                        <a href="#">
+                            <img weight="50" height="100" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="">
+                            <span class="product">Vuitton Sunglasses</span>
+                        </a>
                         <span class="price">$1107</span>
                     </li>
-					    <li>
-                            <img weight="50" height="100" src="roomImg/rooms-8.jpg" alt=""/>
-                            <span class="product">Room 4</span>
+					                    <li>
+                        <a href="#">
+                            <img weight="50" height="100" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="">
+                            <span class="product">Vuitton Sunglasses</span>
+                        </a>
                         <span class="price">$1107</span>
                     </li>
-					   <li>
-                           <img weight="40" height="100" src="roomImg/rooms-5.jpg" alt=""/>
-                            <span class="product">Room 5</span>
+					                    <li>
+                        <a href="#">
+                            <img weight="50" height="100" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="">
+                            <span class="product">Vuitton Sunglasses</span>
+                        </a>
                         <span class="price">$1107</span>
                     </li>
                     <!-- Add more list items for other products -->
