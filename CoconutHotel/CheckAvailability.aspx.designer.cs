@@ -42,6 +42,24 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.TextBox checkInDate;
 
         /// <summary>
+        /// rfvCheckInDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCheckInDate;
+
+        /// <summary>
+        /// cvDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvDate;
+
+        /// <summary>
         /// checkOutCal control.
         /// </summary>
         /// <remarks>
@@ -58,6 +76,24 @@ namespace CoconutHotel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox checkOutDate;
+
+        /// <summary>
+        /// rfvCheckOutDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCheckOutDate;
+
+        /// <summary>
+        /// cmpCheckInOutDates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmpCheckInOutDates;
 
         /// <summary>
         /// adultsDropdown control.

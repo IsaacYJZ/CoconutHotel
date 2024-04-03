@@ -67,10 +67,119 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="about.aspx" />
+    <Content Include="about.css" />
     <Content Include="CheckAvailability.aspx" />
     <Content Include="CheckAvailability.css" />
     <Content Include="Admin.sitemap" />
     <Content Include="Admin.Master" />
+    <Content Include="contact.aspx" />
+    <Content Include="contact.css" />
+    <Content Include="facilities.aspx" />
+    <Content Include="facilities.css" />
+    <Content Include="gallery.aspx" />
+    <Content Include="gallery.css" />
+    <Content Include="gallery\basicb.jpg" />
+    <Content Include="gallery\basics.jpg" />
+    <Content Include="gallery\basketball1b.jpeg" />
+    <Content Include="gallery\basketball1s.jpeg" />
+    <Content Include="gallery\basketball2b.jpg" />
+    <Content Include="gallery\basketball2s.jpg" />
+    <Content Include="gallery\cafeb.jpg" />
+    <Content Include="gallery\cafes.jpg" />
+    <Content Include="gallery\campb.jpg" />
+    <Content Include="gallery\camps.jpg" />
+    <Content Include="gallery\chocolateb.JPG" />
+    <Content Include="gallery\chocolates.JPG" />
+    <Content Include="gallery\cinemab.jpeg" />
+    <Content Include="gallery\cinemas.jpeg" />
+    <Content Include="gallery\classicb.jpg" />
+    <Content Include="gallery\classics.jpg" />
+    <Content Include="gallery\computerb.JPG" />
+    <Content Include="gallery\computers.JPG" />
+    <Content Include="gallery\dessertb.JPG" />
+    <Content Include="gallery\desserts.JPG" />
+    <Content Include="gallery\giftshopb.JPG" />
+    <Content Include="gallery\giftshops.JPG" />
+    <Content Include="gallery\gymb.jpg" />
+    <Content Include="gallery\gyms.jpg" />
+    <Content Include="gallery\ktv.jpg" />
+    <Content Include="gallery\ktvb.jpg" />
+    <Content Include="gallery\libraryb.JPG" />
+    <Content Include="gallery\librarys.JPG" />
+    <Content Include="gallery\lightbox-plus-jquery.min.js" />
+    <Content Include="gallery\lightbox.min.css" />
+    <Content Include="gallery\lobbyb.jpg" />
+    <Content Include="gallery\lobbys.jpg" />
+    <Content Include="gallery\luxuryb.jpg" />
+    <Content Include="gallery\luxurys.jpg" />
+    <Content Include="gallery\meetb.jpg" />
+    <Content Include="gallery\meets.jpg" />
+    <Content Include="gallery\poolbarb.jpg" />
+    <Content Include="gallery\poolbars.jpg" />
+    <Content Include="gallery\restaurantb.jpg" />
+    <Content Include="gallery\restaurants.jpg" />
+    <Content Include="gallery\saunab.jpg" />
+    <Content Include="gallery\saunas.jpg" />
+    <Content Include="gallery\skybarb.jpg" />
+    <Content Include="gallery\skybars.jpg" />
+    <Content Include="gallery\snooker.jpg" />
+    <Content Include="gallery\snookerb.jpg" />
+    <Content Include="gallery\spab.png" />
+    <Content Include="gallery\spas.jpeg" />
+    <Content Include="gallery\style.css" />
+    <Content Include="gallery\swimb.jpg" />
+    <Content Include="gallery\swims.jpg" />
+    <Content Include="gallery\teagarden.jpeg" />
+    <Content Include="gallery\teagardenb.jpeg" />
+    <Content Include="gallery\toilet1b.jpg" />
+    <Content Include="gallery\toilet1s.jpg" />
+    <Content Include="gallery\toilet2b.jpg" />
+    <Content Include="gallery\toilet2s.jpg" />
+    <Content Include="gallery\underwaterb.JPG" />
+    <Content Include="gallery\underwaters.JPG" />
+    <Content Include="gallery\wineb.jpeg" />
+    <Content Include="gallery\wines.jpeg" />
+    <Content Include="gallery\yogab.jpg" />
+    <Content Include="gallery\yogas.jpg" />
+    <Content Include="home.aspx" />
+    <Content Include="home.css" />
+    <Content Include="homeLogin.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="login.css" />
+    <Content Include="image\about sub header.PNG" />
+    <Content Include="image\about.PNG" />
+    <Content Include="image\cafe.jpg" />
+    <Content Include="image\cinema.jpeg" />
+    <Content Include="image\doctor.JPG" />
+    <Content Include="image\giftshop.JPG" />
+    <Content Include="image\gym.jpg" />
+    <Content Include="image\hotel.jpg" />
+    <Content Include="image\laundry.JPG" />
+    <Content Include="image\meet.jpg" />
+    <Content Include="image\New video.mp4" />
+    <Content Include="image\poolbar.jpg" />
+    <Content Include="image\public computer.JPG" />
+    <Content Include="image\restauran.jpg" />
+    <Content Include="image\room1.jpg" />
+    <Content Include="image\room2.jpg" />
+    <Content Include="image\room3.jpg" />
+    <Content Include="image\roomservice.JPG" />
+    <Content Include="image\sauna.jpg" />
+    <Content Include="image\skybar.jpg" />
+    <Content Include="image\spa.jpeg" />
+    <Content Include="image\swimming.jpg" />
+    <Content Include="image\user1.jpg" />
+    <Content Include="image\user2.jpg" />
+    <Content Include="image\user3.jpg" />
+    <Content Include="image\user4.jpg" />
+    <Content Include="image\user5.jpg" />
+    <Content Include="image\user6.jpg" />
+    <Content Include="image\yoga.jpg" />
+    <Content Include="register.aspx" />
+    <Content Include="register.css" />
+    <Content Include="review.aspx" />
+    <Content Include="review.css" />
     <Content Include="RoomAdmin.aspx" />
     <Content Include="AdminHomePage.aspx" />
     <Content Include="BookingAdmin.aspx" />
@@ -139,6 +248,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CheckAvailability.aspx.cs">
       <DependentUpon>CheckAvailability.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -152,6 +268,48 @@
     </Compile>
     <Compile Include="ChangePayment.aspx.designer.cs">
       <DependentUpon>ChangePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="facilities.aspx.cs">
+      <DependentUpon>facilities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="facilities.aspx.designer.cs">
+      <DependentUpon>facilities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="gallery.aspx.cs">
+      <DependentUpon>gallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gallery.aspx.designer.cs">
+      <DependentUpon>gallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="homeLogin.aspx.cs">
+      <DependentUpon>homeLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homeLogin.aspx.designer.cs">
+      <DependentUpon>homeLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Masterpage1.Master.cs">
       <DependentUpon>Masterpage1.Master</DependentUpon>
@@ -198,6 +356,20 @@
     </Compile>
     <Compile Include="BookingAdmin.aspx.designer.cs">
       <DependentUpon>BookingAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="review.aspx.cs">
+      <DependentUpon>review.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="review.aspx.designer.cs">
+      <DependentUpon>review.aspx</DependentUpon>
     </Compile>
     <Compile Include="RoomAdmin.aspx.cs">
       <DependentUpon>RoomAdmin.aspx</DependentUpon>

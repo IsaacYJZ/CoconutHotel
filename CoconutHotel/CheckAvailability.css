@@ -1,6 +1,7 @@
 ﻿.body {
     font-family: 'Courier New, Courier, monospace';
 }
+
 .background-container {
     position: fixed;
     top: 0;
@@ -8,16 +9,18 @@
     width: 100%;
     height: 100%;
     /*background-image: url('bookingImg/backgrounds.png');*/
-    background-color:lightgray;
+    background-color: lightgray;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     filter: blur(5px); /* Apply a blur effect to the background image */
     z-index: -1; /* Ensure the blur container is behind other content */
 }
+
 .calendarStyle {
     background-color: #ffffff; /* white background */
 }
+
 .book-container {
     display: flex;
     justify-content: space-between;
@@ -32,9 +35,15 @@
     align-items: center;
 }
 
-    .form-container label {
-        font-size: 20px; /* Adjust the font size to your preference */
-    }
+.validation-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px; /* Adjust as needed */
+}
+
+.form-container label {
+    font-size: 20px; /* Adjust the font size to your preference */
+}
 
 .slideshow-container {
     width: 65%;
