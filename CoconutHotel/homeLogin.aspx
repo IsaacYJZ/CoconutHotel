@@ -13,7 +13,7 @@
     <form id="form1" runat="server">
         <section class="header">
             <nav>
-                <a href="home.aspx">
+                <a href="homeLogin.aspx">
                     <img src="Images/coconut.png" alt="Home" style="width: 50px; height: auto; margin-right: 10px;" /></a>
                 <div class="nav-links">
                     <ul>

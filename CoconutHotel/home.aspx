@@ -18,7 +18,7 @@
                 <div class="nav-links">
                     <ul>
                         <li>
-                            <asp:HyperLink ID="homeLoginLink" runat="server" NavigateUrl="~/homeLogin.aspx">HOME</asp:HyperLink></li>
+                            <asp:HyperLink ID="homeLoginLink" runat="server" NavigateUrl="~/home.aspx">HOME</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="aboutLink" runat="server" NavigateUrl="~/about.aspx">ABOUT</asp:HyperLink></li>
                         <li>
