@@ -1,13 +1,168 @@
-﻿h1.payment-header {
+﻿/*h1.payment-header {
     color: black;
-    font-family: 'Courier New, Courier, monospace';
-}
-
-.payment-header {
-    margin-left:10px;
-}
-
-.container {
-    margin-left: 10px;
+    font-family: 'courier new, courier, monospace';
+    text-align: center;
+    margin:0px;
+    background-color : silver;
+    padding: 10px 0px 10px 0px;
 
 }
+*/
+
+#form1 {
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.parent-container {
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 1500px;
+    max-width: 100%;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 80%;
+
+}
+
+.parent-container h3 {
+    margin: 0 !important;
+    padding: 0px 0px 10px 0px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.payment-detail-container {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    padding: 30px 10px 0px 10px;
+}
+
+.payment-detail-container table {
+    width: 80%;
+    margin-left: auto; /* Center the table horizontally */
+    margin-right: auto;
+    table-layout: fixed;
+}
+
+.payment-detail-container th, .payment-detail-container td {
+    text-align: center; /* Centers text horizontally */
+    vertical-align: middle; /* Centers text vertically */
+}
+
+
+.payment-detail-container th {
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    padding: 10px; /* Some padding for aesthetics */
+}
+
+.payment-detail-container table {
+    margin-left: 60px;
+    border:30px;
+    display: block;
+}
+
+.payment-container {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #512da8;
+    background: linear-gradient(to right, #5c6bc0, #512da8);
+    padding: 30px 10px 0px 10px;
+}
+
+/*.payment-detail-container h3 {
+    margin: 0 !important;
+    padding: 0px 0px 10px 0px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.payment-container h3 {
+    margin: 0 !important;
+    padding: 0px 0px 10px 0px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline;
+}*/
+
+.inline {
+    display: inline !important;
+}
+
+.product-name {
+    display: inline !important;
+    text-align: right;
+    vertical-align: middle;
+
+}
+
+.product-price {
+    display: inline !important;
+    text-align: right;
+    vertical-align: text-top;
+}
+.total-text {
+    display: inline !important;
+    text-align: right;
+}
+
+p.total-price {
+    display: inline !important;
+    text-align: right !important;
+}
+
+.payment-container table {
+    width: 80%;
+    margin-left: auto; /* Center the table horizontally */
+    margin-right: auto;
+    table-layout: fixed;
+}
+
+.payment-container td:nth-child(1) {
+    text-align: left; /* Aligns text to the left in the first column */
+    vertical-align: middle; /* Centers text vertically */
+}
+
+.payment-container td:nth-child(2) {
+    text-align: right; /* Aligns text to the right in the second column */
+    vertical-align: middle; /* Centers text vertically */
+}
+
+.proceed-button {
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    align-self: flex-end; /* Aligns the button to the end of the flex container (right) */
+    margin-top: auto; /* Pushes the button to the bottom if the container is a flexbox */
+}
+
+#QRTable {
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: fixed;
+    text-align: center;
+}
+
+

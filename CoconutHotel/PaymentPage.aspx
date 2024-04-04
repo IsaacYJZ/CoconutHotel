@@ -1,119 +1,224 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage1.Master" AutoEventWireup="true" CodeBehind="PaymentPage.aspx.cs" Inherits="CoconutHotel.PaymentPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Payment.Master" AutoEventWireup="true" CodeBehind="PaymentPage.aspx.cs" Inherits="CoconutHotel.PaymentPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        /* Styles for the table container */
-        .table-container {
-        }
-
-        /* Styles for the table itself */
-        .container {
-            width: 50%; /* Set the width of the table to 50% */
-        }
-
-        /* Additional styles for cell height */
-        .auto-style2, .auto-style3 {
-            height: 24px; /* Adjust the height as needed */
-        }
-
-        .auto-style6 {
-            width: 171px;
-        }
-
-        .auto-style7 {
-            height: 24px;
-            width: 171px;
-        }
-
-        .auto-style8 {
-            width: 439px;
-        }
-
-        .auto-style9 {
-            width: 98px;
-        }
-
-        .auto-style10 {
-            width: 85px;
-        }
-
+        /*
+            .table-standard td, .table-standard th{
+                border: 2px solid black;
+            }
+    */
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<form id="form1" runat="server">
 
-            <link href="Payment.css" rel="stylesheet" type="text/css" />
 
-        <div class="title">
-            <h1 class="payment-header">Payment Page</h1>
+    <form id="form1" runat="server">
+
+        <link href="Payment.css" rel="stylesheet" type="text/css" />
+
+        <h1 class="payment-header">Payment Page</h1>
+        <div class="parent-container">
+            <div class="payment-detail-container">
+                <h3>Payment Summary </h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Room-Image</th>
+                            <th>Theme</th>
+                            <th>Booked-days</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <asp:Image ID="HotelImage" runat="server" CssClass="inline" ImageUrl="Images/hotel room.jpg" AlternateText="Example image" /></td>
+                            <td>
+                                <asp:Label ID="lblProductName" runat="server" CssClass="product-name">sea theme twin room</asp:Label></td>
+                            <td>
+                                <asp:Label ID="lblDays" runat="server" CssClass="">3</asp:Label></td>
+                            <td>
+                                <asp:Label ID="lblPrice" runat="server" CssClass="product-price">RM123</asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Image ID="HotelImage2" runat="server" CssClass="inline" ImageUrl="Images/hotel room.jpg" AlternateText="Example2 image" /></td>
+                            <td>
+                                <asp:Label ID="lblProductName2" runat="server" CssClass="product-name2">sea theme twin room</asp:Label></td>
+                            <td>
+                                <asp:Label ID="Label2" runat="server" CssClass="">3</asp:Label></td>
+                            <td>
+                                <asp:Label ID="lblPricel2" runat="server" CssClass="product-price2">RM123</asp:Label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <asp:Image ID="Image1" runat="server" CssClass="inline" ImageUrl="Images/hotel room.jpg" AlternateText="Example2 image" /></td>
+                            <td>
+                                <asp:Label ID="Label1" runat="server" CssClass="product-name2">sea theme twin room</asp:Label></td>
+                            <td>
+                                <asp:Label ID="Label3" runat="server" CssClass="">3</asp:Label></td>
+                            <td>
+                                <asp:Label ID="Label4" runat="server" CssClass="product-price2">RM123</asp:Label>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <p class="total-text">Total :</p>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblTotal" runat="server" CssClass="total-price">RM123</asp:Label></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <br />
+            </div>
+
+            <div class="payment-container">
+                <h3 class=" payment-method ">Payment Method </h3>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p>Account Name:</p>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblAccount" runat="server" CssClass="inline">ALI</asp:Label></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>Account Id:</p>
+                            </td>
+                            <td>
+                                <asp:Label ID="Label6" runat="server" CssClass="inline" OnDisposed="Page_Load">123456676</asp:Label></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>Payment Id :</p>
+                            </td>
+                            <td>
+                                <asp:Label ID="Label11" runat="server">123456789</asp:Label></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>Booking Id :</p>
+                            </td>
+                            <td>
+                                <asp:Label ID="Label7" runat="server">123456789</asp:Label></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Date:</p>
+                            </td>
+                            <td>
+                                <asp:Label ID="Label5" runat="server">12/12/2024</asp:Label></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Method :</p>
+                            </td>
+
+                            <td>
+                                <asp:DropDownList ID="ddlMethod" runat="server" OnSelectedIndexChanged="ddlMethod_SelectedIndexChanged" AutoPostBack="true">
+                                    <asp:ListItem Text="Select A Method" Value="" Selected="True"></asp:ListItem>
+                                    <asp:ListItem>Cash</asp:ListItem>
+                                    <asp:ListItem>Credit/Debit Card</asp:ListItem>
+                                    <asp:ListItem>E wallet</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <asp:Button ID="btnProceed" runat="server" Text="Proceed" OnClick="btnProceed_Click" Visible="false" OnClientClick = "return confirmProceed();"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br />
+
+                <asp:Table ID="CreditDebitCardTable" runat="server" visible="false">
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">Credit Card Type :</asp:TableCell>
+                        <asp:TableCell class="auto-style1">
+                            <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
+                                <asp:ListItem>Visa</asp:ListItem>
+                                <asp:ListItem>Master</asp:ListItem>
+                            </asp:RadioButtonList>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">Name on Card :</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:TextBox ID="txtCCName" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">Card Number :</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:TextBox ID="txtCCNumber" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">Valid Through :</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:TextBox ID="txtCCVT" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">CVV :</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:TextBox ID="txtCCCVV" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">&nbsp;</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Button ID="btnCCSubmit" runat="server" Text="Pay Now" OnClick="btnPayNow_Click"/>
+                            &nbsp;&nbsp;
+                            <asp:Button ID="btnCCClear" runat="server" Text="Clear" OnClick="btnClear_Click"/>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+
+                <asp:Table ID="QRTable" runat="server" visible="false">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                             <asp:Image ID="qrImage" runat="server" ImageUrl="Images/qrcode.png" AlternateText="QR image"/>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <p>Scan the above QRCode for payment </p>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+               
+
+            </div>
         </div>
+    </form>
 
-
-        <div class="table-container">
-            <table class="container">
-
-                <tr>
-                    <td class="auto-style7">
-                        <asp:Image ID="HotelImage" runat="server" />
-                        <asp:Label ID="lblProductName" runat="server"></asp:Label></td>
-                    <td class="auto-style3">
-                        <asp:Label ID="lblPrice" runat="server"></asp:Label></td>
-                </tr>
-
-                <tr>
-                    <td class="auto-style6">Subtotal :</td>
-                    <td>
-                        <asp:Label ID="lblSubtotal" runat="server"></asp:Label></td>
-                </tr>
-                <tr>
-                    <td class="auto-style6">Total :</td>
-                    <td>
-                        <asp:Label ID="lblTotal" runat="server"></asp:Label></td>
-                </tr>
-                <tr>
-                    <td class="auto-style6">&nbsp;</td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-            </table>
-        </div>
-        <br />
-        &nbsp;&nbsp;&nbsp;
-        <br />
-
-        <div>
-            <table class="container">
-                <tr>
-                    <td class="auto-style9">Payment Method :</td>
-                    <td class="auto-style8">
-                        <asp:Label ID="lblPaymentMethod" runat="server"></asp:Label>
-
-                        <asp:LinkButton ID="lbChangeMethod" runat="server" OnClick="lbChangeMethod_Click">(Change)</asp:LinkButton>
-
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="auto-style9">Account</td>
-                    <td class="auto-style8">
-                        <asp:Label ID="lblAccount" runat="server"></asp:Label>
-
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style8">
-                        <div class="auto-style10">
-                            <asp:Button ID="btnPurchase" runat="server" Text="Purchase" />
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
-        </div>
-
-</form>
+    <script type="text/javascript">
+        function confirmProceed() {
+            return confirm('Please visit the front desk for comfirmation');
+        }
+    </script>
 
 </asp:Content>

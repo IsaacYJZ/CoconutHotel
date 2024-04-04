@@ -1,0 +1,42 @@
+﻿#form2 {
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.tq-container {
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 500px;
+    max-width: 100%;
+    min-height: 200px;
+    padding: 30px 10px 0px 10px;
+}
+
+    .tq-container table {
+        width: 80%;
+        margin-left: auto; /* Center the table horizontally */
+        margin-right: auto;
+        table-layout: fixed;
+    }
+
+.tq-container td:nth-child(1) {
+    text-align: left; /* Aligns text to the left in the first column */
+    vertical-align: middle; /* Centers text vertically */
+}
+
+.tq-container td:nth-child(2) {
+    text-align: right; /* Aligns text to the right in the second column */
+    vertical-align: middle; /* Centers text vertically */
+}
+
+.BackToHomePage {
+    align-items: center;
+}

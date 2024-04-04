@@ -148,6 +148,9 @@
     <Content Include="home.aspx" />
     <Content Include="home.css" />
     <Content Include="homeLogin.aspx" />
+    <Content Include="Images\mark.png" />
+    <Content Include="Images\mark_done_icon.png" />
+    <Content Include="Images\qrcode.png" />
     <Content Include="login.aspx" />
     <Content Include="login.css" />
     <Content Include="image\about sub header.PNG" />
@@ -240,10 +243,11 @@
     <Content Include="roomJs\owl.carousel.min.js" />
     <Content Include="UserProfile.aspx" />
     <Content Include="UserProfile.css" />
+    <Content Include="ThankYouPage.css" />
     <Content Include="UserProfileAdmin.aspx" />
     <!-- Content files from the 'main' branch -->
     <Content Include="Masterpage1.Master" />
-    <Content Include="ChangePayment.aspx" />
+    <Content Include="ThankYouPage.aspx" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\coconut.png" />
     <Content Include="Images\darkbackground.jpg" />
@@ -268,12 +272,12 @@
     <Compile Include="CheckAvailability.aspx.designer.cs">
       <DependentUpon>CheckAvailability.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ChangePayment.aspx.cs">
-      <DependentUpon>ChangePayment.aspx</DependentUpon>
+    <Compile Include="ThankYouPage.aspx.cs">
+      <DependentUpon>ThankYouPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ChangePayment.aspx.designer.cs">
-      <DependentUpon>ChangePayment.aspx</DependentUpon>
+    <Compile Include="ThankYouPage.aspx.designer.cs">
+      <DependentUpon>ThankYouPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
@@ -331,6 +335,13 @@
     <Compile Include="Masterpage1.Master.designer.cs">
       <DependentUpon>Masterpage1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Payment.Master.cs">
+      <DependentUpon>Payment.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.Master.designer.cs">
+      <DependentUpon>Payment.Master</DependentUpon>
+    </Compile>
     <Compile Include="PaymentPage.aspx.cs">
       <DependentUpon>PaymentPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -343,6 +354,7 @@
   <ItemGroup>
     <Content Include="Masterpage1.Master" />
     <None Include="packages.config" />
+    <Content Include="Payment.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
