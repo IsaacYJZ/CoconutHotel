@@ -1,58 +1,56 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage1.Master" AutoEventWireup="true" CodeBehind="ChangePayment.aspx.cs" Inherits="CoconutHotel.ChangePayment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style3 {
-            width: 81px;
-        }
-        .auto-style4 {
-            height: 37px;
-        }
-        .auto-style5 {
-            width: 81px;
-            height: 37px;
-        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<form id="form1" runat="server">
+<form id="form2" runat="server">
+    <link href="ThankYouPage.css" rel="stylesheet" type="text/css" />
 
     <link href="Payment.css" rel="stylesheet" type="text/css" />
-
+    <asp:Image ID="Image1" runat="server" ImageUrl="Images/mark_done_icon.png" Height="257px" Width="309px" />
     <div class=" title">
-        <h1 class="payment-header">PAYMENT METHOD</h1>
+        <h1 class="payment-header">Thank You For Purchasing!!</h1>
     </div>
 
     <div>
         <table class="container">
             <tr>
-                <td class="auto-style9">Payment Method :</td>
-                <td class="auto-style3">
+                <td>Date :</td>
+                <td>
  
                 </td>
 
             </tr>
 
             <tr>
-                <td class="auto-style4">
-                    <asp:DropDownList ID="DropDownList1" runat="server" Height="65px" Width="173px"></asp:DropDownList></td>
-                <td class="auto-style5">
+                <td>Time :</td>
+                <td>
+ 
+                    &nbsp;</td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    Method :</td>
+                <td>
  
                 </td>
             </tr>
 
             <tr>
-                <td class="auto-style9">You'll have a chance to review your order before it's placed.</td>
-                <td class="auto-style3">
+                <td>Total :</td>
+                <td>
  
                 </td>
             </tr>
                         <tr>
-                <td class="auto-style9">
 
-                </td>
-                <td class="auto-style3">
-                    <asp:Button ID="btnComfirm" runat="server" Text="Comfirm" Width="76px" />
+                <td>
+                    <asp:Button ID="btnComfirm" runat="server" Text="Back To HomePage" Width="76px" />
                 </td>
             </tr>
         </table>

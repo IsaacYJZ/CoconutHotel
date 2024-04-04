@@ -150,6 +150,8 @@
     <Content Include="home.aspx" />
     <Content Include="home.css" />
     <Content Include="homeLogin.aspx" />
+    <Content Include="Images\mark.png" />
+    <Content Include="Images\mark_done_icon.png" />
     <Content Include="login.aspx" />
     <Content Include="login.css" />
     <Content Include="image\about sub header.PNG" />
@@ -239,6 +241,7 @@
     <Content Include="roomJs\jquery.slicknav.js" />
     <Content Include="roomJs\main.js" />
     <Content Include="roomJs\owl.carousel.min.js" />
+    <Content Include="ThankYouPage.css" />
     <Content Include="UserProfileAdmin.aspx" />
     <!-- Content files from the 'main' branch -->
     <Content Include="Masterpage1.Master" />
