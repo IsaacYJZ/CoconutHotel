@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <section class="header">
             <nav>
-                <a href="home.html">
+                <a href="home.aspx">
                     <img src="Images/coconut.png" alt="Home" style="width: 50px; height: auto; margin-right: 10px;" /></a>
                 <div class="nav-links">
                     <ul>
@@ -70,5 +70,19 @@
         </section>
 
     </form>
+
+
+        <div class="footer">
+        <!-- footer content here -->
+        <div class="footer-text">
+            <h1 class="fTitle">Coconut Hotel</h1>
+            <p class="f1">Reservation +0611-1130 3353(24 hours)</p>
+            <p class="f1">99, Jalan C M Hashim, Tanjung Tokong, 11200 Tanjung Bungah, Pulau Pinang</p>
+            <p class="f1">--</p>
+
+            <p class="f2">#Coconut Hotel</p>
+            <p class="f2">© 2024 • Coconut Hotel All Rights Reserved • Coconut Hotel Management Sdn. Bhd 823281- K </p>
+        </div>
+    </div>
 </body>
 </html>

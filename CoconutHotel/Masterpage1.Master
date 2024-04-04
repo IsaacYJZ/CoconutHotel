@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="Masterpage.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -29,7 +29,9 @@
     <div class="header">
         <!-- header content here -->
         <div class="logo">
-            <img src="Images/coconut.png" alt="Coconut Hotel Logo" class="auto-style2" />
+            <a href="home.aspx">
+                <img src="Images/coconut.png" alt="Home" style="width: 50px; height: auto; margin-right: 10px;" /></a>
+
         </div>
 
         <div class="headers-text">
@@ -63,7 +65,7 @@
     <div class="footer">
         <!-- footer content here -->
         <div class="footer-text">
-            <h1>Coconut Hotel</h1>
+            <h1 class="fTitle">Coconut Hotel</h1>
             <p class="f1">Reservation +0611-1130 3353(24 hours)</p>
             <p class="f1">99, Jalan C M Hashim, Tanjung Tokong, 11200 Tanjung Bungah, Pulau Pinang</p>
             <p class="f1">--</p>

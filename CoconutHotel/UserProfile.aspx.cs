@@ -20,6 +20,7 @@ namespace CoconutHotel
             //    GridView1.DataSource = dt;
             //    GridView1.DataBind();
             //}
+
         }
         //private DataTable GetFakeUserData()
         //{
@@ -40,6 +41,11 @@ namespace CoconutHotel
         protected void btnEditProfile_Click(object sender, EventArgs e)
         {
             Response.Redirect("EditUserProfile.aspx");
+        }
+
+        protected void btnEditName_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
