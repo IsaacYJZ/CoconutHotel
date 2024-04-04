@@ -95,6 +95,11 @@ p.f1 {
     font-family: 'Courier New, Courier, monospace';
 }
 
+.fTitle {
+    color: white;
+    font-family: 'Courier New, Courier, monospace';
+}
+
 p.f2 {
     color: grey;
     font-family: 'Courier New, Courier, monospace';

@@ -5,13 +5,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="home.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
         <section class="header">
             <nav>
-                <a href="home.html">
+                <a href="home.aspx">
                     <img src="Images/coconut.png" alt="Home" style="width: 50px; height: auto; margin-right: 10px;" /></a>
                 <div class="nav-links">
                     <ul>
@@ -21,12 +23,17 @@
                             <asp:HyperLink ID="aboutLink" runat="server" NavigateUrl="~/about.aspx">ABOUT</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="facilitiesLink" runat="server" NavigateUrl="~/facilities.aspx">FACILITIES</asp:HyperLink></li>
-                         <li>
-                            <asp:hyperlink id="bookinglink" runat="server" navigateurl="~/CheckAvailability.aspx">BOOK A ROOM</asp:hyperlink></li>
+                        <li>
+                            <asp:HyperLink ID="bookinglink" runat="server" NavigateUrl="~/CheckAvailability.aspx">BOOK A ROOM</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="contactLink" runat="server" NavigateUrl="~/contact.aspx">CONTACT</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="galleryLink" runat="server" NavigateUrl="~/gallery.aspx">GALLERY</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="hypUserProfile" runat="server" NavigateUrl="UserProfile.aspx">
+                    <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
+                            </asp:HyperLink>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -185,7 +192,23 @@ customers
                 </div>
             </div>
             <asp:Button ID="moreReviewBtn" runat="server" Text="More Review" CssClass="review-btn" OnClick="moreReviewBtn_Click" />
+            <br />
+            <br />
         </section>
     </form>
+
+    <div class="footer">
+        <!-- footer content here -->
+        <div class="footer-text">
+            <h1 class="fTitle">Coconut Hotel</h1>
+            <p class="f1">Reservation +0611-1130 3353(24 hours)</p>
+            <p class="f1">99, Jalan C M Hashim, Tanjung Tokong, 11200 Tanjung Bungah, Pulau Pinang</p>
+            <p class="f1">--</p>
+
+            <p class="f2">#Coconut Hotel</p>
+            <p class="f2">© 2024 • Coconut Hotel All Rights Reserved • Coconut Hotel Management Sdn. Bhd 823281- K </p>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -8,7 +8,7 @@
         <section class="contact">
             <div class="content">
                 <h1>Contact Us</h1>
-                <p>Email us with any question or inquiries call +60123456789. We would be happy to answer your question~</p>
+                <p>Email us with any question or inquiries call +061111303353. We would be happy to answer your question~</p>
             </div>
             <div class="container">
                 <div class="contactInfo">

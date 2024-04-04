@@ -3,12 +3,15 @@
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
-    background-image: url('image/hotel.jpg');
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url('image/hotel.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-
+/*.hidden-button {
+    visibility: hidden;
+    position: absolute;
+}*/
 .container {
     max-width: 800px;
     margin: 20px auto;

@@ -1,6 +1,6 @@
 ﻿body {
     font-family: Arial, sans-serif;
-    background-image: url('image/hotel.jpg');
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url('image/hotel.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; /* Ensure the background covers the entire viewport */
