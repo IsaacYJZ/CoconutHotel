@@ -19,5 +19,11 @@ namespace CoconutHotel
             // Redirect to UserProfileAdmin.aspx page
             Response.Redirect("UserProfileAdmin.aspx");
         }
+
+        protected void ViewRoomButton_Click(object sender, EventArgs e)
+        {
+            // Redirect to UserProfileAdmin.aspx page
+            Response.Redirect("RoomAdmin.aspx");
+        }
     }
 }

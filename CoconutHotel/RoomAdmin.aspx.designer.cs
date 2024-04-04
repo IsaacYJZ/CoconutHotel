@@ -15,31 +15,40 @@ namespace CoconutHotel
     {
 
         /// <summary>
-        /// resultType control.
+        /// roomName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox resultType;
+        protected global::System.Web.UI.WebControls.TextBox roomName;
 
         /// <summary>
-        /// sortOrder control.
+        /// roomType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList sortOrder;
+        protected global::System.Web.UI.WebControls.DropDownList roomType;
 
         /// <summary>
-        /// orderBy control.
+        /// minPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList orderBy;
+        protected global::System.Web.UI.WebControls.TextBox minPrice;
+
+        /// <summary>
+        /// maxPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox maxPrice;
 
         /// <summary>
         /// searchBox control.
@@ -51,22 +60,22 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.TextBox searchBox;
 
         /// <summary>
-        /// EditButton control.
+        /// EditButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton EditButton;
+        protected global::System.Web.UI.WebControls.LinkButton EditButton1;
 
         /// <summary>
-        /// DeleteButton control.
+        /// DeleteButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton DeleteButton;
+        protected global::System.Web.UI.WebControls.LinkButton DeleteButton1;
 
         /// <summary>
         /// LinkButton1 control.
@@ -150,22 +159,58 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.Panel editForm;
 
         /// <summary>
-        /// txtEditUsername control.
+        /// lblRoomNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditUsername;
+        protected global::System.Web.UI.WebControls.Label lblRoomNo;
 
         /// <summary>
-        /// txtEditEmail control.
+        /// txtRoomName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtRoomName;
+
+        /// <summary>
+        /// ddlRoomType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlRoomType;
+
+        /// <summary>
+        /// txtDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+
+        /// <summary>
+        /// txtPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPrice;
+
+        /// <summary>
+        /// fileUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
 
         /// <summary>
         /// btnSaveChanges control.
