@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage1.Master" AutoEventWireup="true" CodeBehind="facilities.aspx.cs" Inherits="CoconutHotel.facilities" %>
-
+<asp:Content ID="Content3" ContentPlaceHolderID="titleContent" runat="server">
+    Facilities
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
