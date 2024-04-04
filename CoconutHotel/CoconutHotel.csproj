@@ -326,6 +326,13 @@
     <Compile Include="Masterpage1.Master.designer.cs">
       <DependentUpon>Masterpage1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Payment.Master.cs">
+      <DependentUpon>Payment.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.Master.designer.cs">
+      <DependentUpon>Payment.Master</DependentUpon>
+    </Compile>
     <Compile Include="PaymentPage.aspx.cs">
       <DependentUpon>PaymentPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,6 +345,7 @@
   <ItemGroup>
     <Content Include="Masterpage1.Master" />
     <None Include="packages.config" />
+    <Content Include="Payment.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

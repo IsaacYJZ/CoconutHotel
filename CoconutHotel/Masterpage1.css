@@ -58,6 +58,11 @@
         max-width: 1000px; 
     }
 
+    h1.foot-title {
+        color: white;
+        font-family: 'Courier New, Courier, monospace';
+    }
+
     p.f1 {
         color: white;
         font-family: 'Courier New, Courier, monospace';
