@@ -1,0 +1,65 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-image: url('image/hotel.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensure the background covers the entire viewport */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Make the body fill the entire viewport height */
+}
+
+.container {
+    max-width: 500px;
+    padding: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+}
+
+.edit{
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .edit .btn-save {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .edit .btn-save:hover {
+            background-color: #0056b3;
+        }
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        font-weight: bold;
+        color: #555;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+  

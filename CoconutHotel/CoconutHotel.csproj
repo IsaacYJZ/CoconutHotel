@@ -80,6 +80,8 @@
     <Content Include="contact.aspx" />
     <Content Include="contact.css" />
     <Content Include="css\RoomAdmin.css" />
+    <Content Include="EditUserProfile.aspx" />
+    <Content Include="EditUserProfile.css" />
     <Content Include="facilities.aspx" />
     <Content Include="facilities.css" />
     <Content Include="gallery.aspx" />
@@ -184,6 +186,7 @@
     <Content Include="image\user5.jpg" />
     <Content Include="image\user6.jpg" />
     <Content Include="image\yoga.jpg" />
+    <Content Include="Masterpage.css" />
     <Content Include="register.aspx" />
     <Content Include="register.css" />
     <Content Include="review.aspx" />
@@ -242,6 +245,8 @@
     <Content Include="roomJs\jquery.slicknav.js" />
     <Content Include="roomJs\main.js" />
     <Content Include="roomJs\owl.carousel.min.js" />
+    <Content Include="UserProfile.aspx" />
+    <Content Include="UserProfile.css" />
     <Content Include="ThankYouPage.css" />
     <Content Include="UserProfileAdmin.aspx" />
     <!-- Content files from the 'main' branch -->
@@ -284,6 +289,13 @@
     </Compile>
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditUserProfile.aspx.cs">
+      <DependentUpon>EditUserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditUserProfile.aspx.designer.cs">
+      <DependentUpon>EditUserProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="facilities.aspx.cs">
       <DependentUpon>facilities.aspx</DependentUpon>
@@ -402,6 +414,13 @@
     </Compile>
     <Compile Include="RoomBooking.aspx.designer.cs">
       <DependentUpon>RoomBooking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserProfileAdmin.aspx.cs">
       <DependentUpon>UserProfileAdmin.aspx</DependentUpon>

@@ -1,0 +1,94 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    background-image: url('image/hotel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+}
+
+.user-detail {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+    .user-detail:last-child {
+        border-bottom: none;
+    }
+
+    .user-detail label {
+        font-weight: bold;
+        color: #555;
+    }
+
+    .user-detail p {
+        margin: 0;
+        color: #777;
+    }
+
+.edit-profile {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .edit-profile .btn-edit {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .edit-profile .btn-edit:hover {
+            background-color: #0056b3;
+        }
+
+.booking-history {
+    margin-top: 40px;
+}
+
+    .booking-history table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .booking-history th, .booking-history td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .booking-history th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        color: #555;
+        text-transform: uppercase;
+    }
+
+    .booking-history td {
+        color: #444;
+    }
+
+    .booking-history tr:hover {
+        background-color: #f9f9f9;
+    }
