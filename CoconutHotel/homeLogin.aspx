@@ -21,8 +21,8 @@
                             <asp:HyperLink ID="aboutLink" runat="server" NavigateUrl="~/about.aspx">ABOUT</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="facilitiesLink" runat="server" NavigateUrl="~/facilities.aspx">FACILITIES</asp:HyperLink></li>
-                       <%-- <li>
-                            <asp:HyperLink ID="bookingLink" runat="server" NavigateUrl="~/CheckAvailability.aspx">BOOK</asp:HyperLink></li>--%>
+                         <li>
+                            <asp:hyperlink id="bookinglink" runat="server" navigateurl="~/CheckAvailability.aspx">BOOK A ROOM</asp:hyperlink></li>
                         <li>
                             <asp:HyperLink ID="contactLink" runat="server" NavigateUrl="~/contact.aspx">CONTACT</asp:HyperLink></li>
                         <li>
@@ -42,7 +42,7 @@
                 </p>
                 <br />
                 <br />
-                <asp:Button ID="bookBtn" runat="server" Text="Book Now" CssClass="book-btn" OnClick="bookBtn_Click"/>
+                <asp:Button ID="bookBtn" runat="server" Text="Book Now" CssClass="book-btn" OnClick="bookBtn_Click" />
 
             </div>
         </section>
@@ -74,7 +74,7 @@
 
             <div class="row">
                 <div class="rooms-cal">
-                    <img src="image/room3.jpg" alt="BASIC"/>
+                    <img src="image/room3.jpg" alt="BASIC" />
                     <a href="#">
                         <div class="layer">
                             <h3>BASIC</h3>
@@ -82,7 +82,7 @@
                     </a>
                 </div>
                 <div class="rooms-cal">
-                    <img src="image/room2.jpg" alt="CLASSIC"/>
+                    <img src="image/room2.jpg" alt="CLASSIC" />
                     <a href="#">
                         <div class="layer">
                             <h3>CLASSIC</h3>
@@ -90,7 +90,7 @@
                     </a>
                 </div>
                 <div class="rooms-cal">
-                    <img src="image/room1.jpg" alt="LUXURY"/>
+                    <img src="image/room1.jpg" alt="LUXURY" />
                     <a href="#">
                         <div class="layer">
                             <h3>LUXURY</h3>

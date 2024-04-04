@@ -26,6 +26,40 @@
     margin-left: 10px; /* Add spacing between logo and header text */
 }
 
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+    .nav-links ul li {
+        list-style: none;
+        display: inline-block;
+        padding: 8px 12px;
+        position: relative;
+    }
+
+        .nav-links ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        /*--CSS Transitions[Online] https://www.w3schools.com/css/css3_transitions.asp [Accessed 21 August 2021]--*/
+        .nav-links ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #03f5f5;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .nav-links ul li:hover::after {
+            width: 100%;
+        }
+
+
+
 html, body {
     margin: 0;
     padding: 0;
