@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="home.css" rel="stylesheet" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
     <title></title>
 </head>
 <body>
@@ -22,11 +24,16 @@
                         <li>
                             <asp:HyperLink ID="facilitiesLink" runat="server" NavigateUrl="~/facilities.aspx">FACILITIES</asp:HyperLink></li>
                          <li>
-                            <asp:HyperLink ID="bookingLink" runat="server" NavigateUrl="~/CheckAvailability.aspx">BOOK A ROOM</asp:HyperLink></li>
+                            <asp:HyperLink ID="bookingLink" runat="server" NavigateUrl="~/login.aspx">BOOK A ROOM</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="contactLink" runat="server" NavigateUrl="~/contact.aspx">CONTACT</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="galleryLink" runat="server" NavigateUrl="~/gallery.aspx">GALLERY</asp:HyperLink></li>
+                         <li>
+                            <asp:HyperLink ID="hypUserProfile" runat="server" NavigateUrl="login.aspx">
+                    <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
+                            </asp:HyperLink>
+                        </li>
                     </ul>
                 </div>
             </nav>
