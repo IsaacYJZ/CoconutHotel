@@ -65,3 +65,8 @@ p.f2 {
     color: grey;
     font-family: 'Courier New, Courier, monospace';
 }
+
+h1.foot-title {
+    color: white;
+    font-family: 'Courier New, Courier, monospace';
+}
