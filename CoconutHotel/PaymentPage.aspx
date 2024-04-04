@@ -107,10 +107,18 @@
 
                         <tr>
                             <td>
-                                <p>Reference Number :</p>
+                                <p>Payment Id :</p>
                             </td>
                             <td>
                                 <asp:Label ID="Label11" runat="server">123456789</asp:Label></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>Booking Id :</p>
+                            </td>
+                            <td>
+                                <asp:Label ID="Label7" runat="server">123456789</asp:Label></td>
                         </tr>
                         <tr>
                             <td>
@@ -126,34 +134,91 @@
 
                             <td>
                                 <asp:DropDownList ID="ddlMethod" runat="server" OnSelectedIndexChanged="ddlMethod_SelectedIndexChanged" AutoPostBack="true">
+                                    <asp:ListItem Text="Select A Method" Value="" Selected="True"></asp:ListItem>
                                     <asp:ListItem>Cash</asp:ListItem>
-                                    <asp:ListItem>Master Card</asp:ListItem>
-                                    <asp:ListItem>Visa Card</asp:ListItem>
+                                    <asp:ListItem>Credit/Debit Card</asp:ListItem>
                                     <asp:ListItem>E wallet</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
 
                         </tr>
                         <tr>
+                            <td></td>
                             <td>
-
-                            </td>
-                            <td>
-                                <asp:Button ID="btnProceed" runat="server" Text="Proceed" />
+                                <asp:Button ID="btnProceed" runat="server" Text="Proceed" OnClick="btnProceed_Click" Visible="false" OnClientClick = "return confirmProceed();"/>
                             </td>
                         </tr>
-
                     </tbody>
                 </table>
 
                 <br />
 
-                
+                <asp:Table ID="CreditDebitCardTable" runat="server" visible="false">
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">Credit Card Type :</asp:TableCell>
+                        <asp:TableCell class="auto-style1">
+                            <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
+                                <asp:ListItem>Visa</asp:ListItem>
+                                <asp:ListItem>Master</asp:ListItem>
+                            </asp:RadioButtonList>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">Name on Card :</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:TextBox ID="txtCCName" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">Card Number :</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:TextBox ID="txtCCNumber" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">Valid Through :</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:TextBox ID="txtCCVT" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">CVV :</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:TextBox ID="txtCCCVV" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">&nbsp;</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Button ID="btnCCSubmit" runat="server" Text="Pay Now" OnClick="btnPayNow_Click"/>
+                            &nbsp;&nbsp;
+                            <asp:Button ID="btnCCClear" runat="server" Text="Clear" OnClick="btnClear_Click"/>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
 
-                
+                <asp:Table ID="QRTable" runat="server" visible="false">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                             <asp:Image ID="qrImage" runat="server" ImageUrl="Images/qrcode.png" AlternateText="QR image"/>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <p>Scan the above QRCode for payment </p>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+               
 
             </div>
         </div>
     </form>
-    
+
+    <script type="text/javascript">
+        function confirmProceed() {
+            return confirm('Please visit the front desk for comfirmation');
+        }
+    </script>
+
 </asp:Content>

@@ -152,6 +152,7 @@
     <Content Include="homeLogin.aspx" />
     <Content Include="Images\mark.png" />
     <Content Include="Images\mark_done_icon.png" />
+    <Content Include="Images\qrcode.png" />
     <Content Include="login.aspx" />
     <Content Include="login.css" />
     <Content Include="image\about sub header.PNG" />

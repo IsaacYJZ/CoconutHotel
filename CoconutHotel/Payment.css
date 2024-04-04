@@ -158,4 +158,11 @@ p.total-price {
     margin-top: auto; /* Pushes the button to the bottom if the container is a flexbox */
 }
 
+#QRTable {
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: fixed;
+    text-align: center;
+}
+
 

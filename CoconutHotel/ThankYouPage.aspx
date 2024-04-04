@@ -2,6 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
 
+        .auto-style3 {
+            width: 77%;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -16,7 +20,7 @@
     </div>
 
     <div class="tq-container">
-        <table >
+        <table class="auto-style3" >
             <tr>
                 <td>Date :</td>
                 <td>
@@ -47,10 +51,21 @@
                     <asp:Label ID="lblPurcahseTotal" runat="server" Text="RM123"></asp:Label>
                 </td>
             </tr>
+
+            <tr>
+                <td colspan="2">
+                    &nbsp;</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <asp:Button ID="btnComfirm" runat="server" Text="Back To HomePage" Width="393px" />
+                </td>
+            </tr>
         </table>
 
         <div class="BackToHomePage">
-            <asp:Button ID="btnComfirm" runat="server" Text="Back To HomePage" Width="189px" />
+            
         </div>
          
 
