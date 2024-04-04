@@ -22,5 +22,10 @@ namespace CoconutHotel
                 }
             }
         }
+
+        protected void btnComfirm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("home.aspx");
+        }
     }
 }

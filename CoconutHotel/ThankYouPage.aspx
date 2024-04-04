@@ -59,7 +59,7 @@
 
             <tr>
                 <td colspan="2">
-                    <asp:Button ID="btnComfirm" runat="server" Text="Back To HomePage" Width="393px" />
+                    <asp:Button ID="btnComfirm" runat="server" Text="Back To HomePage" Width="393px" OnClick="btnComfirm_Click" />
                 </td>
             </tr>
         </table>
