@@ -132,15 +132,25 @@
                                     <asp:ListItem>E wallet</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+                                <asp:Button ID="btnProceed" runat="server" Text="Proceed" />
+                            </td>
                         </tr>
 
                     </tbody>
                 </table>
 
-
                 <br />
 
-                <asp:Button ID="btnPurchase" runat="server" Text="Purchase" />
+                
+
+                
 
             </div>
         </div>

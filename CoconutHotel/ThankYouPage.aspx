@@ -1,0 +1,60 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Payment.Master" AutoEventWireup="true" CodeBehind="ThankYouPage.aspx.cs" Inherits="CoconutHotel.ChangePayment" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+<form id="form2" runat="server">
+    <link href="ThankYouPage.css" rel="stylesheet" type="text/css" />
+
+    <link href="Payment.css" rel="stylesheet" type="text/css" />
+    <asp:Image ID="Image1" runat="server" ImageUrl="Images/mark_done_icon.png" Height="109px" Width="108px" />
+    <div class=" title">
+        <h1 class="TQ-header">Thank You For Purchasing!!</h1>
+    </div>
+
+    <div class="tq-container">
+        <table >
+            <tr>
+                <td>Date :</td>
+                <td>
+                    <asp:Label ID="lblPurchaseDate" runat="server" Text="2/11/2024"></asp:Label>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>Time :</td>
+                <td>
+                    <asp:Label ID="lblPurchaseTime" runat="server" Text="12:23:01"></asp:Label>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    Method :</td>
+                <td>
+                    <asp:Label ID="lblMethodSelected" runat="server" Text="Credit Card"></asp:Label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Total :</td>
+                <td>
+                    <asp:Label ID="lblPurcahseTotal" runat="server" Text="RM123"></asp:Label>
+                </td>
+            </tr>
+        </table>
+
+        <div class="BackToHomePage">
+            <asp:Button ID="btnComfirm" runat="server" Text="Back To HomePage" Width="189px" />
+        </div>
+         
+
+    </div>
+</form>
+
+</asp:Content>

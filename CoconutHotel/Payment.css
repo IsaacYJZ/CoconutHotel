@@ -150,7 +150,12 @@ p.total-price {
     vertical-align: middle; /* Centers text vertically */
 }
 
-#btnPurchase {
+.proceed-button {
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 8px;
     align-self: flex-end; /* Aligns the button to the end of the flex container (right) */
     margin-top: auto; /* Pushes the button to the bottom if the container is a flexbox */
 }
+
+
