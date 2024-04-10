@@ -16,21 +16,15 @@ namespace CoconutHotel
 
         protected void EditButton_Click(object sender, EventArgs e)
         {
-            // Show the edit form
-            editForm.Visible = true;
+            LinkButton editButton = (LinkButton)sender;
+            string userId = editButton.CommandArgument;
+            Response.Redirect($"EditProfileAdmin.aspx?UserID={userId}");
         }
 
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
             // Show the delete form
             deleteForm.Visible = true;
-        }
-
-        protected void btnSaveChanges_Click(object sender, EventArgs e)
-        {
-            // Perform form submission handling (e.g., save changes)
-            // For demonstration purposes, let's just hide the edit form
-            editForm.Visible = false;
         }
 
         protected void btnDeleteUser_Click(object sender, EventArgs e)
@@ -44,6 +38,12 @@ namespace CoconutHotel
         {
             // Cancel delete action
             deleteForm.Visible = false;
+        }
+
+        protected void btnAddProfile_Click(object sender, EventArgs e)
+        {
+            // Redirect to AddProfileAdmin.aspx
+            Response.Redirect("AddProfileAdmin.aspx");
         }
     }
 }

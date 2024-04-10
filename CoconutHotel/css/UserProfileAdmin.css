@@ -248,3 +248,8 @@
             background: #286090;
         }
 
+.add-profile-btn {
+    margin-top: 20px; /* Adjust as needed */
+    margin-right: 20px; /* Adjust as needed */
+    float: right;
+}
