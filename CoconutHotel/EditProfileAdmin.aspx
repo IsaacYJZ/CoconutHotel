@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="EditProfileAdmin.aspx.cs" Inherits="CoconutHotel.EditProfileAdmin" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="titleContent" runat="server">
     Edit Profile Admin
 </asp:Content>
@@ -49,7 +50,15 @@
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="rfvUserType" runat="server" ControlToValidate="ddlUserType" ErrorMessage="User Type is required." ForeColor="Red" />
         </div>
+        <div class="form-group">
+            <label for="ddlUserType">User Status:</label>
+            <asp:DropDownList ID="ddlUserStatus" runat="server" CssClass="form-control form-control-sm">
+                <asp:ListItem Text="Valid" Value="Valid"></asp:ListItem>
+                <asp:ListItem Text="Invalid" Value="Invalid"></asp:ListItem>
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="rfvUserStatus" runat="server" ControlToValidate="ddlUserStatus" ErrorMessage="User Status is required." ForeColor="Red" />
+        </div>
 
-        <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" CssClass="btn btn-primary btn-sm"  />
+        <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" CssClass="btn btn-primary btn-sm" />
     </asp:Panel>
 </asp:Content>

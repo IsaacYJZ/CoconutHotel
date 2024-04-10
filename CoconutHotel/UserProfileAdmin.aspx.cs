@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
 namespace CoconutHotel
@@ -11,7 +10,38 @@ namespace CoconutHotel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                BindGridView();
+            }
+        }
 
+        private void BindGridView()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            string query = "SELECT * FROM [User]";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        gridViewUsers.DataSource = dataTable;
+                        gridViewUsers.DataBind();
+                    }
+                    else
+                    {
+                        // Display a message when no users are found
+                        // You can add a label or handle this case as needed
+                    }
+                }
+            }
         }
 
         protected void EditButton_Click(object sender, EventArgs e)

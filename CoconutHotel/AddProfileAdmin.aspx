@@ -52,6 +52,15 @@
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="rfvUserType" runat="server" ControlToValidate="ddlUserType" ErrorMessage="User Type is required." ForeColor="Red" />
         </div>
+        <div class="form-group">
+            <label for="ddlUserType">User Status:</label>
+            <asp:DropDownList ID="ddlUserStatus" runat="server" CssClass="form-control form-control-sm">
+                    <asp:ListItem Text="Valid" Value="Valid"></asp:ListItem>
+                    <asp:ListItem Text="Invalid" Value="Invalid"></asp:ListItem>
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="rfvUserStatus" runat="server" ControlToValidate="ddlUserStatus" ErrorMessage="User Status is required." ForeColor="Red" />
+        </div>
+
 
         <asp:Button ID="btnSaveProfile" runat="server" Text="Save Profile" CssClass="btn btn-primary btn-sm" />
 

@@ -61,171 +61,44 @@
             </div>
         </div>
     </section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-10">
-                <div class="form-group">
-                    <div class="input-group-append ml-2">
-                        <asp:Button ID="btnAddRoom" runat="server" Text="Add Room" CssClass="btn btn-primary" OnClick="btnAddRoom_Click" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- GridView to display user data -->
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="main-box clearfix">
                     <div class="table-responsive">
-                        <table class="table user-list">
-                            <thead>
-                                <tr>
-                                    <th><span>No.</span></th>
-                                    <th><span>Image</span></th>
-                                    <th><span>Room Name</span></th>
-                                    <th><span>Room Type</span></th>
-                                    <th><span>Description</span></th>
-                                    <th><span>Price</span></th>
-                                    <th>&nbsp;</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>
-                                        <img src="roomImg/rooms-1.jpg" alt="">
-                                    </td>
-                                    <td>Room 1</td>
-                                    <td>Standard</td>
-                                    <td>Description of Room 1</td>
-                                    <td>$100</td>
-                                    <td style="width: 20%;">
-                                        <asp:LinkButton ID="EditButton1" runat="server" CssClass="table-link" OnClick="EditButton_Click">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </asp:LinkButton>
-                                        <asp:LinkButton ID="DeleteButton1" runat="server" CssClass="table-link danger" OnClick="DeleteButton_Click">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </asp:LinkButton>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>２</td>
-                                    <td>
-                                        <img src="roomImg/rooms-1.jpg" alt="">
-                                    </td>
-                                    <td>Room 1</td>
-                                    <td>Standard</td>
-                                    <td>Description of Room 1</td>
-                                    <td>$100</td>
-                                    <td style="width: 20%;">
-                                        <asp:LinkButton ID="LinkButton1" runat="server" CssClass="table-link" OnClick="EditButton_Click">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </asp:LinkButton>
-                                        <asp:LinkButton ID="LinkButton2" runat="server" CssClass="table-link danger" OnClick="DeleteButton_Click">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </asp:LinkButton>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>
-                                        <img src="roomImg/rooms-1.jpg" alt="">
-                                    </td>
-                                    <td>Room 1</td>
-                                    <td>Standard</td>
-                                    <td>Description of Room 1</td>
-                                    <td>$100</td>
-                                    <td style="width: 20%;">
-                                        <asp:LinkButton ID="LinkButton3" runat="server" CssClass="table-link" OnClick="EditButton_Click">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </asp:LinkButton>
-                                        <asp:LinkButton ID="LinkButton4" runat="server" CssClass="table-link danger" OnClick="DeleteButton_Click">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </asp:LinkButton>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>
-                                        <img src="roomImg/rooms-1.jpg" alt="">
-                                    </td>
-                                    <td>Room 1</td>
-                                    <td>Standard</td>
-                                    <td>Description of Room 1</td>
-                                    <td>$100</td>
-                                    <td style="width: 20%;">
-                                        <asp:LinkButton ID="LinkButton5" runat="server" CssClass="table-link" OnClick="EditButton_Click">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </asp:LinkButton>
-                                        <asp:LinkButton ID="LinkButton6" runat="server" CssClass="table-link danger" OnClick="DeleteButton_Click">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </asp:LinkButton>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>
-                                        <img src="roomImg/rooms-1.jpg" alt="">
-                                    </td>
-                                    <td>Room 1</td>
-                                    <td>Standard</td>
-                                    <td>Description of Room 1</td>
-                                    <td>$100</td>
-                                    <td style="width: 20%;">
-                                        <asp:LinkButton ID="LinkButton7" runat="server" CssClass="table-link" OnClick="EditButton_Click" CommandArgument='<%# Eval("RoomID") %>'>
-                                        <span class="fa-stack">
-                                            <i class="fa fa-square fa-stack-2x"></i>
-                                            <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                        </asp:LinkButton>
-                                        <asp:LinkButton ID="LinkButton8" runat="server" CssClass="table-link danger" OnClick="DeleteButton_Click">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </asp:LinkButton>
-                                    </td>
-                                </tr>
-                                <!-- Add more rows as needed -->
-                            </tbody>
-                        </table>
-
-                        <!-- Delete form -->
-                        <asp:Panel ID="deleteForm" runat="server" CssClass="edit-form" Visible="false">
-                            <h2>Delete Room</h2>
-                            <p>Are you sure you want to delete this Room?</p>
-                            <asp:Button ID="btnDeleteRoom" runat="server" Text="Yes, Delete" CssClass="btn btn-danger" OnClick="btnDeleteRoom_Click" />
-                            <asp:Button ID="btnCancelDelete" runat="server" Text="Cancel" CssClass="btn btn-secondary" OnClick="btnCancelRoom_Click" />
-                        </asp:Panel>
-                        <!-- End of delete form -->
+                        <asp:GridView ID="gridViewRooms" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="false">
+                            <Columns>
+                                <asp:BoundField DataField="roomImage" HeaderText="Image" />
+                                <asp:BoundField DataField="roomName" HeaderText="Room Name" />
+                                <asp:BoundField DataField="roomDesc" HeaderText="Description" />
+                                <asp:BoundField DataField="roomType" HeaderText="Room Type" />
+                                <asp:BoundField DataField="roomPrice" HeaderText="Price" />
+                                <asp:TemplateField HeaderText="Control">
+                                    <ItemTemplate>
+                                        <div class="btn-group" role="group">
+                                            <asp:LinkButton ID="EditButton" runat="server" CssClass="btn btn-primary" OnClick="EditButton_Click">
+                                                <i class="fa fa-pencil"></i> Edit
+                                            </asp:LinkButton>
+                                            <asp:LinkButton ID="DeleteButton" runat="server" CssClass="btn btn-danger" OnClick="DeleteButton_Click">
+                                             <i class="fa fa-trash-o"></i> Delete
+                                            </asp:LinkButton>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Delete form -->
+    <asp:Panel ID="deleteForm" runat="server" CssClass="edit-form" Visible="false">
+        <h2>Delete Room</h2>
+        <p>Are you sure you want to delete this Room?</p>
+        <asp:Button ID="btnDeleteRoom" runat="server" Text="Yes, Delete" CssClass="btn btn-danger" OnClick="btnDeleteRoom_Click" />
+        <asp:Button ID="btnCancelDelete" runat="server" Text="Cancel" CssClass="btn btn-secondary" OnClick="btnCancelRoom_Click" />
+    </asp:Panel>
+    <!-- End of delete form -->
 </asp:Content>
