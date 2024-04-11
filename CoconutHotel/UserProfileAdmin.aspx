@@ -58,6 +58,9 @@
             </div>
         </div>
     </section>
+        <!-- Hidden field to store userID -->
+    <asp:HiddenField ID="hiddenFieldUserID" runat="server" />
+
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-10">
@@ -75,7 +78,7 @@
             <div class="col-lg-12">
                 <div class="main-box clearfix">
                     <div class="table-responsive">
-                        <asp:GridView ID="gridViewUsers" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="false">
+                        <asp:GridView ID="gridViewUsers" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="false" DataKeyNames="userID">
                             <Columns>
                                 <asp:BoundField DataField="userID" HeaderText="User ID" />
                                 <asp:BoundField DataField="userName" HeaderText="User Name" />

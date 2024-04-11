@@ -61,7 +61,7 @@
             </div>
         </div>
     </section>
-    <!-- GridView to display user data -->
+    <!-- GridView to display room data -->
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -69,7 +69,11 @@
                     <div class="table-responsive">
                         <asp:GridView ID="gridViewRooms" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="false">
                             <Columns>
-                                <asp:BoundField DataField="roomImage" HeaderText="Image" />
+                                <asp:TemplateField HeaderText="Image">
+                                    <ItemTemplate>
+                                        <asp:Image ID="roomImage" runat="server" ImageUrl='<%# Eval("roomImage") %>' Height="100" Width="100" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:BoundField DataField="roomName" HeaderText="Room Name" />
                                 <asp:BoundField DataField="roomDesc" HeaderText="Description" />
                                 <asp:BoundField DataField="roomType" HeaderText="Room Type" />

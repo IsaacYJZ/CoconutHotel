@@ -46,23 +46,77 @@ namespace CoconutHotel
 
         protected void EditButton_Click(object sender, EventArgs e)
         {
-            LinkButton editButton = (LinkButton)sender;
-            string userId = editButton.CommandArgument;
-            Response.Redirect($"EditProfileAdmin.aspx?UserID={userId}");
+            // Get the selected row from the GridView
+            LinkButton btnEdit = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)btnEdit.NamingContainer;
+
+            // Get the userID from the DataKeys collection of the GridView
+            string userId = gridViewUsers.DataKeys[row.RowIndex].Value.ToString();
+
+            // Redirect to EditProfileAdmin.aspx with the userID as a query parameter
+            Response.Redirect("EditProfileAdmin.aspx?UserID=" + userId);
         }
+
 
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
-            // Show the delete form
+            // Find the clicked LinkButton in the GridView row
+            LinkButton deleteButton = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)deleteButton.NamingContainer;
+
+            // Get the userID from the GridView data keys
+            string userID = gridViewUsers.DataKeys[row.RowIndex].Value.ToString();
+
+            // Store the userID in a hidden field to use it in the btnDeleteUser_Click event
+            hiddenFieldUserID.Value = userID;
+
+            // Display the delete confirmation form
             deleteForm.Visible = true;
         }
 
+
         protected void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            // Perform user deletion here
-            // For demonstration purposes, let's just hide the delete form
+            // Retrieve the userID from the hidden field
+            string userID = hiddenFieldUserID.Value;
+
+            // Perform the deletion of the user profile with the retrieved userID from the database
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "DELETE FROM [User] WHERE userID = @UserID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", userID);
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        // Deletion successful
+                        // Display success message or redirect to another page
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('User profile deleted successfully.');", true);
+
+                        // Refresh the GridView to reflect the changes
+                        BindGridView();
+                    }
+                    else
+                    {
+                        // Deletion failed
+                        // Handle the failure (display error message, log the error, etc.)
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Failed to delete user profile. Please try again.');", true);
+                    }
+                }
+
+                // Close the connection
+                connection.Close();
+            }
+
+            // Hide the delete confirmation form after deletion
             deleteForm.Visible = false;
         }
+
+
+
 
         protected void btnCancelDelete_Click(object sender, EventArgs e)
         {

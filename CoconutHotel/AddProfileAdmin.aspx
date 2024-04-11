@@ -62,7 +62,8 @@
         </div>
 
 
-        <asp:Button ID="btnSaveProfile" runat="server" Text="Save Profile" CssClass="btn btn-primary btn-sm" />
+        <asp:Button ID="btnSaveProfile" runat="server" Text="Save Profile" CssClass="btn btn-primary btn-sm" OnClick="btnSaveProfile_Click" />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-secondary btn-sm" OnClick="btnCancel_Click" CausesValidation="False" />
 
     </asp:Panel>
 </asp:Content>

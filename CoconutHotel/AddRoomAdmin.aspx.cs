@@ -11,7 +11,11 @@ namespace CoconutHotel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                // Set the initial value of the fileUpload control
+                fileUpload.Attributes["value"] = "roomImg/";
+            }
         }
     }
 }

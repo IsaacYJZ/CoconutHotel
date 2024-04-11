@@ -36,10 +36,15 @@
         </div>
 
         <div class="form-group">
+            <label for="chkChangePassword">Change Password:</label>
+            <asp:CheckBox ID="chkChangePassword" runat="server" OnCheckedChanged="chkChangePassword_CheckedChanged" AutoPostBack="true" Checked="true" />
+        </div>
+
+        <div class="form-group" id="divPasswordFields" runat="server">
             <label for="txtPassword">Password:</label>
             <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control form-control-sm" TextMode="Password" />
-            <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password is required." ForeColor="Red" />
-            <asp:CustomValidator ID="cvPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character." OnServerValidate="cvPassword_ServerValidate" ForeColor="Red" />
+            <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password is required." ForeColor="Red" ValidationGroup="UpdateValidation" />
+            <asp:CustomValidator ID="cvPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character." OnServerValidate="cvPassword_ServerValidate" ForeColor="Red" ValidationGroup="UpdateValidation" />
         </div>
 
         <div class="form-group">
@@ -59,6 +64,8 @@
             <asp:RequiredFieldValidator ID="rfvUserStatus" runat="server" ControlToValidate="ddlUserStatus" ErrorMessage="User Status is required." ForeColor="Red" />
         </div>
 
-        <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" CssClass="btn btn-primary btn-sm" />
+        <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" CssClass="btn btn-primary btn-sm" OnClick="btnUpdateProfile_Click" ValidationGroup="UpdateValidation" />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-secondary btn-sm" OnClick="btnCancel_Click" CausesValidation="False" />
+
     </asp:Panel>
 </asp:Content>
