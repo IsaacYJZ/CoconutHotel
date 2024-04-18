@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
 namespace CoconutHotel
@@ -11,7 +10,67 @@ namespace CoconutHotel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                BindUserGridView();
+                BindRoomGridView(); 
+            }
+        }
 
+        private void BindUserGridView()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            string query = "SELECT * FROM [User]";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        gridViewUsers.DataSource = dataTable;
+                        gridViewUsers.DataBind();
+                    }
+                    else
+                    {
+                        // Display a message when no users are found
+                        // You can add a label or handle this case as needed
+                    }
+                }
+            }
+        }
+
+        private void BindRoomGridView()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            string query = "SELECT * FROM [RoomType]";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        gridViewRooms.DataSource = dataTable;
+                        gridViewRooms.DataBind();
+                    }
+                    else
+                    {
+                        // Display a message when no rooms are found
+                        // You can add a label or handle this case as needed
+                    }
+                }
+            }
         }
 
         protected void ViewUserProfileButton_Click(object sender, EventArgs e)
