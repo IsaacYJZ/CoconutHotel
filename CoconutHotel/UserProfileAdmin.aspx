@@ -58,7 +58,7 @@
             </div>
         </div>
     </section>
-        <!-- Hidden field to store userID -->
+    <!-- Hidden field to store userID -->
     <asp:HiddenField ID="hiddenFieldUserID" runat="server" />
 
     <div class="container">
@@ -72,6 +72,19 @@
             </div>
         </div>
     </div>
+
+    <!-- Delete form -->
+    <asp:Panel ID="deleteForm" runat="server" CssClass="edit-form border rounded p-3" Visible="false">
+        <div class="text-center">
+            <h2>Delete User</h2>
+            <p>Are you sure you want to delete this user?</p>
+            <asp:Button ID="btnDeleteUser" runat="server" Text="Yes, Delete" CssClass="btn btn-danger" OnClick="btnDeleteUser_Click" />
+            <asp:Button ID="btnCancelDelete" runat="server" Text="Cancel" CssClass="btn btn-secondary" OnClick="btnCancelDelete_Click" />
+        </div>
+    </asp:Panel>
+
+    <!-- End of delete form -->
+
     <!-- GridView to display user data -->
     <div class="container">
         <div class="row">
@@ -108,13 +121,5 @@
             </div>
         </div>
     </div>
-    <!-- Delete form -->
-    <asp:Panel ID="deleteForm" runat="server" CssClass="edit-form" Visible="false">
-        <h2>Delete User</h2>
-        <p>Are you sure you want to delete this user?</p>
-        <asp:Button ID="btnDeleteUser" runat="server" Text="Yes, Delete" CssClass="btn btn-danger" OnClick="btnDeleteUser_Click" />
-        <asp:Button ID="btnCancelDelete" runat="server" Text="Cancel" CssClass="btn btn-secondary" OnClick="btnCancelDelete_Click" />
-    </asp:Panel>
-    <!-- End of delete form -->
 </asp:Content>
 

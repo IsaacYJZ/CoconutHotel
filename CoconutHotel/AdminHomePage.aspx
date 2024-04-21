@@ -128,8 +128,8 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="roomName" HeaderText="Room Name" />
                                 <asp:BoundField DataField="roomDesc" HeaderText="Description" />
-                                <asp:BoundField DataField="roomType" HeaderText="Room Type" />
                                 <asp:BoundField DataField="roomPrice" HeaderText="Price" />
+                                <asp:BoundField DataField="TotalRooms" HeaderText="Total Rooms" />
                                 <asp:TemplateField HeaderText="Control">
                                     <ItemTemplate>
                                         <div class="btn-group" role="group">

@@ -63,7 +63,7 @@
     </section>
     <!-- GridView to display room data -->
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="main-box clearfix">
                     <div class="table-responsive">
@@ -76,16 +76,16 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="roomName" HeaderText="Room Name" />
                                 <asp:BoundField DataField="roomDesc" HeaderText="Description" />
-                                <asp:BoundField DataField="roomType" HeaderText="Room Type" />
                                 <asp:BoundField DataField="roomPrice" HeaderText="Price" />
+                                <asp:BoundField DataField="TotalRooms" HeaderText="Total Rooms" />
                                 <asp:TemplateField HeaderText="Control">
                                     <ItemTemplate>
                                         <div class="btn-group" role="group">
                                             <asp:LinkButton ID="EditButton" runat="server" CssClass="btn btn-primary" OnClick="EditButton_Click">
-                                                <i class="fa fa-pencil"></i> Edit
+                                            <i class="fa fa-pencil"></i> Edit
                                             </asp:LinkButton>
                                             <asp:LinkButton ID="DeleteButton" runat="server" CssClass="btn btn-danger" OnClick="DeleteButton_Click">
-                                             <i class="fa fa-trash-o"></i> Delete
+                                            <i class="fa fa-trash-o"></i> Delete
                                             </asp:LinkButton>
                                         </div>
                                     </ItemTemplate>
