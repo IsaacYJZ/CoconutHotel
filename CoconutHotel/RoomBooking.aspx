@@ -7,59 +7,66 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-    .book-container {
-        display: flex;
-        justify-content: center;
-        align-content:center;
-        align-items:center;
-    }
+        .room-page-item {
+            border: 3px solid #ddd; /* Border color */
+            padding: 20px; /* Padding around each room container */
+            margin-bottom: 20px; /* Margin between each room container */
+            border-radius: 5px; /* Optional: Add rounded corners */
+        }
 
-    .form-container {
-        width: 80%;
-        margin-top: 50px; /* Adjust as needed */
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Center elements horizontally */
-        margin-left:auto;
-    }
+        .book-container {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
 
-    .row {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px; /* Adjust as needed */
-    }
+        .form-container {
+            width: 80%;
+            margin-top: 50px; /* Adjust as needed */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center elements horizontally */
+            margin-left: auto;
+        }
 
-    .col-lg-6 {
-        flex: 0 0 48%; /* Adjust as needed */
-    }
+        .row {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px; /* Adjust as needed */
+        }
 
-    .left-label {
-        display: block;
-        margin-bottom: 5px;
-    }
+        .col-lg-6 {
+            flex: 0 0 48%; /* Adjust as needed */
+        }
 
-    .textbox,
-    .dropdown {
-        width: 100%;
-        padding: 5px;
-        margin-bottom: 10px;
-        box-sizing: border-box;
-    }
+        .left-label {
+            display: block;
+            margin-bottom: 5px;
+        }
 
-    .available-button {
-        padding: 10px 20px;
-        background-color: #007bff; /* Adjust as needed */
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
+        .textbox,
+        .dropdown {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
 
-    .validation-error {
-        color: red;
-        margin-top: 5px;
-    }
-</style>
+        .available-button {
+            padding: 10px 20px;
+            background-color: #007bff; /* Adjust as needed */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .validation-error {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
 
 
 
@@ -152,218 +159,45 @@
         <!-- Rooms Section Begin -->
         <section class="room-section spad">
             <div class="container">
-                <div class="rooms-page-item">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="room-pic-slider owl-carousel">
-                                <div class="single-room-pic">
-                                    <img src="roomImg/rooms-1.jpg" alt="" />
-                                </div>
-                                <div class="single-room-pic">
-                                    <img src="roomImg/rooms-2.jpg" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="room-text">
-                                <div class="room-title">
-                                    <h2>Standard Room</h2>
-                                    <div class="room-price">
-                                        <span>From</span>
-                                        <h2>$99</h2>
-                                        <sub>/night</sub>
+                <asp:Repeater ID="RoomRepeater" runat="server">
+                    <ItemTemplate>
+                        <div class="room-page-item">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="room-pic-slider owl-carousel">
+                                        <div class="single-room-pic">
+                                            <img src='<%# Eval("roomImage") %>' alt='<%# Eval("roomName") %>'
+                                                <%# GetImageSizes((string)Eval("roomImage")) %> />
+
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="room-desc">
-                                    <p>
-                                        Our standard room offers comfort, convenience, and relaxation, complete with entertainment options and complimentary Wi-Fi.
-                                    </p>
-                                </div>
-                                <div class="room-features">
-                                    <div class="room-info">
-                                        <i class="flaticon-019-television"></i>
-                                        <span>TV</span>
+                                <div class="col-lg-6">
+                                    <div class="room-text">
+                                        <div class="room-title">
+                                            <h2><%# Eval("roomName") %></h2>
+                                            <div class="room-price">
+                                                <span>From</span>
+                                                <h2>$<%# Eval("roomPrice") %></h2>
+                                                <h5>/night</h5>
+                                            </div>
+                                        </div>
+                                        <div class="room-desc">
+                                            <p><%# Eval("roomDesc") %></p>
+                                        </div>
+                                        <div class="room-features">
+                                            <asp:Literal ID="roomFeaturesLiteral" runat="server"></asp:Literal>
+                                        </div>
+                                        <asp:Button ID="bookBtn" runat="server" Text="Book Now" CssClass="primary-btn" CommandName="Book" CommandArgument='<%# Eval("roomType") %>' OnCommand="bookBtn_Command" />
                                     </div>
-                                    <div class="room-info">
-                                        <i class="flaticon-029-wifi"></i>
-                                        <span>Moderate Wi-fi</span>
-                                    </div>
-                                    <div class="room-info">
-                                        <i class="flaticon-003-air-conditioner"></i>
-                                        <span>AC</span>
-                                    </div>
-                                    <div class="room-info last">
-                                        <i class="flaticon-007-swimming-pool"></i>
-                                        <span>Pool</span>
-                                    </div>
-                                </div>
-                                <asp:Button ID="bookBtn" runat="server" Text="Book Now" CssClass="primary-btn" OnClick="bookBtn_Click" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="rooms-page-item">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="room-pic-slider owl-carousel">
-                                <div class="single-room-pic">
-                                    <img src="roomImg/rooms-4.jpg" alt="" />
-                                </div>
-                                <div class="single-room-pic">
-                                    <img src="roomImg/rooms-3.jpg" alt="" />
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="room-text">
-                                <div class="room-title">
-                                    <h2>Double Room</h2>
-                                    <div class="room-price">
-                                        <span>From</span>
-                                        <h2>$179</h2>
-                                        <sub>/night</sub>
-                                    </div>
-                                </div>
-                                <div class="room-desc">
-                                    <p>
-                                        Our double room offers a choice of double or twin beds. Enjoy a private bathroom, flat-screen TV, and complimentary Wi-Fi.
-                                    </p>
-                                </div>
-                                <div class="room-features">
-                                    <div class="room-info">
-                                        <i class="flaticon-019-television"></i>
-                                        <span>Smart TV</span>
-                                    </div>
-                                    <div class="room-info">
-                                        <i class="flaticon-029-wifi"></i>
-                                        <span>High Wi-fi</span>
-                                    </div>
-                                    <div class="room-info">
-                                        <i class="flaticon-003-air-conditioner"></i>
-                                        <span>AC</span>
-                                    </div>
-                                    <div class="room-info">
-                                        <i class="flaticon-036-parking"></i>
-                                        <span>Parking</span>
-                                    </div>
-                                    <div class="room-info last">
-                                        <i class="flaticon-007-swimming-pool"></i>
-                                        <span>Pool</span>
-                                    </div>
-                                </div>
-                                <asp:Button ID="bookBtn1" runat="server" Text="Book Now" CssClass="primary-btn" OnClick="bookBtn_Click" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="rooms-page-item">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="room-pic-slider owl-carousel">
-                                <div class="single-room-pic">
-                                    <img src="roomImg/rooms-5.jpg" alt="">
-                                </div>
-                                <div class="single-room-pic">
-                                    <img src="roomImg/rooms-6.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="room-text">
-                                <div class="room-title">
-                                    <h2>Junior Suite</h2>
-                                    <div class="room-price">
-                                        <span>From</span>
-                                        <h2>$252</h2>
-                                        <sub>/night</sub>
-                                    </div>
-                                </div>
-                                <div class="room-desc">
-                                    <p>
-                                        Indulge in our Junior Suite, with a stylish bedroom and modern comforts. Enjoy personalized service for a sophisticated stay.
-                                    </p>
-                                </div>
-                                <div class="room-features">
-                                    <div class="room-info">
-                                        <i class="flaticon-019-television"></i>
-                                        <span>Smart Ultra TV</span>
-                                    </div>
-                                    <div class="room-info">
-                                        <i class="flaticon-029-wifi"></i>
-                                        <span>Ultra Fast Wi-fi</span>
-                                    </div>
-                                    <div class="room-info">
-                                        <i class="flaticon-003-air-conditioner"></i>
-                                        <span>Dual AC</span>
-                                    </div>
-                                    <div class="room-info">
-                                        <i class="flaticon-036-parking"></i>
-                                        <span>Two Parking</span>
-                                    </div>
-                                    <div class="room-info last">
-                                        <i class="flaticon-007-swimming-pool"></i>
-                                        <span>Pool</span>
-                                    </div>
-                                </div>
-                                <asp:Button ID="bookBtn2" runat="server" Text="Book Now" CssClass="primary-btn" OnClick="bookBtn_Click" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="rooms-page-item">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="room-pic-slider owl-carousel">
-                                <div class="single-room-pic">
-                                    <img src="roomImg/rooms-7.jpg" alt="" />
-                                </div>
-                                <div class="single-room-pic">
-                                    <img src="roomImg/rooms-8.jpg" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="room-text">
-                                <div class="room-title">
-                                    <h2>Executive Room</h2>
-                                    <div class="room-price">
-                                        <span>From</span>
-                                        <h2>$350</h2>
-                                        <sub>/night</sub>
-                                    </div>
-                                </div>
-                                <div class="room-desc">
-                                    <p>
-                                        Indulge in luxury in our Executive Room, with a large bed and marble bathroom. Enjoy lounge access and personalized service.
-                                    </p>
-                                </div>
-                                <div class="room-features">
-                                    <div class="room-info">
-                                        <i class="flaticon-019-television"></i>
-                                        <span>8K TV</span>
-                                    </div>
-                                    <div class="room-info">
-                                        <i class="flaticon-029-wifi"></i>
-                                        <span>Ultra Fast Wi-fi</span>
-                                    </div>
-                                    <div class="room-info">
-                                        <i class="flaticon-003-air-conditioner"></i>
-                                        <span>Dual AC</span>
-                                    </div>
-                                    <div class="room-info">
-                                        <i class="flaticon-036-parking"></i>
-                                        <span>Two Parking</span>
-                                    </div>
-                                    <div class="room-info last">
-                                        <i class="flaticon-007-swimming-pool"></i>
-                                        <span>Pool/Lounge</span>
-                                    </div>
-                                </div>
-                                <asp:Button ID="bookBtn3" runat="server" Text="Book Now" CssClass="primary-btn" OnClick="bookBtn_Click" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+
+
+
             </div>
         </section>
         <!-- Rooms Section End -->
