@@ -69,6 +69,10 @@
   <ItemGroup>
     <Content Include="about.aspx" />
     <Content Include="about.css" />
+    <Content Include="App_Data\CoconutHotel.mdf" />
+    <Content Include="App_Data\CoconutHotel_log.ldf">
+      <DependentUpon>CoconutHotel.mdf</DependentUpon>
+    </Content>
     <Content Include="CheckAvailability.aspx" />
     <Content Include="CheckAvailability.css" />
     <Content Include="Admin.sitemap" />
