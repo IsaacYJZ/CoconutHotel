@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="about.aspx" />
     <Content Include="about.css" />
+    <Content Include="AddProfileAdmin.aspx" />
+    <Content Include="AddRoomAdmin.aspx" />
     <Content Include="App_Data\CoconutHotel.mdf" />
     <Content Include="App_Data\CoconutHotel_log.ldf">
       <DependentUpon>CoconutHotel.mdf</DependentUpon>
@@ -80,6 +82,8 @@
     <Content Include="contact.aspx" />
     <Content Include="contact.css" />
     <Content Include="css\RoomAdmin.css" />
+    <Content Include="EditProfileAdmin.aspx" />
+    <Content Include="EditRoomAdmin.aspx" />
     <Content Include="EditUserProfile.aspx" />
     <Content Include="EditUserProfile.css" />
     <Content Include="facilities.aspx" />
@@ -269,12 +273,40 @@
     <Compile Include="about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddProfileAdmin.aspx.cs">
+      <DependentUpon>AddProfileAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddProfileAdmin.aspx.designer.cs">
+      <DependentUpon>AddProfileAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddRoomAdmin.aspx.cs">
+      <DependentUpon>AddRoomAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddRoomAdmin.aspx.designer.cs">
+      <DependentUpon>AddRoomAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CheckAvailability.aspx.cs">
       <DependentUpon>CheckAvailability.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CheckAvailability.aspx.designer.cs">
       <DependentUpon>CheckAvailability.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfileAdmin.aspx.cs">
+      <DependentUpon>EditProfileAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProfileAdmin.aspx.designer.cs">
+      <DependentUpon>EditProfileAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditRoomAdmin.aspx.cs">
+      <DependentUpon>EditRoomAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditRoomAdmin.aspx.designer.cs">
+      <DependentUpon>EditRoomAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ThankYouPage.aspx.cs">
       <DependentUpon>ThankYouPage.aspx</DependentUpon>
