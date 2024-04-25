@@ -57,8 +57,7 @@ namespace CoconutHotel
 
             //if (checkInDateTime > checkOutDateTime)
             //{
-            //    // Show error message
-            //    ScriptManager.RegisterStartupScript(this, this.GetType(), "arrivalEarlierError", "alert('Check-out date cannot be earlier than check-in date. Please select again.');", true);
+            //    // Show error messagei            //    ScriptManager.RegisterStartupScript(this, this.GetType(), "arrivalEarlierError", "alert('Check-out date cannot be earlier than check-in date. Please select again.');", true);
             //}
             //else if (checkInDateTime < DateTime.Today || checkOutDateTime < DateTime.Today)
             //{
