@@ -62,12 +62,12 @@
                                 <asp:TemplateField HeaderText="Control">
                                     <ItemTemplate>
                                         <div class="btn-group" role="group">
-                                        <asp:LinkButton ID="ViewUserProfileButton" runat="server" CssClass="table-link" OnClick="ViewUserProfileButton_Click">
+                                            <asp:LinkButton ID="ViewUserProfileButton" runat="server" CssClass="table-link" OnClick="ViewUserProfileButton_Click">
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                 <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
                                             </span>
-                                        </asp:LinkButton>
+                                            </asp:LinkButton>
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -76,49 +76,49 @@
                     </div>
                 </div>
             </div>
-                <div class="col-md-3">
-                    <h3>Top Selling Products</h3>
-                    <div class="top-sales box">
-                        <div class="title">Room 1</div>
-                        <div class="image">
-                            <img weight="50" height="100" src="roomImg/rooms-1.jpg" alt="Room 1" />
-                        </div>
-                        <div class="details">
-                            <p class="price">$1107</p>
-                            <p class="product-description">This is Room 1</p>
-                        </div>
+            <div class="col-md-3">
+                <h3>Top Selling Products</h3>
+                <div class="top-sales box">
+                    <div class="title">Room 1</div>
+                    <div class="image">
+                        <img weight="50" height="100" src="roomImg/rooms-1.jpg" alt="Room 1" />
                     </div>
-                        <div class="top-sales box">
-                        <div class="title">Room 1</div>
-                        <div class="image">
-                            <img weight="50" height="100" src="roomImg/rooms-1.jpg" alt="Room 1" />
-                        </div>
-                        <div class="details">
-                            <p class="price">$1107</p>
-                            <p class="product-description">This is Room 1</p>
-                        </div>
+                    <div class="details">
+                        <p class="price">$1107</p>
+                        <p class="product-description">This is Room 1</p>
                     </div>
-                        <div class="top-sales box">
-                        <div class="title">Room 1</div>
-                        <div class="image">
-                            <img weight="50" height="100" src="roomImg/rooms-1.jpg" alt="Room 1" />
-                        </div>
-                        <div class="details">
-                            <p class="price">$1107</p>
-                            <p class="product-description">This is Room 1</p>
-                        </div>
-                    </div>
-                    <!-- Repeat for other top selling products -->
                 </div>
+                <div class="top-sales box">
+                    <div class="title">Room 1</div>
+                    <div class="image">
+                        <img weight="50" height="100" src="roomImg/rooms-1.jpg" alt="Room 1" />
+                    </div>
+                    <div class="details">
+                        <p class="price">$1107</p>
+                        <p class="product-description">This is Room 1</p>
+                    </div>
+                </div>
+                <div class="top-sales box">
+                    <div class="title">Room 1</div>
+                    <div class="image">
+                        <img weight="50" height="100" src="roomImg/rooms-1.jpg" alt="Room 1" />
+                    </div>
+                    <div class="details">
+                        <p class="price">$1107</p>
+                        <p class="product-description">This is Room 1</p>
+                    </div>
+                </div>
+                <!-- Repeat for other top selling products -->
+            </div>
         </div>
-    </div>              
-        <!-- GridView to display room data -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>Room</h2>
-                        <div class="main-box clearfix">
-                            <div class="table-responsive">
+    </div>
+    <!-- GridView to display room data -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Room</h2>
+                <div class="main-box clearfix">
+                    <div class="table-responsive">
                         <asp:GridView ID="gridViewRooms" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="false">
                             <Columns>
                                 <asp:TemplateField HeaderText="Image">
@@ -129,15 +129,15 @@
                                 <asp:BoundField DataField="roomName" HeaderText="Room Name" />
                                 <asp:BoundField DataField="roomDesc" HeaderText="Description" />
                                 <asp:BoundField DataField="roomPrice" HeaderText="Price" />
-                                <asp:BoundField DataField="TotalRooms" HeaderText="Total Rooms" />
+                                <asp:BoundField DataField="AvailableRooms" HeaderText="Available Rooms" />
                                 <asp:TemplateField HeaderText="Control">
                                     <ItemTemplate>
                                         <div class="btn-group" role="group">
                                             <asp:LinkButton ID="ViewRoomButton" runat="server" CssClass="table-link" OnClick="ViewRoomButton_Click">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
+                                                <span class="fa-stack">
+                                                    <i class="fa fa-square fa-stack-2x"></i>
+                                                    <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                                </span>
                                             </asp:LinkButton>
                                         </div>
                                     </ItemTemplate>

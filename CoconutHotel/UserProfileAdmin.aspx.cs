@@ -129,5 +129,71 @@ namespace CoconutHotel
             // Redirect to AddProfileAdmin.aspx
             Response.Redirect("AddProfileAdmin.aspx");
         }
+
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+            // Get the search criteria
+            string userName = this.userName.Text.Trim();
+            string userType = this.userType.SelectedValue;
+            string userStatus = this.userStatus.SelectedValue;
+
+            // Construct the SQL query with parameters
+            string query = "SELECT * FROM [User] WHERE 1 = 1";
+
+            if (!string.IsNullOrEmpty(userName))
+            {
+                query += " AND UserName LIKE @UserName";
+            }
+
+            if (!string.IsNullOrEmpty(userType))
+            {
+                query += " AND UserType = @UserType";
+            }
+
+            if (!string.IsNullOrEmpty(userStatus))
+            {
+                query += " AND UserStatus = @UserStatus";
+            }
+
+            // Execute the query
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    if (!string.IsNullOrEmpty(userName))
+                    {
+                        command.Parameters.AddWithValue("@UserName", "%" + userName + "%");
+                    }
+
+                    if (!string.IsNullOrEmpty(userType))
+                    {
+                        command.Parameters.AddWithValue("@UserType", userType);
+                    }
+
+                    if (!string.IsNullOrEmpty(userStatus))
+                    {
+                        command.Parameters.AddWithValue("@UserStatus", userStatus);
+                    }
+
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        gridViewUsers.DataSource = dataTable;
+                        gridViewUsers.DataBind();
+                    }
+                    else
+                    {
+                        // No users found matching the search criteria
+                        // You can display a message or handle this case as needed
+                    }
+                }
+            }
+        }
+
     }
 }

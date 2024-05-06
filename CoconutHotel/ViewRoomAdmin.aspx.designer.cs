@@ -11,35 +11,26 @@ namespace CoconutHotel
 {
 
 
-    public partial class BookingAdmin
+    public partial class ViewRoomAdmin
     {
 
         /// <summary>
-        /// userName control.
+        /// roomId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userName;
+        protected global::System.Web.UI.WebControls.TextBox roomId;
 
         /// <summary>
-        /// roomType control.
+        /// occupancy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList roomType;
-
-        /// <summary>
-        /// paymentType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList paymentType;
+        protected global::System.Web.UI.WebControls.TextBox occupancy;
 
         /// <summary>
         /// SearchButton control.
@@ -51,12 +42,12 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.Button SearchButton;
 
         /// <summary>
-        /// gridViewBookings control.
+        /// gridViewRooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewBookings;
+        protected global::System.Web.UI.WebControls.GridView gridViewRooms;
     }
 }

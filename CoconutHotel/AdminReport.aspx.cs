@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CoconutHotel
 {
-    public partial class EditRoomAdmin : System.Web.UI.Page
+    public partial class AdminReport : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

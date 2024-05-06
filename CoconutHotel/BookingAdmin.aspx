@@ -11,19 +11,18 @@
     <h1 class="text-left mt-5 mb-4">Booking</h1>
 
 
-    <section class="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
+<section class="content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
                                 <label for="userName">User Name:</label>
                                 <asp:TextBox ID="userName" CssClass="form-control" runat="server" />
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                            <div class="col-md-4 mb-3">
                                 <label for="roomType">Room Type:</label>
                                 <asp:DropDownList ID="roomType" CssClass="form-control" runat="server">
                                     <asp:ListItem Text="All" Value="" />
@@ -33,29 +32,7 @@
                                     <asp:ListItem Text="Executive" Value="Executive" />
                                 </asp:DropDownList>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="bookingDateTime">Booking Date and Time:</label>
-                                <asp:TextBox ID="bookingDateTime" CssClass="form-control" runat="server" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="checkInDate">Check In Date:</label>
-                                <asp:TextBox ID="checkInDate" CssClass="form-control" runat="server" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="checkOutDate">Check Out Date:</label>
-                                <asp:TextBox ID="checkOutDate" CssClass="form-control" runat="server" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                            <div class="col-md-4 mb-3">
                                 <label for="paymentType">Payment Type:</label>
                                 <asp:DropDownList ID="paymentType" CssClass="form-control" runat="server">
                                     <asp:ListItem Text="All" Value="" />
@@ -63,32 +40,25 @@
                                     <asp:ListItem Text="Cash" Value="Cash" />
                                 </asp:DropDownList>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="numberOfPax">Number of Pax:</label>
-                        <asp:TextBox ID="numberOfPax" CssClass="form-control" runat="server" />
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <asp:TextBox ID="searchBox" CssClass="form-control form-control-lg" runat="server" Text="" />
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-lg btn-primary">
-                                    <i class="fa fa-search"></i>
-                                </button>
+                            <div class="col-md-12">
+                                <asp:Button ID="SearchButton" runat="server" Text="Search" OnClick="SearchButton_Click" CssClass="btn btn-primary btn-block" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
-                    <asp:GridView ID="gridViewBookings" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="false">
+                    <asp:GridView ID="gridViewBookings" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="false" DataKeyNames="bookingID" OnSelectedIndexChanged="gridViewBookings_SelectedIndexChanged">
                         <Columns>
                             <asp:BoundField DataField="bookingID" HeaderText="BookingID" />
                             <asp:BoundField DataField="UserName" HeaderText="User Name" />
@@ -101,7 +71,7 @@
                             <asp:BoundField DataField="paymentMethod" HeaderText="Payment Type" />
                             <asp:TemplateField HeaderText="Booking Status">
                                 <ItemTemplate>
-                                    <asp:DropDownList ID="bookingStatus" runat="server" CssClass="form-control">
+                                    <asp:DropDownList ID="bookingStatus" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="bookingStatus_SelectedIndexChanged" >
                                         <asp:ListItem Text="Complete" Value="Complete" />
                                         <asp:ListItem Text="Incomplete" Value="Incomplete" />
                                     </asp:DropDownList>
