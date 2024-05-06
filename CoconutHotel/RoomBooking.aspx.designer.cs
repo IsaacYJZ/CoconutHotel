@@ -123,39 +123,12 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.Button submitBtn;
 
         /// <summary>
-        /// bookBtn control.
+        /// RoomRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bookBtn;
-
-        /// <summary>
-        /// bookBtn1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bookBtn1;
-
-        /// <summary>
-        /// bookBtn2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bookBtn2;
-
-        /// <summary>
-        /// bookBtn3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bookBtn3;
+        protected global::System.Web.UI.WebControls.Repeater RoomRepeater;
     }
 }
