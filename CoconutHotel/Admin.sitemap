@@ -3,13 +3,12 @@
 	<siteMapNode url="AdminHomepage.aspx" title="AdminDashboard" description="AdminDashboard">
 		<siteMapNode url="UserProfileAdmin.aspx" title="User Profile" description="User Profile">
 			<siteMapNode url="AddProfileAdmin.aspx" title="Add Profile" description="Add Profile" />
-			<siteMapNode url="EditProfileAdmin.aspx" title="Edit Profile" description="Edit Profile" />
 		</siteMapNode>
 		<siteMapNode url="BookingAdmin.aspx" title="Booking" description="Booking">
 		</siteMapNode>
 		<siteMapNode url="RoomAdmin.aspx" title="Room" description="Room">
-			<siteMapNode url="AddRoomAdmin.aspx" title="Add Room" description="Add Room" />
-			<siteMapNode url="EditRoomAdmin.aspx" title="Edit Room" description="Edit Room" />
+		</siteMapNode>
+		<siteMapNode url="AdminReport.aspx" title="Report" description="Report">
 		</siteMapNode>
 	</siteMapNode>
 </siteMap>
