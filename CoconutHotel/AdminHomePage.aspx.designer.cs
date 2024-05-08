@@ -15,6 +15,33 @@ namespace CoconutHotel
     {
 
         /// <summary>
+        /// bookingReceivedCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bookingReceivedCount;
+
+        /// <summary>
+        /// roomsAvailabilityCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl roomsAvailabilityCount;
+
+        /// <summary>
+        /// paymentReceivedCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl paymentReceivedCount;
+
+        /// <summary>
         /// gridViewUsers control.
         /// </summary>
         /// <remarks>
@@ -22,6 +49,15 @@ namespace CoconutHotel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridViewUsers;
+
+        /// <summary>
+        /// topSellingRoomsContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl topSellingRoomsContainer;
 
         /// <summary>
         /// gridViewRooms control.

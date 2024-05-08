@@ -54,6 +54,8 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="roomID" HeaderText="Room ID" />
                                 <asp:BoundField DataField="occupancy" HeaderText="Occupancy" />
+                                <asp:BoundField DataField="checkInDate" HeaderText="Check-In Date" />
+                                <asp:BoundField DataField="checkOutDate" HeaderText="Check-Out Date" />
                                 <asp:BoundField DataField="roomPrice" HeaderText="Price" />
                                 <asp:BoundField DataField="roomStatus" HeaderText="Status" />
                             </Columns>

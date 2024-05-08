@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
-                    <asp:GridView ID="gridViewBookings" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="false" DataKeyNames="bookingID" OnSelectedIndexChanged="gridViewBookings_SelectedIndexChanged">
+                    <asp:GridView ID="gridViewBookings" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="false" DataKeyNames="bookingID">
                         <Columns>
                             <asp:BoundField DataField="bookingID" HeaderText="BookingID" />
                             <asp:BoundField DataField="UserName" HeaderText="User Name" />
@@ -69,14 +69,7 @@
                             <asp:BoundField DataField="numOfAdult" HeaderText="Number of Adult" />
                             <asp:BoundField DataField="numOfChild" HeaderText="Number of Child" />
                             <asp:BoundField DataField="paymentMethod" HeaderText="Payment Type" />
-                            <asp:TemplateField HeaderText="Booking Status">
-                                <ItemTemplate>
-                                    <asp:DropDownList ID="bookingStatus" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="bookingStatus_SelectedIndexChanged" >
-                                        <asp:ListItem Text="Complete" Value="Complete" />
-                                        <asp:ListItem Text="Incomplete" Value="Incomplete" />
-                                    </asp:DropDownList>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                            <asp:BoundField DataField="bookingStatus" HeaderText="Booking Status" />
                         </Columns>
                     </asp:GridView>
                 </div>

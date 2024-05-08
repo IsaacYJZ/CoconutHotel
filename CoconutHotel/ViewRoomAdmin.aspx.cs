@@ -34,13 +34,32 @@ namespace CoconutHotel
         private void BindGridView(string selectedRoomName, string roomId, string occupancy)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            string query = @"SELECT r.roomID, r.occupancy, r.roomPrice, r.roomStatus, r.roomImg 
-             FROM Room r 
-             INNER JOIN RoomType rt ON r.roomType = rt.roomType 
-             WHERE 1 = 1"; // Start with a condition that is always true
+            string query = @"
+            SELECT 
+                r.roomID, 
+                r.occupancy, 
+                b.checkInDate,
+                b.checkOutDate,
+                r.roomPrice, 
+                CASE 
+                    WHEN EXISTS (
+                        SELECT 1 
+                        FROM Booking b 
+                        WHERE b.roomID = r.roomID AND b.bookingStatus = 'Booked'
+                    ) THEN 'Booked'
+                    ELSE 'Available'
+                END AS roomStatus, 
+                r.roomImg
+            FROM 
+                Room r 
+            INNER JOIN 
+                RoomType rt ON r.roomType = rt.roomType 
+            LEFT JOIN
+                Booking b ON r.roomID = b.roomID
+            WHERE 
+                1 = 1"; // Start with a condition that is always true
 
             // Add filters based on the provided search criteria
-
             if (!string.IsNullOrEmpty(roomId))
             {
                 query += " AND r.roomID = @RoomID";
@@ -61,12 +80,10 @@ namespace CoconutHotel
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-
                     if (!string.IsNullOrEmpty(roomId))
                     {
                         command.Parameters.AddWithValue("@RoomID", roomId);
                     }
-
 
                     if (!string.IsNullOrEmpty(occupancy))
                     {
@@ -96,8 +113,8 @@ namespace CoconutHotel
                     }
                 }
             }
-
         }
+
 
     }
 }

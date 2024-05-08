@@ -23,21 +23,34 @@ namespace CoconutHotel
         private void BindGridView()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            string query = @"SELECT 
-                        rt.roomName, 
-                        rt.roomDesc, 
-                        rt.roomPrice, 
-                        rt.roomImage, 
-                        SUM(CASE WHEN r.roomStatus = 'Available' THEN 1 ELSE 0 END) AS AvailableRooms
-                    FROM RoomType rt 
-                    INNER JOIN Room r ON rt.roomType = r.roomType 
-                    GROUP BY rt.roomName, rt.roomDesc, rt.roomPrice, rt.roomImage 
-                    ORDER BY rt.roomPrice";
+            string query = @"
+        SELECT 
+            rt.roomName, 
+            rt.roomDesc,  
+            rt.roomImage, 
+            COUNT(r.roomID) - COUNT(b.bookingID) AS AvailableRooms
+        FROM 
+            RoomType rt 
+        INNER JOIN 
+            Room r ON rt.roomType = r.roomType 
+        LEFT JOIN 
+            Booking b ON r.roomID = b.roomID 
+                  AND (b.checkInDate >= @CheckOutDate OR b.checkOutDate <= @CheckInDate)
+        GROUP BY 
+            rt.roomName, rt.roomDesc, rt.roomPrice, rt.roomImage 
+        ORDER BY 
+            rt.roomPrice";
+
+            DateTime checkInDate = DateTime.Now.Date; // You can set this dynamically based on user input if needed
+            DateTime checkOutDate = checkInDate.AddDays(1); // Adjust this according to your requirements
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@CheckInDate", checkInDate);
+                    command.Parameters.AddWithValue("@CheckOutDate", checkOutDate);
+
                     connection.Open();
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable dataTable = new DataTable();
@@ -56,6 +69,7 @@ namespace CoconutHotel
                 }
             }
         }
+
 
 
         protected void ViewRoomButton_Click(object sender, EventArgs e)

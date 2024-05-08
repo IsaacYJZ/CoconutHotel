@@ -26,7 +26,6 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="roomName" HeaderText="Room Name" />
                                 <asp:BoundField DataField="roomDesc" HeaderText="Description" />
-                                <asp:BoundField DataField="roomPrice" HeaderText="Price" />
                                 <asp:BoundField DataField="AvailableRooms" HeaderText="Available Rooms" />
                                 <asp:TemplateField HeaderText="Control">
                                     <ItemTemplate>
