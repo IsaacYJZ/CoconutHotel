@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,7 +18,21 @@ namespace CoconutHotel
             {
                 // Initially hide the Proceed button
                 btnProceed.Visible = false;
+
+
+                // If a bookingID query string parameter is provided, use it
+                string bookingID = Request.QueryString["bookingID"];
+                if (!string.IsNullOrEmpty(bookingID))
+                {
+                    SqlDataSource2.SelectParameters["BookingID"].DefaultValue = bookingID;
+                }
+                else
+                {
+                    // Set a default value for testing if no query string parameter is provided
+                    SqlDataSource2.SelectParameters["BookingID"].DefaultValue = "B0006";
+                }
             }
+
         }
 
         protected void ddlMethod_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,6 +141,8 @@ namespace CoconutHotel
                 // If no card type is selected, mark as invalid
                 args.IsValid = false;
             }
+
+            
         }
     }
 }

@@ -21,20 +21,46 @@
         <h1 class="payment-header">Payment Page</h1>
         <div class="parent-container">
             <div class="payment-detail-container">
-                <h3>Payment Summary </h3>
+                <h3>Payment Summary</h3>
 
                 <asp:GridView ID="GridViewPayment" runat="server" AutoGenerateColumns="False"
-                    CssClass="table table-bordered table-striped">
+                    CssClass="table table-bordered table-striped" DataSourceID="SqlDataSource2">
                     <Columns>
-                        <asp:BoundField DataField="RoomType" HeaderText="Room Type" />
-                        <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                        <asp:BoundField DataField="roomName" HeaderText="Room Name" />
+                        <asp:BoundField DataField="roomType" HeaderText="Room Type" />
+                        <asp:ImageField DataImageUrlField="RoomImage" HeaderText="Room Image"
+                            ControlStyle-Width="100px" ControlStyle-Height="75px" />
                         <asp:BoundField DataField="Days" HeaderText="Days" />
                         <asp:BoundField DataField="PricePerDay" HeaderText="Price per Day" DataFormatString="{0:C}" />
                         <asp:BoundField DataField="TotalPrice" HeaderText="Total Price" DataFormatString="{0:C}" />
                     </Columns>
                 </asp:GridView>
 
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server"
+                    ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                    SelectCommand="
+                    SELECT 
+                        B.bookingID,
+                        B.userID,
+                        RT.roomName,
+                        R.roomType,
+                        R.roomImg AS [RoomImage],
+                        DATEDIFF(DAY, B.checkInDate, B.checkOutDate) AS Days,
+                        CAST(R.roomPrice AS DECIMAL(10, 2)) AS PricePerDay,
+                        (CAST(R.roomPrice AS DECIMAL(10, 2)) * DATEDIFF(DAY, B.checkInDate, B.checkOutDate)) AS TotalPrice
+                    FROM 
+                        BookingRoom BR
+                        JOIN Booking B ON BR.bookingID = B.bookingID
+                        JOIN Room R ON BR.roomID = R.roomID
+                        JOIN RoomType RT ON BR.roomType = RT.roomType
+                    WHERE 
+                        B.bookingID = @BookingID">
+                    <SelectParameters>
+                        <asp:QueryStringParameter Name="BookingID" QueryStringField="bookingID" Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
             </div>
+
 <%--                <table>
                     <thead>
                         <tr>
