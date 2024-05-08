@@ -66,6 +66,10 @@
             color: red;
             margin-top: 5px;
         }
+
+        .room-info i {
+            font-size: 24px; /* Adjust the font size as needed */
+        }
     </style>
 
 
@@ -185,6 +189,35 @@
                                         <div class="room-desc">
                                             <p><%# Eval("roomDesc") %></p>
                                         </div>
+                                        <div class="room-features">
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <div class="room-info">
+                                                        <i class="flaticon-019-television"></i>
+                                                       
+                                                    </div> <span>TV</span>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="room-info">
+                                                        <i class="flaticon-029-wifi"></i>
+                                                       
+                                                    </div> <span>Wi-fi</span>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="room-info">
+                                                        <i class="flaticon-003-air-conditioner"></i>
+                                                        
+                                                    </div><span>AC</span>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="room-info">
+                                                        <i class="flaticon-007-swimming-pool"></i>
+                                                       
+                                                    </div> <span>Pool</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="room-features">
                                             <asp:Literal ID="roomFeaturesLiteral" runat="server"></asp:Literal>
                                         </div>
