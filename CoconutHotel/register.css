@@ -1,7 +1,11 @@
-﻿
+﻿.error {
+    color: red;
+    padding-left: 20px;
+}
+
 .registerForm {
     font-family: Arial, sans-serif;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(image/hotel.jpg);
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(image/hotel.jpg);
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -16,7 +20,8 @@
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 700px;
+    margin: auto;
 }
 
     .register-container h2 {
@@ -36,7 +41,7 @@
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: calc(100% - 24px); /* Adjusted for border width */
+    width: calc(100% - 24px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -47,16 +52,15 @@ input[type="password"] {
     width: 100%;
     background-color: #007bff;
     color: white;
-    padding: 15px 0; /* Make button bigger */
+    padding: 15px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s;
 }
 
     .register-container input[type="submit"]:hover {
         background-color: #28a745;
-        ; /* Sky blue hover */
     }
 
 .register-container p {
@@ -64,7 +68,6 @@ input[type="password"] {
     text-align: center;
 }
 
-/* Additional Styles for Interactivity */
 .register-container input[type="text"]:focus,
 .register-container input[type="email"]:focus,
 .register-container input[type="password"]:focus {

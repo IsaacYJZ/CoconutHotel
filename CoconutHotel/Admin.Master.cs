@@ -18,5 +18,10 @@ namespace CoconutHotel
         {
 
         }
+
+        protected void btnSignOut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminLogin.aspx");
+        }
     }
 }

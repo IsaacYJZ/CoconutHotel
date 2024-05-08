@@ -31,7 +31,7 @@
                             <asp:HyperLink ID="galleryLink" runat="server" NavigateUrl="~/gallery.aspx">GALLERY</asp:HyperLink></li>
                          <li>
                             <asp:HyperLink ID="hypUserProfile" runat="server" NavigateUrl="login.aspx">
-                    <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
+                    <i class="fas fa-user"></i>
                             </asp:HyperLink>
                         </li>
                     </ul>
@@ -80,7 +80,6 @@
 
 
         <div class="footer">
-        <!-- footer content here -->
         <div class="footer-text">
             <h1 class="fTitle">Coconut Hotel</h1>
             <p class="f1">Reservation +0611-1130 3353(24 hours)</p>

@@ -42,13 +42,13 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.DropDownList userStatus;
 
         /// <summary>
-        /// searchBox control.
+        /// SearchButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox searchBox;
+        protected global::System.Web.UI.WebControls.Button SearchButton;
 
         /// <summary>
         /// hiddenFieldUserID control.
@@ -67,15 +67,6 @@ namespace CoconutHotel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddProfile;
-
-        /// <summary>
-        /// gridViewUsers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewUsers;
 
         /// <summary>
         /// deleteForm control.
@@ -103,5 +94,14 @@ namespace CoconutHotel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelDelete;
+
+        /// <summary>
+        /// gridViewUsers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridViewUsers;
     }
 }

@@ -22,19 +22,19 @@
 
     .tq-container table {
         width: 80%;
-        margin-left: auto; /* Center the table horizontally */
+        margin-left: auto; 
         margin-right: auto;
         table-layout: fixed;
     }
 
 .tq-container td:nth-child(1) {
-    text-align: left; /* Aligns text to the left in the first column */
-    vertical-align: middle; /* Centers text vertically */
+    text-align: left; 
+    vertical-align: middle; 
 }
 
 .tq-container td:nth-child(2) {
-    text-align: right; /* Aligns text to the right in the second column */
-    vertical-align: middle; /* Centers text vertically */
+    text-align: right; 
+    vertical-align: middle; 
 }
 
 .BackToHomePage {

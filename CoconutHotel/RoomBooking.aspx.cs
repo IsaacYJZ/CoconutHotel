@@ -49,7 +49,7 @@ namespace CoconutHotel
 
         private bool CheckBookingClash(DateTime checkIn, DateTime checkOut)
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
 
             // Construct SQL query to check for clash with existing bookings
             string query = "SELECT COUNT(*) FROM Booking WHERE @checkIn < checkOutDate AND @checkOut > checkInDate";
@@ -71,7 +71,7 @@ namespace CoconutHotel
 
         private void FetchAvailableRooms(DateTime checkIn, DateTime checkOut, int numOfAdults, int numOfChildren)
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
 
             // Construct SQL query to fetch available rooms
             string query = @"SELECT RoomType.roomType, roomName, roomPrice, roomDesc, roomImage 
@@ -104,7 +104,7 @@ namespace CoconutHotel
 
         protected void BindRooms()
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
             string query = "SELECT * FROM RoomType";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
