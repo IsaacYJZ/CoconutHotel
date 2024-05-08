@@ -22,7 +22,20 @@
         <div class="parent-container">
             <div class="payment-detail-container">
                 <h3>Payment Summary </h3>
-                <table>
+
+                <asp:GridView ID="GridViewPayment" runat="server" AutoGenerateColumns="False"
+                    CssClass="table table-bordered table-striped">
+                    <Columns>
+                        <asp:BoundField DataField="RoomType" HeaderText="Room Type" />
+                        <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                        <asp:BoundField DataField="Days" HeaderText="Days" />
+                        <asp:BoundField DataField="PricePerDay" HeaderText="Price per Day" DataFormatString="{0:C}" />
+                        <asp:BoundField DataField="TotalPrice" HeaderText="Total Price" DataFormatString="{0:C}" />
+                    </Columns>
+                </asp:GridView>
+
+            </div>
+<%--                <table>
                     <thead>
                         <tr>
                             <th>Room-Image</th>
@@ -81,11 +94,11 @@
                         </tr>
                     </tfoot>
                 </table>
-                <br />
-            </div>
+                <br />--%>
 
+            
             <div class="payment-container">
-                <h3 class=" payment-method ">Payment Method </h3>
+                <h3 class=" payment-method ">Payment Information </h3>
 
                 <table>
                     <tbody>
@@ -157,34 +170,43 @@
                     <asp:TableRow>
                         <asp:TableCell class="auto-style3">Credit Card Type :</asp:TableCell>
                         <asp:TableCell class="auto-style1">
-                            <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
-                                <asp:ListItem>Visa</asp:ListItem>
-                                <asp:ListItem>Master</asp:ListItem>
-                            </asp:RadioButtonList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Choose A Card Type" ControlToValidate="RadioButtonList1" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
+                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" Height="16px" Width="156px" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged" RepeatDirection="Horizontal">
+                            <asp:ListItem Value="VISA" >VISA</asp:ListItem>
+                            <asp:ListItem Value="Master" >Master</asp:ListItem>
+                        </asp:RadioButtonList>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell class="auto-style3">Name on Card :</asp:TableCell>
                         <asp:TableCell>
-                            <asp:TextBox ID="txtCCName" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is Required" ControlToValidate="txtCCName" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtCCName" CssClass="error" Display="Dynamic" ErrorMessage="Name " ValidationExpression="^.+$">*</asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtCCName" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell class="auto-style3">Card Number :</asp:TableCell>
                         <asp:TableCell>
-                            <asp:TextBox ID="txtCCNumber" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Card Number is Required" ControlToValidate="txtCCNumber" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
+                            <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="txtCCNumber" CssClass="error" ErrorMessage="Enter correct card format" OnServerValidate="CustomValidator1_ServerValidate">*</asp:CustomValidator>
+                            <asp:TextBox ID="txtCCNumber" runat="server" OnTextChanged="TextBox5_TextChanged"></asp:TextBox>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell class="auto-style3">Valid Through :</asp:TableCell>
                         <asp:TableCell>
-                            <asp:TextBox ID="txtCCVT" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="CVT is Required" ControlToValidate="txtCCVT" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
+                            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtCCVT" CssClass="error" EnableTheming="True" ErrorMessage="CompareValidator" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
+                            <asp:TextBox ID="txtCCVT" runat="server" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell class="auto-style3">CVV :</asp:TableCell>
                         <asp:TableCell>
-                            <asp:TextBox ID="txtCCCVV" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="CVV is Required" ControlToValidate="txtCVV" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCVV" CssClass="error" Display="Dynamic" ErrorMessage="The CVV need to be 3 number." ValidationExpression="^.{3}$">*</asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtCVV" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
@@ -193,6 +215,12 @@
                             <asp:Button ID="btnCCSubmit" runat="server" Text="Pay Now" OnClick="btnPayNow_Click"/>
                             &nbsp;&nbsp;
                             <asp:Button ID="btnCCClear" runat="server" Text="Clear" OnClick="btnClear_Click"/>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell class="auto-style3">&nbsp;</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="error" HeaderText="Below are the error:" />
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>

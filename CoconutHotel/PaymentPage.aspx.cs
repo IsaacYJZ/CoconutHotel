@@ -72,10 +72,58 @@ namespace CoconutHotel
             txtCCName.Text = "";
             txtCCNumber.Text = "";
             txtCCVT.Text = "";
-            txtCCCVV.Text = "";
+            txtCVV.Text = "";
 
             
             RadioButtonList1.ClearSelection();
+        }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        protected void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TextBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        protected void TextBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Page.Validate();
+        }
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            // Get the selected card type
+            string cardType = RadioButtonList1.SelectedValue;
+
+            // Get the card number entered by the user
+            string cardNumber = txtCCNumber.Text.Trim();
+
+            // Validation logic based on card type
+            if (cardType == "VISA")
+            {
+                // Visa should have 12 characters
+                args.IsValid = cardNumber.Length == 12;
+            }
+            else if (cardType == "Master")
+            {
+                // Master should have 14 characters
+                args.IsValid = cardNumber.Length == 14;
+            }
+            else
+            {
+                // If no card type is selected, mark as invalid
+                args.IsValid = false;
+            }
         }
     }
 }

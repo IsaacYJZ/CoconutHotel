@@ -165,4 +165,8 @@ p.total-price {
     text-align: center;
 }
 
+.error {
+    color: red;
+    padding-left: 20px;
+}
 
