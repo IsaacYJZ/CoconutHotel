@@ -11,23 +11,39 @@ namespace CoconutHotel
 {
     public partial class RoomBooking : System.Web.UI.Page
     {
+        // Declare the selectedRooms list outside of the Page class
+        List<dynamic> selectedRooms = new List<dynamic>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 BindRooms();
+
+                // Initialize selectedRooms list if not already initialized
+                if (Session["SelectedRooms"] == null)
+                {
+                    selectedRooms = new List<dynamic>();
+                    Session["SelectedRooms"] = selectedRooms;
+                }
+                else
+                {
+                    selectedRooms = (List<dynamic>)Session["SelectedRooms"];
+                }
             }
-
-
+            else
+            {
+                selectedRooms = (List<dynamic>)Session["SelectedRooms"];
+            }
         }
+
 
         protected void bookBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("PaymentPage.aspx");
         }
 
-      
+
 
 
 
@@ -118,34 +134,75 @@ namespace CoconutHotel
             Page.Validate("checkOutGroup"); // Re-evaluate validation rules for a specific validation group
         }
 
+
+
         protected void bookBtn_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
         {
             if (e.CommandName == "Book")
             {
-                // Retrieve the room type from the CommandArgument
-                string roomType = e.CommandArgument.ToString();
+                // Retrieve the selected check-in and check-out dates
+                DateTime checkIn = DateTime.Parse(checkInDate.Text);
+                DateTime checkOut = DateTime.Parse(checkOutDate.Text);
+                // Get the number of adults and children
+                int numOfAdults = int.Parse(adultsDropdown.SelectedValue);
+                int numOfChildren = int.Parse(childrenDropdown.SelectedValue);
+                List<dynamic> selectedRoomsFromSession = Session["SelectedRooms"] as List<dynamic>;
 
-                // Here, you might perform some action based on the selected room type, such as
-                // redirecting to a booking page with the selected room type, or adding the room
-                // to a shopping cart, etc.
+                // Check if there are already rooms in the cart
+                if (selectedRooms.Count > 0)
+                {
+                    // Iterate through each room in the cart
+                    foreach (var room in selectedRooms)
+                    {
+                        // Check if the check-in and check-out dates of the current room match the selected dates
+                        if (room.CheckInDate != checkIn || room.CheckOutDate != checkOut)
+                        {
+                            // If dates don't match, prompt an error and return
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('All rooms in the cart must have the same check-in and check-out dates.');", true);
+                            return;
+                        }
+                    }
+                }
 
-                // For demonstration purposes, let's redirect to a booking page with the selected room type
-                Response.Redirect($"CheckAvailability.aspx?RoomType={roomType}");
+                // Retrieve the room details from the Repeater
+                RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
+                if (item != null)
+                {
+                    // Retrieve other details from the RepeaterItem
+                    string roomID = e.CommandArgument.ToString();
+                    string roomType = (item.FindControl("roomTypeLabel") as Label)?.Text;
+                    string roomName = (item.FindControl("roomNameLabel") as Label)?.Text;
+                    string roomPrice = (item.FindControl("roomPriceLabel") as Label)?.Text;
+                    string roomImage = (item.FindControl("RoomImageLabel") as Label)?.Text;
+
+                    // Create a new object to store the room details
+                    dynamic room = new
+                    {
+                        RoomID = roomID,
+                        RoomType = roomType,
+                        RoomName = roomName,
+                        RoomPrice = roomPrice,
+                        RoomImage = roomImage,
+                        CheckInDate = checkIn, // Add check-in date to the room object
+                        CheckOutDate = checkOut,// Add check-out date to the room object
+                        NumOfAdults = numOfAdults, // Add number of adults to the room object
+                        NumOfChildren = numOfChildren,
+                    };
+
+                    // Add the room details to the selectedRooms list
+                    selectedRooms.Add(room);
+
+                    // Store the updated selectedRooms list in the session
+                    Session["SelectedRooms"] = selectedRooms;
+                    Session["CheckInDate"] = DateTime.Parse(checkInDate.Text);
+                    Session["CheckOutDate"] = DateTime.Parse(checkOutDate.Text);
+                    // Redirect to the payment page
+                    Response.Redirect("RoomCart.aspx");
+                }
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
+        // Store the selectedRooms list in the session
 
 
         protected void RoomRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)

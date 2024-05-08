@@ -71,6 +71,7 @@
     <Content Include="about.css" />
     <Content Include="AddProfileAdmin.aspx" />
     <Content Include="AdminReport.aspx" />
+    <Content Include="RoomCart.aspx" />
     <Content Include="ViewRoomAdmin.aspx" />
     <Content Include="App_Data\CoconutHotel.mdf" />
     <Content Include="App_Data\CoconutHotel_log.ldf">
@@ -286,6 +287,13 @@
     </Compile>
     <Compile Include="AdminReport.aspx.designer.cs">
       <DependentUpon>AdminReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoomCart.aspx.cs">
+      <DependentUpon>RoomCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoomCart.aspx.designer.cs">
+      <DependentUpon>RoomCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewRoomAdmin.aspx.cs">
       <DependentUpon>ViewRoomAdmin.aspx</DependentUpon>
