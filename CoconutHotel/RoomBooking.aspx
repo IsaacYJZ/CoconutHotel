@@ -141,21 +141,18 @@
                         <asp:DropDownList ID="adultsDropdown" runat="server" CssClass="dropdown" Width="68px">
                             <asp:ListItem Text="1" Value="1"></asp:ListItem>
                             <asp:ListItem Text="2" Value="2"></asp:ListItem>
-                            <asp:ListItem Text="3" Value="3"></asp:ListItem>
-                            <asp:ListItem Text="4" Value="4"></asp:ListItem>
                         </asp:DropDownList>
 
                         <label for="children">Children:</label>
                         <asp:DropDownList ID="childrenDropdown" runat="server" CssClass="dropdown" Width="68px">
                             <asp:ListItem Text="0" Value="0"></asp:ListItem>
                             <asp:ListItem Text="1" Value="1"></asp:ListItem>
-                            <asp:ListItem Text="2" Value="2"></asp:ListItem>
-                            <asp:ListItem Text="3" Value="3"></asp:ListItem>
                         </asp:DropDownList>
 
                     </div>
                     <div class="col-lg-6">
                         <asp:Button ID="submitBtn" runat="server" Text="Check Availability" CssClass="available-button" OnClick="submitBtn_Click" />
+
                     </div>
                 </div>
             </div>
@@ -170,9 +167,7 @@
                                 <div class="col-lg-6">
                                     <div class="room-pic-slider owl-carousel">
                                         <div class="single-room-pic">
-                                            <img src='<%# Eval("roomImage") %>' alt='<%# Eval("roomName") %>'
-                                                <%# GetImageSizes((string)Eval("roomImage")) %> />
-
+                                            <img src='<%# Eval("roomImg") %>' alt='<%# Eval("roomType") %>' <%# GetImageSizes((string)Eval("roomImg")) %> />
                                         </div>
                                     </div>
                                 </div>
@@ -194,26 +189,30 @@
                                                 <div class="col-lg-3">
                                                     <div class="room-info">
                                                         <i class="flaticon-019-television"></i>
-                                                       
-                                                    </div> <span>TV</span>
+
+                                                    </div>
+                                                    <span>TV</span>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <div class="room-info">
                                                         <i class="flaticon-029-wifi"></i>
-                                                       
-                                                    </div> <span>Wi-fi</span>
+
+                                                    </div>
+                                                    <span>Wi-fi</span>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <div class="room-info">
                                                         <i class="flaticon-003-air-conditioner"></i>
-                                                        
-                                                    </div><span>AC</span>
+
+                                                    </div>
+                                                    <span>AC</span>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <div class="room-info">
                                                         <i class="flaticon-007-swimming-pool"></i>
-                                                       
-                                                    </div> <span>Pool</span>
+
+                                                    </div>
+                                                    <span>Pool</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -221,7 +220,11 @@
                                         <div class="room-features">
                                             <asp:Literal ID="roomFeaturesLiteral" runat="server"></asp:Literal>
                                         </div>
-                                        <asp:Button ID="bookBtn" runat="server" Text="Book Now" CssClass="primary-btn" CommandName="Book" CommandArgument='<%# Eval("roomType") %>' OnCommand="bookBtn_Command" />
+                                        <asp:Label ID="roomTypeLabel" runat="server" Visible="false" Text='<%# Eval("roomType") %>'></asp:Label>
+                                        <asp:Label ID="roomNameLabel" runat="server" Visible="false" Text='<%# Eval("roomName") %>'></asp:Label>
+                                        <asp:Label ID="roomPriceLabel" runat="server" Visible="false" Text='<%# Eval("roomPrice") %>'></asp:Label>
+                                        <asp:Label ID="RoomImageLabel" runat="server" Visible="false" Text='<%# Eval("roomImg") %>'></asp:Label>
+                                        <asp:Button ID="bookBtn" runat="server" Text="Book Now" CssClass="primary-btn" CommandName="Book" CommandArgument='<%# Eval("roomID") %>' OnClientClick="return validateDate();" OnCommand="bookBtn_Command" />
                                     </div>
                                 </div>
                             </div>
@@ -231,10 +234,26 @@
 
 
 
+
+
             </div>
         </section>
         <!-- Rooms Section End -->
     </form>
+    <script>
+        function validateDate() {
+            var checkInDate = document.getElementById('<%= checkInDate.ClientID %>').value;
+        var checkOutDate = document.getElementById('<%= checkOutDate.ClientID %>').value;
+
+            // Check if both check-in and check-out dates are selected
+            if (checkInDate === '' || checkOutDate === '') {
+                alert('Please select both check-in and check-out dates.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 
     <script src="roomJs/jquery-3.3.1.min.js"></script>
     <script src="roomJs/bootstrap.min.js"></script>

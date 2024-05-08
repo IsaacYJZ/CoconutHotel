@@ -11,53 +11,35 @@ namespace CoconutHotel
 {
 
 
-    public partial class AdminHomePage
+    public partial class ViewRoomAdmin
     {
 
         /// <summary>
-        /// bookingReceivedCount control.
+        /// roomId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bookingReceivedCount;
+        protected global::System.Web.UI.WebControls.TextBox roomId;
 
         /// <summary>
-        /// roomsAvailabilityCount control.
+        /// occupancy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl roomsAvailabilityCount;
+        protected global::System.Web.UI.WebControls.TextBox occupancy;
 
         /// <summary>
-        /// paymentReceivedCount control.
+        /// SearchButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl paymentReceivedCount;
-
-        /// <summary>
-        /// gridViewUsers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewUsers;
-
-        /// <summary>
-        /// topSellingRoomsContainer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl topSellingRoomsContainer;
+        protected global::System.Web.UI.WebControls.Button SearchButton;
 
         /// <summary>
         /// gridViewRooms control.

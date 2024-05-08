@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Linq;
+using System.Web.UI;
 
 namespace CoconutHotel
 {
@@ -11,7 +12,114 @@ namespace CoconutHotel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                BindGridView();
+            }
         }
+
+        private void BindGridView()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            string query = "SELECT b.bookingID, u.userName AS UserName, rt.roomName AS RoomName, b.bookingDate, b.checkInDate, b.checkOutDate, b.numOfAdult, b.numOfChild, b.bookingStatus, p.paymentMethod " +
+                           "FROM Booking b " +
+                           "INNER JOIN [User] u ON b.userID = u.userID " +
+                           "INNER JOIN Room r ON b.roomID = r.roomID " +
+                           "INNER JOIN RoomType rt ON r.roomType = rt.roomType " +
+                           "INNER JOIN Payment p ON b.paymentID = p.paymentID";
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        gridViewBookings.DataSource = dataTable;
+                        gridViewBookings.DataBind();
+                    }
+                    else
+                    {
+                        // Display a message when no bookings are found
+                        // You can add a label or handle this case as needed
+                    }
+                }
+            }
+        }
+
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+            // Construct the SQL query dynamically based on the search criteria
+            string query = "SELECT b.bookingID, u.userName AS UserName, rt.roomName AS RoomName, b.bookingDate, b.checkInDate, b.checkOutDate, b.numOfAdult, b.numOfChild, b.bookingStatus, p.paymentMethod " +
+                           "FROM Booking b " +
+                           "INNER JOIN [User] u ON b.userID = u.userID " +
+                           "INNER JOIN Room r ON b.roomID = r.roomID " +
+                           "INNER JOIN RoomType rt ON r.roomType = rt.roomType " +
+                           "INNER JOIN Payment p ON b.paymentID = p.paymentID " +
+                           "WHERE 1 = 1"; // Start with a condition that is always true
+
+            // Add conditions based on the provided search criteria
+            if (!string.IsNullOrEmpty(userName.Text))
+            {
+                query += " AND u.userName LIKE @UserName";
+            }
+
+            if (roomType.SelectedValue != "")
+            {
+                query += " AND rt.roomName = @RoomName";
+            }
+
+            if (!string.IsNullOrEmpty(paymentType.SelectedValue))
+            {
+                query += " AND p.paymentMethod = @PaymentMethod";
+            }
+
+            // Execute the query and bind the results to the GridView
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Set parameter values based on the provided search criteria
+                    if (!string.IsNullOrEmpty(userName.Text))
+                    {
+                        command.Parameters.AddWithValue("@UserName", "%" + userName.Text + "%");
+                    }
+
+                    if (roomType.SelectedValue != "")
+                    {
+                        command.Parameters.AddWithValue("@RoomName", roomType.SelectedValue);
+                    }
+
+                    if (!string.IsNullOrEmpty(paymentType.SelectedValue))
+                    {
+                        command.Parameters.AddWithValue("@PaymentMethod", paymentType.SelectedValue);
+                    }
+
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        gridViewBookings.DataSource = dataTable;
+                        gridViewBookings.DataBind();
+                    }
+                    else
+                    {
+                        // Display a message when no bookings are found
+                        // You can add a label or handle this case as needed
+                    }
+                }
+            }
+        }
+
+
     }
 }

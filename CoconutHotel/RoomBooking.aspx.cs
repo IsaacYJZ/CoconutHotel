@@ -11,101 +11,46 @@ namespace CoconutHotel
 {
     public partial class RoomBooking : System.Web.UI.Page
     {
+        // Declare the selectedRooms list outside of the Page class
+        List<dynamic> selectedRooms = new List<dynamic>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 BindRooms();
+
+                // Initialize selectedRooms list if not already initialized
+                if (Session["SelectedRooms"] == null)
+                {
+                    selectedRooms = new List<dynamic>();
+                    Session["SelectedRooms"] = selectedRooms;
+                }
+                else
+                {
+                    selectedRooms = (List<dynamic>)Session["SelectedRooms"];
+                }
             }
-
-
+            else
+            {
+                selectedRooms = (List<dynamic>)Session["SelectedRooms"];
+            }
         }
+
 
         protected void bookBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("PaymentPage.aspx");
         }
 
-        protected void submitBtn_Click(object sender, EventArgs e)
-        {
-            // Retrieve user input
-            DateTime checkIn = DateTime.Parse(checkInDate.Text);
-            DateTime checkOut = DateTime.Parse(checkOutDate.Text);
-            int numOfAdults = int.Parse(adultsDropdown.SelectedValue);
-            int numOfChildren = int.Parse(childrenDropdown.SelectedValue);
 
-            // Check if there are any existing bookings that clash with the entered dates
-            if (CheckBookingClash(checkIn, checkOut))
-            {
-                // Display error message to the user
-                //errorMessageLabel.Text = "Error: The selected dates clash with existing bookings. Please choose different dates.";
-                return; // Exit the method without executing the query
-            }
 
-            // If no clash, proceed to fetch available rooms
-            FetchAvailableRooms(checkIn, checkOut, numOfAdults, numOfChildren);
-        }
 
-        private bool CheckBookingClash(DateTime checkIn, DateTime checkOut)
-        {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
-
-            // Construct SQL query to check for clash with existing bookings
-            string query = "SELECT COUNT(*) FROM Booking WHERE @checkIn < checkOutDate AND @checkOut > checkInDate";
-
-            // Execute the query to check for clashes
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@checkIn", checkIn);
-                command.Parameters.AddWithValue("@checkOut", checkOut);
-
-                connection.Open();
-                int clashCount = (int)command.ExecuteScalar();
-
-                // If clashCount is greater than 0, there's a clash
-                return clashCount > 0;
-            }
-        }
-
-        private void FetchAvailableRooms(DateTime checkIn, DateTime checkOut, int numOfAdults, int numOfChildren)
-        {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
-
-            // Construct SQL query to fetch available rooms
-            string query = @"SELECT RoomType.roomType, roomName, roomPrice, roomDesc, roomImage 
-                    FROM RoomType 
-                    INNER JOIN Room ON RoomType.roomType = Room.roomType 
-                    LEFT JOIN (
-                        SELECT roomID, SUM(CONVERT(INT, numOfAdult)) AS totalAdults, SUM(CONVERT(INT, numOfChild)) AS totalChildren
-                        FROM Booking
-                        WHERE (checkOutDate IS NULL OR checkOutDate <= @checkIn OR checkInDate >= @checkOut)
-                        GROUP BY roomID
-                    ) AS Occupancy ON Room.roomID = Occupancy.roomID
-                    WHERE (Room.occupancy >= @totalGuests OR (Room.occupancy - ISNULL(Occupancy.totalAdults, 0) - ISNULL(Occupancy.totalChildren, 0)) >= @totalGuests)";
-
-            // Execute the query to fetch available rooms
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@totalGuests", numOfAdults + numOfChildren);
-                command.Parameters.AddWithValue("@checkIn", checkIn);
-                command.Parameters.AddWithValue("@checkOut", checkOut);
-
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                // Bind the results to the repeater control
-                RoomRepeater.DataSource = reader;
-                RoomRepeater.DataBind();
-            }
-        }
 
         protected void BindRooms()
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
-            string query = "SELECT * FROM RoomType";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string query = "SELECT Room.roomID, RoomType.roomType, RoomType.roomName, RoomType.roomDesc, Room.occupancy, Room.roomImg, Room.roomPrice, Room.roomStatus FROM Room JOIN RoomType ON Room.roomType = RoomType.roomType";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -116,6 +61,51 @@ namespace CoconutHotel
                 RoomRepeater.DataBind();
             }
         }
+
+        protected void submitBtn_Click(object sender, EventArgs e)
+        {
+            // Get the selected check-in and check-out dates
+            DateTime checkIn = DateTime.Parse(checkInDate.Text);
+            DateTime checkOut = DateTime.Parse(checkOutDate.Text);
+
+            // Get the number of adults and children
+            int numOfAdults = int.Parse(adultsDropdown.SelectedValue);
+            int numOfChildren = int.Parse(childrenDropdown.SelectedValue);
+
+            // Calculate the total number of guests
+            int totalGuests = numOfAdults + numOfChildren;
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+
+            // Query to fetch available rooms based on the selected date and occupancy
+            string query = @"SELECT Room.roomID, RoomType.roomType, RoomType.roomName, RoomType.roomDesc, 
+                    Room.occupancy, Room.roomImg, Room.roomPrice, Room.roomStatus 
+                    FROM Room 
+                    JOIN RoomType ON Room.roomType = RoomType.roomType 
+                    WHERE Room.roomStatus = 'Available' 
+                    AND Room.occupancy >= @totalGuests 
+                    AND Room.roomID NOT IN 
+                    (SELECT Booking.roomID FROM Booking 
+                    WHERE (@checkInDate BETWEEN Booking.checkInDate AND Booking.checkOutDate) 
+                    OR (@checkOutDate BETWEEN Booking.checkInDate AND Booking.checkOutDate))";
+
+            // Establish connection and execute the query
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@totalGuests", totalGuests);
+                command.Parameters.AddWithValue("@checkInDate", checkIn);
+                command.Parameters.AddWithValue("@checkOutDate", checkOut);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                // Bind the filtered rooms to the RoomRepeater
+                RoomRepeater.DataSource = reader;
+                RoomRepeater.DataBind();
+            }
+        }
+
+
         protected void cvDate_ServerValidate(object source, ServerValidateEventArgs args)
         {
             // Parse the date from the TextBox
@@ -144,21 +134,77 @@ namespace CoconutHotel
             Page.Validate("checkOutGroup"); // Re-evaluate validation rules for a specific validation group
         }
 
+
+
         protected void bookBtn_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
         {
             if (e.CommandName == "Book")
             {
-                // Retrieve the room type from the CommandArgument
-                string roomType = e.CommandArgument.ToString();
+                // Retrieve the selected check-in and check-out dates
+                DateTime checkIn = DateTime.Parse(checkInDate.Text);
+                DateTime checkOut = DateTime.Parse(checkOutDate.Text);
+                // Get the number of adults and children
+                int numOfAdults = int.Parse(adultsDropdown.SelectedValue);
+                int numOfChildren = int.Parse(childrenDropdown.SelectedValue);
+                List<dynamic> selectedRoomsFromSession = Session["SelectedRooms"] as List<dynamic>;
 
-                // Here, you might perform some action based on the selected room type, such as
-                // redirecting to a booking page with the selected room type, or adding the room
-                // to a shopping cart, etc.
+                // Check if there are already rooms in the cart
+                if (selectedRooms.Count > 0)
+                {
+                    // Iterate through each room in the cart
+                    foreach (var room in selectedRooms)
+                    {
+                        // Check if the check-in and check-out dates of the current room match the selected dates
+                        if (room.CheckInDate != checkIn || room.CheckOutDate != checkOut)
+                        {
+                            // If dates don't match, prompt an error and return
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('All rooms in the cart must have the same check-in and check-out dates.');", true);
+                            return;
+                        }
+                    }
+                }
 
-                // For demonstration purposes, let's redirect to a booking page with the selected room type
-                Response.Redirect($"CheckAvailability.aspx?RoomType={roomType}");
+                // Retrieve the room details from the Repeater
+                RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
+                if (item != null)
+                {
+                    // Retrieve other details from the RepeaterItem
+                    string roomID = e.CommandArgument.ToString();
+                    string roomType = (item.FindControl("roomTypeLabel") as Label)?.Text;
+                    string roomName = (item.FindControl("roomNameLabel") as Label)?.Text;
+                    string roomPrice = (item.FindControl("roomPriceLabel") as Label)?.Text;
+                    string roomImage = (item.FindControl("RoomImageLabel") as Label)?.Text;
+
+                    // Create a new object to store the room details
+                    dynamic room = new
+                    {
+                        RoomID = roomID,
+                        RoomType = roomType,
+                        RoomName = roomName,
+                        RoomPrice = roomPrice,
+                        RoomImage = roomImage,
+                        CheckInDate = checkIn, // Add check-in date to the room object
+                        CheckOutDate = checkOut,// Add check-out date to the room object
+                        NumOfAdults = numOfAdults, // Add number of adults to the room object
+                        NumOfChildren = numOfChildren,
+                    };
+
+                    // Add the room details to the selectedRooms list
+                    selectedRooms.Add(room);
+
+                    // Store the updated selectedRooms list in the session
+                    Session["SelectedRooms"] = selectedRooms;
+                    Session["CheckInDate"] = DateTime.Parse(checkInDate.Text);
+                    Session["CheckOutDate"] = DateTime.Parse(checkOutDate.Text);
+                    // Redirect to the payment page
+                    Response.Redirect("RoomCart.aspx");
+                }
             }
         }
+
+        // Store the selectedRooms list in the session
+
+
         protected void RoomRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)

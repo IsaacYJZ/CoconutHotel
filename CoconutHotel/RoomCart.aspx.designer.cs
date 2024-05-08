@@ -11,61 +11,52 @@ namespace CoconutHotel
 {
 
 
-    public partial class AdminHomePage
+    public partial class roomCart
     {
 
         /// <summary>
-        /// bookingReceivedCount control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bookingReceivedCount;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// roomsAvailabilityCount control.
+        /// roomRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl roomsAvailabilityCount;
+        protected global::System.Web.UI.WebControls.Repeater roomRepeater;
 
         /// <summary>
-        /// paymentReceivedCount control.
+        /// noRoomsMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl paymentReceivedCount;
+        protected global::System.Web.UI.WebControls.Literal noRoomsMessage;
 
         /// <summary>
-        /// gridViewUsers control.
+        /// TotalPriceLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewUsers;
+        protected global::System.Web.UI.WebControls.Label TotalPriceLabel;
 
         /// <summary>
-        /// topSellingRoomsContainer control.
+        /// proceedToCheckoutBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl topSellingRoomsContainer;
-
-        /// <summary>
-        /// gridViewRooms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewRooms;
+        protected global::System.Web.UI.WebControls.Button proceedToCheckoutBtn;
     }
 }

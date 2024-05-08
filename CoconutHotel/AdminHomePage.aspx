@@ -10,40 +10,40 @@
     <link href="css/UserProfileAdmin.css" rel="stylesheet" />
     <link href="css/AdminHomePage.css" rel="stylesheet" />
 
-    <div class="container">
-        <h2>Dashboard</h2>
-        <div class="row">
-            <div class="col-md-4 col-xl-4">
-                <div class="card bg-c-blue order-card">
-                    <div class="card-block">
-                        <h6 class="m-b-20">Booking Received</h6>
-                        <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>486</span></h2>
-                        <p class="m-b-0">Completed Bookings<span class="f-right">351</span></p>
-                    </div>
+<div class="container">
+    <h2>Dashboard</h2>
+    <div class="row">
+        <div class="col-md-4 col-xl-4">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Booking Received</h6>
+                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span id="bookingReceivedCount"  runat="server">0</span></h2>
+                    <p class="m-b-0">Completed Bookings</p>
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-4 col-xl-4">
-                <div class="card bg-c-green order-card">
-                    <div class="card-block">
-                        <h6 class="m-b-20">Rooms Availability</h6>
-                        <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span>486</span></h2>
-                        <p class="m-b-0">Available Rooms<span class="f-right">351</span></p>
-                    </div>
+        <div class="col-md-4 col-xl-4">
+            <div class="card bg-c-green order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Rooms Availability</h6>
+                    <h2 class="text-right"><i class="fa fa-rocket f-left"></i><span id="roomsAvailabilityCount"  runat="server">0</span></h2>
+                    <p class="m-b-0">Available Rooms</p>
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-4 col-xl-4">
-                <div class="card bg-c-pink order-card">
-                    <div class="card-block">
-                        <h6 class="m-b-20">Payment Received</h6>
-                        <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
-                        <p class="m-b-0">Completed payments<span class="f-right">351</span></p>
-                    </div>
+        <div class="col-md-4 col-xl-4">
+            <div class="card bg-c-pink order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Payment Received</h6>
+                    <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span id="paymentReceivedCount"  runat="server">0</span></h2>
+                    <p class="m-b-0">Completed payments</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
     <!-- GridView to display user data -->
     <div class="container">
         <div class="row">
@@ -62,12 +62,12 @@
                                 <asp:TemplateField HeaderText="Control">
                                     <ItemTemplate>
                                         <div class="btn-group" role="group">
-                                        <asp:LinkButton ID="ViewUserProfileButton" runat="server" CssClass="table-link" OnClick="ViewUserProfileButton_Click">
+                                            <asp:LinkButton ID="ViewUserProfileButton" runat="server" CssClass="table-link" OnClick="ViewUserProfileButton_Click">
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                 <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
                                             </span>
-                                        </asp:LinkButton>
+                                            </asp:LinkButton>
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -76,49 +76,21 @@
                     </div>
                 </div>
             </div>
-                <div class="col-md-3">
-                    <h3>Top Selling Products</h3>
-                    <div class="top-sales box">
-                        <div class="title">Room 1</div>
-                        <div class="image">
-                            <img weight="50" height="100" src="roomImg/rooms-1.jpg" alt="Room 1" />
-                        </div>
-                        <div class="details">
-                            <p class="price">$1107</p>
-                            <p class="product-description">This is Room 1</p>
-                        </div>
-                    </div>
-                        <div class="top-sales box">
-                        <div class="title">Room 1</div>
-                        <div class="image">
-                            <img weight="50" height="100" src="roomImg/rooms-1.jpg" alt="Room 1" />
-                        </div>
-                        <div class="details">
-                            <p class="price">$1107</p>
-                            <p class="product-description">This is Room 1</p>
-                        </div>
-                    </div>
-                        <div class="top-sales box">
-                        <div class="title">Room 1</div>
-                        <div class="image">
-                            <img weight="50" height="100" src="roomImg/rooms-1.jpg" alt="Room 1" />
-                        </div>
-                        <div class="details">
-                            <p class="price">$1107</p>
-                            <p class="product-description">This is Room 1</p>
-                        </div>
-                    </div>
-                    <!-- Repeat for other top selling products -->
+            <div class="col-md-3">
+                <h5>Top Selling Rooms</h5>
+                <div id="topSellingRoomsContainer" runat="server">
+                    <!-- Top-selling rooms will be dynamically added here -->
                 </div>
+            </div>
         </div>
-    </div>              
-        <!-- GridView to display room data -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>Room</h2>
-                        <div class="main-box clearfix">
-                            <div class="table-responsive">
+    </div>
+    <!-- GridView to display room data -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Room</h2>
+                <div class="main-box clearfix">
+                    <div class="table-responsive">
                         <asp:GridView ID="gridViewRooms" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="false">
                             <Columns>
                                 <asp:TemplateField HeaderText="Image">
@@ -128,16 +100,15 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="roomName" HeaderText="Room Name" />
                                 <asp:BoundField DataField="roomDesc" HeaderText="Description" />
-                                <asp:BoundField DataField="roomType" HeaderText="Room Type" />
-                                <asp:BoundField DataField="roomPrice" HeaderText="Price" />
+                                <asp:BoundField DataField="AvailableRooms" HeaderText="Available Rooms" />
                                 <asp:TemplateField HeaderText="Control">
                                     <ItemTemplate>
                                         <div class="btn-group" role="group">
                                             <asp:LinkButton ID="ViewRoomButton" runat="server" CssClass="table-link" OnClick="ViewRoomButton_Click">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
+                                                <span class="fa-stack">
+                                                    <i class="fa fa-square fa-stack-2x"></i>
+                                                    <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                                </span>
                                             </asp:LinkButton>
                                         </div>
                                     </ItemTemplate>
