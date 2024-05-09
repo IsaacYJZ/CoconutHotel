@@ -76,6 +76,7 @@
     <Content Include="about.aspx" />
     <Content Include="about.css" />
     <Content Include="AddProfileAdmin.aspx" />
+    <Content Include="AdminLogin.aspx" />
     <Content Include="AdminReport.aspx" />
     <Content Include="RoomCart.aspx" />
     <Content Include="ViewRoomAdmin.aspx" />

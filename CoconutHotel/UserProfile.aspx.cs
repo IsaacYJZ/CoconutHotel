@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 
 namespace CoconutHotel
@@ -37,7 +38,7 @@ namespace CoconutHotel
 
         private void GetBookingDetails(string userID)
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True;";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             string query = "SELECT b.bookingID, u.UserName, u.Email, br.roomType, br.roomID, b.bookingDate, b.checkInDate, b.checkOutDate " +
                            "FROM Booking b " +
                            "INNER JOIN BookingRoom br ON b.bookingID = br.bookingID " +

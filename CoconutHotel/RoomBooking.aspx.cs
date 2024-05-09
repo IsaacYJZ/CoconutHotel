@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -49,7 +50,7 @@ namespace CoconutHotel
 
         protected void BindRooms()
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             string query = "SELECT Room.roomID, RoomType.roomType, RoomType.roomName, RoomType.roomDesc, Room.occupancy, Room.roomImg, Room.roomPrice, Room.roomStatus FROM Room JOIN RoomType ON Room.roomType = RoomType.roomType";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -74,7 +75,7 @@ namespace CoconutHotel
 
             // Calculate the total number of guests
             int totalGuests = numOfAdults + numOfChildren;
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             // Query to fetch available rooms based on the selected date and occupancy
             string query = @"SELECT Room.roomID, RoomType.roomType, RoomType.roomName, RoomType.roomDesc, 

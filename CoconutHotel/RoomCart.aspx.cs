@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static QRCoder.PayloadGenerator;
 
 namespace CoconutHotel
 {
@@ -174,7 +176,7 @@ namespace CoconutHotel
             string lastBookingID = "";
 
             // Connection string to your SQL Server database
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             // SQL query to retrieve the last booking ID
             string query = "SELECT TOP 1 bookingID FROM Booking ORDER BY bookingID DESC";
@@ -201,7 +203,7 @@ namespace CoconutHotel
         private void SaveBookingToDatabase(string bookingID, string userID)
         {
             // Define your connection string
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             List<dynamic> selectedRoomsFromSession = Session["SelectedRooms"] as List<dynamic>;
 
             // Save booking details to the database
@@ -232,7 +234,7 @@ namespace CoconutHotel
         private void SaveRoomBookingToDatabase(string roomID, string bookingID, string roomType)
         {
             // Define your connection string
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             // Save room booking details to the database
             string query = @"INSERT INTO BookingRoom (bookingID, roomID, roomType) 

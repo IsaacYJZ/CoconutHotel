@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
@@ -49,7 +50,7 @@ namespace CoconutHotel
             return userDetails;
         }
 
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True;";
+        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -121,7 +122,7 @@ namespace CoconutHotel
         private bool ValidateUser(string email, string password)
         {
             string query = "SELECT COUNT(*) FROM [User] WHERE email = @Email AND password = @Password";
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True;";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -160,23 +161,23 @@ namespace CoconutHotel
         // Assuming you have a method to execute a SQL query and retrieve the result
         // This is just a placeholder, replace it with your actual database access method
 
-        //public string GetHashedPasswordFromDatabase(string email)
-        //{
-        //    string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True;";
-        //    string query = "SELECT password FROM [dbo].[User] WHERE email = @Email;";
+        public string GetHashedPasswordFromDatabase(string email)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            string query = "SELECT password FROM [dbo].[User] WHERE email = @Email;";
 
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    {
-        //        using (SqlCommand command = new SqlCommand(query, connection))
-        //        {
-        //            command.Parameters.AddWithValue("@Email", email);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
 
-        //            connection.Open();
-        //            string hashedPassword = (string)command.ExecuteScalar();
-        //            return hashedPassword;
-        //        }
-        //    }
-        //}
+                    connection.Open();
+                    string hashedPassword = (string)command.ExecuteScalar();
+                    return hashedPassword;
+                }
+            }
+        }
 
 
     }
