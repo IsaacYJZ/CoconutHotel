@@ -343,5 +343,6 @@ namespace CoconutHotel
             return long.TryParse(input, out _);
         }
 
+
     }
 }

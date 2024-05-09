@@ -197,7 +197,7 @@
                 <asp:Table ID="QRTable" runat="server" visible="false">
                     <asp:TableRow>
                         <asp:TableCell>
-                             <asp:Image ID="imgQRCode" runat="server"/>
+                             <asp:Image ID="qrImage" runat="server" ImageUrl="Images/qrcode.png" AlternateText="QR image"/>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
