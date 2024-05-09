@@ -78,15 +78,18 @@ namespace CoconutHotel
 
             // Query to fetch available rooms based on the selected date and occupancy
             string query = @"SELECT Room.roomID, RoomType.roomType, RoomType.roomName, RoomType.roomDesc, 
-                    Room.occupancy, Room.roomImg, Room.roomPrice, Room.roomStatus 
-                    FROM Room 
-                    JOIN RoomType ON Room.roomType = RoomType.roomType 
-                    WHERE Room.roomStatus = 'Available' 
-                    AND Room.occupancy >= @totalGuests 
-                    AND Room.roomID NOT IN 
-                    (SELECT Booking.roomID FROM Booking 
-                    WHERE (@checkInDate BETWEEN Booking.checkInDate AND Booking.checkOutDate) 
-                    OR (@checkOutDate BETWEEN Booking.checkInDate AND Booking.checkOutDate))";
+             Room.occupancy, Room.roomImg, Room.roomPrice, Room.roomStatus 
+             FROM Room 
+             JOIN RoomType ON Room.roomType = RoomType.roomType 
+             WHERE Room.roomStatus = 'Available' 
+             AND Room.roomID NOT IN 
+             (SELECT BookingRoom.roomID FROM BookingRoom 
+             JOIN Booking ON BookingRoom.bookingID = Booking.bookingID
+             WHERE ((@checkInDate BETWEEN Booking.checkInDate AND Booking.checkOutDate) 
+             OR (@checkOutDate BETWEEN Booking.checkInDate AND Booking.checkOutDate))
+             AND Booking.bookingStatus <> 'Cancelled')";
+
+
 
             // Establish connection and execute the query
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -136,73 +139,61 @@ namespace CoconutHotel
 
 
 
-        protected void bookBtn_Command(object sender, System.Web.UI.WebControls.CommandEventArgs e)
+        protected void bookBtn_Command(object sender, CommandEventArgs e)
         {
-            if (e.CommandName == "Book")
+            // Retrieve the selected check-in and check-out dates
+            DateTime checkIn = DateTime.Parse(checkInDate.Text);
+            DateTime checkOut = DateTime.Parse(checkOutDate.Text);
+            // Get the number of adults and children
+            int numOfAdults = int.Parse(adultsDropdown.SelectedValue);
+            int numOfChildren = int.Parse(childrenDropdown.SelectedValue);
+            List<dynamic> selectedRoomsFromSession = Session["SelectedRooms"] as List<dynamic>;
+
+            // Check if the room ID already exists in the selectedRooms list
+            string roomID = e.CommandArgument.ToString();
+            if (selectedRooms.Any(room => room.RoomID == roomID))
             {
-                // Retrieve the selected check-in and check-out dates
-                DateTime checkIn = DateTime.Parse(checkInDate.Text);
-                DateTime checkOut = DateTime.Parse(checkOutDate.Text);
-                // Get the number of adults and children
-                int numOfAdults = int.Parse(adultsDropdown.SelectedValue);
-                int numOfChildren = int.Parse(childrenDropdown.SelectedValue);
-                List<dynamic> selectedRoomsFromSession = Session["SelectedRooms"] as List<dynamic>;
+                // If the room ID already exists, prompt an error message
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You have already added this room to the cart.');", true);
+                return;
+            }
 
-                // Check if there are already rooms in the cart
-                if (selectedRooms.Count > 0)
+            // Retrieve the room details from the Repeater
+            RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
+            if (item != null)
+            {
+                // Retrieve other details from the RepeaterItem
+                string roomType = (item.FindControl("roomTypeLabel") as Label)?.Text;
+                string roomName = (item.FindControl("roomNameLabel") as Label)?.Text;
+                string roomPrice = (item.FindControl("roomPriceLabel") as Label)?.Text;
+                string roomImage = (item.FindControl("RoomImageLabel") as Label)?.Text;
+
+                // Create a new object to store the room details
+                dynamic room = new
                 {
-                    // Iterate through each room in the cart
-                    foreach (var room in selectedRooms)
-                    {
-                        // Check if the check-in and check-out dates of the current room match the selected dates
-                        if (room.CheckInDate != checkIn || room.CheckOutDate != checkOut)
-                        {
-                            // If dates don't match, prompt an error and return
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('All rooms in the cart must have the same check-in and check-out dates.');", true);
-                            return;
-                        }
-                    }
-                }
+                    RoomID = roomID,
+                    RoomType = roomType,
+                    RoomName = roomName,
+                    RoomPrice = roomPrice,
+                    RoomImage = roomImage,
+                    CheckInDate = checkIn, // Add check-in date to the room object
+                    CheckOutDate = checkOut, // Add check-out date to the room object
+                    NumOfAdults = numOfAdults, // Add number of adults to the room object
+                    NumOfChildren = numOfChildren,
+                };
 
-                // Retrieve the room details from the Repeater
-                RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
-                if (item != null)
-                {
-                    // Retrieve other details from the RepeaterItem
-                    string roomID = e.CommandArgument.ToString();
-                    string roomType = (item.FindControl("roomTypeLabel") as Label)?.Text;
-                    string roomName = (item.FindControl("roomNameLabel") as Label)?.Text;
-                    string roomPrice = (item.FindControl("roomPriceLabel") as Label)?.Text;
-                    string roomImage = (item.FindControl("RoomImageLabel") as Label)?.Text;
+                // Add the room details to the selectedRooms list
+                selectedRooms.Add(room);
 
-                    // Create a new object to store the room details
-                    dynamic room = new
-                    {
-                        RoomID = roomID,
-                        RoomType = roomType,
-                        RoomName = roomName,
-                        RoomPrice = roomPrice,
-                        RoomImage = roomImage,
-                        CheckInDate = checkIn, // Add check-in date to the room object
-                        CheckOutDate = checkOut,// Add check-out date to the room object
-                        NumOfAdults = numOfAdults, // Add number of adults to the room object
-                        NumOfChildren = numOfChildren,
-                    };
-
-                    // Add the room details to the selectedRooms list
-                    selectedRooms.Add(room);
-
-                    // Store the updated selectedRooms list in the session
-                    Session["SelectedRooms"] = selectedRooms;
-                    Session["CheckInDate"] = DateTime.Parse(checkInDate.Text);
-                    Session["CheckOutDate"] = DateTime.Parse(checkOutDate.Text);
-                    // Redirect to the payment page
-                    Response.Redirect("RoomCart.aspx");
-                }
+                // Store the updated selectedRooms list in the session
+                Session["SelectedRooms"] = selectedRooms;
+                Session["CheckInDate"] = DateTime.Parse(checkInDate.Text);
+                Session["CheckOutDate"] = DateTime.Parse(checkOutDate.Text);
+                // Redirect to the payment page
+                Response.Redirect("RoomCart.aspx");
             }
         }
 
-        // Store the selectedRooms list in the session
 
 
         protected void RoomRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)

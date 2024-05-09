@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -29,6 +30,14 @@ namespace CoconutHotel
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["LoggedInUser"] != null)
+            {
+                UserDetails userDetails = (UserDetails)Session["LoggedInUser"];
+
+                string userID = userDetails.UserID;
+               
+
+            }
             if (!IsPostBack)
             {
 
@@ -121,9 +130,10 @@ namespace CoconutHotel
             {
                 // Generate the next booking ID
                 string bookingID = GenerateNextBookingID();
+                UserDetails userDetails = (UserDetails)Session["LoggedInUser"];
 
                 // If you're retrieving the user ID from the session, retrieve it here
-                string userID = "C0001"; // Replace "" with the logic to retrieve the user ID
+                string userID = userDetails.UserID; // Replace "" with the logic to retrieve the user ID
 
                 // Save booking details to the database
                 SaveBookingToDatabase(bookingID, userID);

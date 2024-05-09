@@ -105,6 +105,7 @@ namespace CoconutHotel
                 string userType = ddlUserType.SelectedValue;
                 string userStatus = ddlUserStatus.SelectedValue;
                 string newPassword = txtPassword.Text; // New password input field
+                string hashedPassword = HashPassword(newPassword);
 
                 // Check if the password is valid and the checkbox is checked
                 if (chkChangePassword.Checked)
@@ -116,7 +117,7 @@ namespace CoconutHotel
                     if (cvPassword.IsValid)
                     {
                         // Update user profile in the database with the new password
-                        UpdateUserProfile(userId, username, icNumber, phoneNumber, email, userType, userStatus, newPassword);
+                        UpdateUserProfile(userId, username, icNumber, phoneNumber, email, userType, userStatus, hashedPassword);
 
                         // Clear the new password field
                         txtPassword.Text = "";
@@ -142,7 +143,17 @@ namespace CoconutHotel
         }
 
 
+        private string HashPassword(string password)
+        {
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                // ComputeHash - returns byte array
+                byte[] bytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
 
+                // Convert byte array to a string
+                return Convert.ToBase64String(bytes);
+            }
+        }
 
         private void UpdateUserProfile(string userId, string username, string icNumber, string phoneNumber, string email, string userType, string userStatus, string newPassword = null)
         {
@@ -176,7 +187,8 @@ namespace CoconutHotel
                     // If newPassword is provided, add parameter for password
                     if (!string.IsNullOrEmpty(newPassword))
                     {
-                        command.Parameters.AddWithValue("@Password", newPassword);
+                        string hashedPassword = HashPassword(newPassword);
+                        command.Parameters.AddWithValue("@Password", hashedPassword);
                     }
 
                     connection.Open();
