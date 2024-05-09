@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -34,6 +35,16 @@ namespace CoconutHotel
 
         protected void btnComfirm_Click(object sender, EventArgs e)
         {
+            Session.Remove("PaymentID");
+            Session.Remove("SelectedRooms");
+
+            // Reconstruct URL without the "bookingID" parameter
+            NameValueCollection queryString = HttpUtility.ParseQueryString(Request.QueryString.ToString());
+            queryString.Remove("bookingID");
+
+            string newUrl = Request.Url.GetLeftPart(UriPartial.Path) + "?" + queryString.ToString();
+
+            // Redirect to the new URL without "bookingID"
             Response.Redirect("homeLogin.aspx");
         }
     }

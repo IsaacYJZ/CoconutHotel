@@ -88,8 +88,6 @@
     <Content Include="CheckAvailability.css" />
     <Content Include="Admin.sitemap" />
     <Content Include="Admin.Master" />
-    <Content Include="contact.aspx" />
-    <Content Include="contact.css" />
     <Content Include="css\RoomAdmin.css" />
     <Content Include="EditProfileAdmin.aspx" />
     <Content Include="EditUserProfile.aspx" />
@@ -336,13 +334,6 @@
     </Compile>
     <Compile Include="ThankYouPage.aspx.designer.cs">
       <DependentUpon>ThankYouPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="contact.aspx.cs">
-      <DependentUpon>contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="contact.aspx.designer.cs">
-      <DependentUpon>contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditUserProfile.aspx.cs">
       <DependentUpon>EditUserProfile.aspx</DependentUpon>

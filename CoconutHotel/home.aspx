@@ -26,8 +26,6 @@
                          <li>
                             <asp:HyperLink ID="bookingLink" runat="server" NavigateUrl="~/login.aspx">BOOK A ROOM</asp:HyperLink></li>
                         <li>
-                            <asp:HyperLink ID="contactLink" runat="server" NavigateUrl="~/contact.aspx">CONTACT</asp:HyperLink></li>
-                        <li>
                             <asp:HyperLink ID="galleryLink" runat="server" NavigateUrl="~/gallery.aspx">GALLERY</asp:HyperLink></li>
                          <li>
                             <asp:HyperLink ID="hypUserProfile" runat="server" NavigateUrl="login.aspx">
