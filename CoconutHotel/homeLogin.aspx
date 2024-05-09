@@ -7,13 +7,13 @@
     <link href="home.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
-    <title></title>
+    <title>Welcome</title>
 </head>
 <body>
     <form id="form1" runat="server">
         <section class="header">
             <nav>
-                <a href="home.aspx">
+                <a href="homeLogin.aspx">
                     <img src="Images/coconut.png" alt="Home" style="width: 50px; height: auto; margin-right: 10px;" /></a>
                 <div class="nav-links">
                     <ul>
@@ -31,7 +31,7 @@
                             <asp:HyperLink ID="galleryLink" runat="server" NavigateUrl="~/gallery.aspx">GALLERY</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="hypUserProfile" runat="server" NavigateUrl="UserProfile.aspx">
-                    <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
+                    <i class="fas fa-user"></i> 
                             </asp:HyperLink>
                         </li>
                     </ul>

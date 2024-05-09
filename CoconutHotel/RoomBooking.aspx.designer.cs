@@ -24,75 +24,111 @@ namespace CoconutHotel
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// CheckInDate control.
+        /// checkInCal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CheckInDate;
+        protected global::System.Web.UI.WebControls.Calendar checkInCal;
 
         /// <summary>
-        /// CheckOutDate control.
+        /// checkInDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CheckOutDate;
+        protected global::System.Web.UI.WebControls.TextBox checkInDate;
 
         /// <summary>
-        /// Adults control.
+        /// rfvCheckInDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Adults;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCheckInDate;
 
         /// <summary>
-        /// Children control.
+        /// cvDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Children;
+        protected global::System.Web.UI.WebControls.CustomValidator cvDate;
 
         /// <summary>
-        /// bookBtn control.
+        /// checkOutCal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bookBtn;
+        protected global::System.Web.UI.WebControls.Calendar checkOutCal;
 
         /// <summary>
-        /// bookBtn1 control.
+        /// checkOutDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bookBtn1;
+        protected global::System.Web.UI.WebControls.TextBox checkOutDate;
 
         /// <summary>
-        /// bookBtn2 control.
+        /// rfvCheckOutDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bookBtn2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCheckOutDate;
 
         /// <summary>
-        /// bookBtn3 control.
+        /// cmpCheckInOutDates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bookBtn3;
+        protected global::System.Web.UI.WebControls.CompareValidator cmpCheckInOutDates;
+
+        /// <summary>
+        /// adultsDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList adultsDropdown;
+
+        /// <summary>
+        /// childrenDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList childrenDropdown;
+
+        /// <summary>
+        /// submitBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submitBtn;
+
+        /// <summary>
+        /// RoomRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RoomRepeater;
     }
 }

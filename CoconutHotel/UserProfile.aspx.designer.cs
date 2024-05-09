@@ -24,6 +24,15 @@ namespace CoconutHotel
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// lblID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblID;
+
+        /// <summary>
         /// lblName control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace CoconutHotel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblName;
+
+        /// <summary>
+        /// lblICNum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblICNum;
 
         /// <summary>
         /// lblEmail control.
@@ -42,22 +60,22 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// lblPassword control.
+        /// lblPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPassword;
+        protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
 
         /// <summary>
-        /// lblPhone control.
+        /// lblUserType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPhone;
+        protected global::System.Web.UI.WebControls.Label lblUserType;
 
         /// <summary>
         /// btnEditProfile control.
@@ -69,12 +87,12 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.Button btnEditProfile;
 
         /// <summary>
-        /// rptBookingHistory control.
+        /// btnLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptBookingHistory;
+        protected global::System.Web.UI.WebControls.Button btnLogout;
     }
 }

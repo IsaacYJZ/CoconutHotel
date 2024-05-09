@@ -4,7 +4,11 @@
 
 <html>
 <head runat="server">
-    <title></title>
+        <title>
+        <asp:ContentPlaceHolder ID="titleContent" runat="server">
+            Payment
+        </asp:ContentPlaceHolder>
+    </title>
     <link href="Masterpage1.css" rel="stylesheet" type="text/css" />
     
     <asp:ContentPlaceHolder ID="head" runat="server">

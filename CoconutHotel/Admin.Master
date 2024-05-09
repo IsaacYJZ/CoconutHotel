@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                          <li class="nav-item ml-auto">
-                            <asp:Button ID="btnSignOut" runat="server" Text="Sign Out" CssClass="btn btn-outline-light" />
+                             <asp:Button ID="btnSignOut" runat="server" Text="Sign Out" CssClass="btn btn-outline-light" OnClick="btnSignOut_Click" />
                         </li>
                     </ul>
                 </div>

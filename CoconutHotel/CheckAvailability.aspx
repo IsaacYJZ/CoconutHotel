@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage1.Master" AutoEventWireup="true" CodeBehind="CheckAvailability.aspx.cs" Inherits="CoconutHotel.CheckAvailabililty" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">    
-<%--    <title>Check Availability</title>--%>
-
+<asp:Content ID="Content3" ContentPlaceHolderID="titleContent" runat="server">
+    Check Availability
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <%--    <title>Check Availability</title>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -20,8 +22,8 @@
                 <asp:Calendar ID="checkInCal" CssClass="calendarStyle" runat="server" OnSelectionChanged="checkInCal_SelectionChanged"></asp:Calendar>
 
                 &nbsp;<asp:TextBox ID="checkInDate" runat="server" CssClass="textbox" Width="267px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvCheckInDate" runat="server" ControlToValidate="checkInDate" ErrorMessage="Check-In Date is required." Text="*Please Enter Check In Date" ValidationGroup="checkOutGroup"  CssClass="validation-error"></asp:RequiredFieldValidator>
-                <asp:CustomValidator ID="cvDate" runat="server" ControlToValidate="checkInDate" ErrorMessage="Check-in date cannot be before today" OnServerValidate="cvDate_ServerValidate" EnableClientScript="false"  CssClass="validation-error"></asp:CustomValidator>
+                <asp:RequiredFieldValidator ID="rfvCheckInDate" runat="server" ControlToValidate="checkInDate" ErrorMessage="Check-In Date is required." Text="*Please Enter Check In Date" ValidationGroup="checkOutGroup" CssClass="validation-error"></asp:RequiredFieldValidator>
+                <asp:CustomValidator ID="cvDate" runat="server" ControlToValidate="checkInDate" ErrorMessage="Check-in date cannot be before today" OnServerValidate="cvDate_ServerValidate" EnableClientScript="false" CssClass="validation-error"></asp:CustomValidator>
 
 
                 <br />
@@ -35,7 +37,7 @@
                 &nbsp;<asp:TextBox ID="checkOutDate" runat="server" CssClass="textbox" Width="265px"></asp:TextBox>
                 <%--                <asp:CustomValidator ID="cvDate2" runat="server" ControlToValidate="checkOutDate" ErrorMessage="Check-out date cannot be before today" OnServerValidate="cvDate_ServerValidate" EnableClientScript="false"></asp:CustomValidator>--%>
 
-                <asp:RequiredFieldValidator ID="rfvCheckOutDate" runat="server" ControlToValidate="checkOutDate" ErrorMessage="*Check-out date is required." Text="*Please Enter Check Out Date" ValidationGroup="checkOutGroup"  CssClass="validation-error"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="rfvCheckOutDate" runat="server" ControlToValidate="checkOutDate" ErrorMessage="*Check-out date is required." Text="*Please Enter Check Out Date" ValidationGroup="checkOutGroup" CssClass="validation-error"></asp:RequiredFieldValidator>
 
                 <asp:CompareValidator ID="cmpCheckInOutDates" runat="server"
                     ControlToValidate="checkOutDate"
@@ -45,7 +47,7 @@
                     Type="Date"
                     Display="Dynamic"
                     ValidationGroup="checkOutGroup"
-                    EnableClientScript="false"  
+                    EnableClientScript="false"
                     CssClass="validation-error">
 
                 </asp:CompareValidator>

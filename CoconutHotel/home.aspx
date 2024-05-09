@@ -5,7 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="home.css" rel="stylesheet" />
-    <title></title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+    <title>Home</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -16,17 +18,22 @@
                 <div class="nav-links">
                     <ul>
                         <li>
-                            <asp:HyperLink ID="homeLoginLink" runat="server" NavigateUrl="~/homeLogin.aspx">HOME</asp:HyperLink></li>
+                            <asp:HyperLink ID="homeLoginLink" runat="server" NavigateUrl="~/home.aspx">HOME</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="aboutLink" runat="server" NavigateUrl="~/about.aspx">ABOUT</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="facilitiesLink" runat="server" NavigateUrl="~/facilities.aspx">FACILITIES</asp:HyperLink></li>
                          <li>
-                            <asp:HyperLink ID="bookingLink" runat="server" NavigateUrl="~/CheckAvailability.aspx">BOOK A ROOM</asp:HyperLink></li>
+                            <asp:HyperLink ID="bookingLink" runat="server" NavigateUrl="~/login.aspx">BOOK A ROOM</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="contactLink" runat="server" NavigateUrl="~/contact.aspx">CONTACT</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="galleryLink" runat="server" NavigateUrl="~/gallery.aspx">GALLERY</asp:HyperLink></li>
+                         <li>
+                            <asp:HyperLink ID="hypUserProfile" runat="server" NavigateUrl="login.aspx">
+                    <i class="fas fa-user"></i>
+                            </asp:HyperLink>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -73,7 +80,6 @@
 
 
         <div class="footer">
-        <!-- footer content here -->
         <div class="footer-text">
             <h1 class="fTitle">Coconut Hotel</h1>
             <p class="f1">Reservation +0611-1130 3353(24 hours)</p>
