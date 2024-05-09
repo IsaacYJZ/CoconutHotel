@@ -51,40 +51,40 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.Label lblAccount;
 
         /// <summary>
-        /// Label6 control.
+        /// lblAccountID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label lblAccountID;
 
         /// <summary>
-        /// Label11 control.
+        /// lblPaymentID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label11;
+        protected global::System.Web.UI.WebControls.Label lblPaymentID;
 
         /// <summary>
-        /// Label7 control.
+        /// lblBookingID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.Label lblBookingID;
 
         /// <summary>
-        /// Label5 control.
+        /// lblDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label lblDate;
 
         /// <summary>
         /// ddlMethod control.
@@ -195,13 +195,13 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
 
         /// <summary>
-        /// CompareValidator1 control.
+        /// RegularExpressionValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
 
         /// <summary>
         /// txtCCVT control.
@@ -276,12 +276,12 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.Table QRTable;
 
         /// <summary>
-        /// qrImage control.
+        /// imgQRCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image qrImage;
+        protected global::System.Web.UI.WebControls.Image imgQRCode;
     }
 }

@@ -65,67 +65,6 @@
 
             </div>
 
-<%--                <table>
-                    <thead>
-                        <tr>
-                            <th>Room-Image</th>
-                            <th>Theme</th>
-                            <th>Booked-days</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>
-                                <asp:Image ID="HotelImage" runat="server" CssClass="inline" ImageUrl="Images/hotel room.jpg" AlternateText="Example image" /></td>
-                            <td>
-                                <asp:Label ID="lblProductName" runat="server" CssClass="product-name">sea theme twin room</asp:Label></td>
-                            <td>
-                                <asp:Label ID="lblDays" runat="server" CssClass="">3</asp:Label></td>
-                            <td>
-                                <asp:Label ID="lblPrice" runat="server" CssClass="product-price">RM123</asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:Image ID="HotelImage2" runat="server" CssClass="inline" ImageUrl="Images/hotel room.jpg" AlternateText="Example2 image" /></td>
-                            <td>
-                                <asp:Label ID="lblProductName2" runat="server" CssClass="product-name2">sea theme twin room</asp:Label></td>
-                            <td>
-                                <asp:Label ID="Label2" runat="server" CssClass="">3</asp:Label></td>
-                            <td>
-                                <asp:Label ID="lblPricel2" runat="server" CssClass="product-price2">RM123</asp:Label>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <asp:Image ID="Image1" runat="server" CssClass="inline" ImageUrl="Images/hotel room.jpg" AlternateText="Example2 image" /></td>
-                            <td>
-                                <asp:Label ID="Label1" runat="server" CssClass="product-name2">sea theme twin room</asp:Label></td>
-                            <td>
-                                <asp:Label ID="Label3" runat="server" CssClass="">3</asp:Label></td>
-                            <td>
-                                <asp:Label ID="Label4" runat="server" CssClass="product-price2">RM123</asp:Label>
-                            </td>
-                        </tr>
-                    </tbody>
-
-                    <tfoot>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <p class="total-text">Total :</p>
-                            </td>
-                            <td>
-                                <asp:Label ID="lblTotal" runat="server" CssClass="total-price">RM123</asp:Label></td>
-                        </tr>
-                    </tfoot>
-                </table>
-                <br />--%>
-
             
             <div class="payment-container">
                 <h3 class=" payment-method ">Payment Information </h3>
@@ -137,7 +76,7 @@
                                 <p>Account Name:</p>
                             </td>
                             <td>
-                                <asp:Label ID="lblAccount" runat="server" CssClass="inline">ALI</asp:Label></td>
+                                <asp:Label ID="lblAccount" runat="server" CssClass="inline"></asp:Label></td>
                         </tr>
 
                         <tr>
@@ -145,7 +84,7 @@
                                 <p>Account Id:</p>
                             </td>
                             <td>
-                                <asp:Label ID="Label6" runat="server" CssClass="inline" OnDisposed="Page_Load">123456676</asp:Label></td>
+                                <asp:Label ID="lblAccountID" runat="server" CssClass="inline" OnDisposed="Page_Load"></asp:Label></td>
                         </tr>
 
                         <tr>
@@ -153,7 +92,7 @@
                                 <p>Payment Id :</p>
                             </td>
                             <td>
-                                <asp:Label ID="Label11" runat="server">123456789</asp:Label></td>
+                                <asp:Label ID="lblPaymentID" runat="server">123456789</asp:Label></td>
                         </tr>
 
                         <tr>
@@ -161,14 +100,14 @@
                                 <p>Booking Id :</p>
                             </td>
                             <td>
-                                <asp:Label ID="Label7" runat="server">123456789</asp:Label></td>
+                                <asp:Label ID="lblBookingID" runat="server">123456789</asp:Label></td>
                         </tr>
                         <tr>
                             <td>
                                 <p>Date:</p>
                             </td>
                             <td>
-                                <asp:Label ID="Label5" runat="server">12/12/2024</asp:Label></td>
+                                <asp:Label ID="lblDate" runat="server">12/12/2024</asp:Label></td>
                         </tr>
                         <tr>
                             <td>
@@ -188,69 +127,69 @@
                         <tr>
                             <td></td>
                             <td>
-                                <asp:Button ID="btnProceed" runat="server" Text="Proceed" OnClick="btnProceed_Click" Visible="false" OnClientClick = "return confirmProceed();"/>
+                                <asp:Button ID="btnProceed" runat="server" Text="Proceed" OnClick="btnProceed_Click" OnClientClick="return confirmProceed();" Visible="false"/> 
                             </td>
                         </tr>
                     </tbody>
                 </table>
-
+                
                 <br />
 
-                <asp:Table ID="CreditDebitCardTable" runat="server" visible="false">
+                <asp:Table ID="CreditDebitCardTable" runat="server" Visible="false">
                     <asp:TableRow>
-                        <asp:TableCell class="auto-style3">Credit Card Type :</asp:TableCell>
+                        <asp:TableCell class="auto-style3">Credit Card Type:</asp:TableCell>
                         <asp:TableCell class="auto-style1">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Choose A Card Type" ControlToValidate="RadioButtonList1" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
-                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" Height="16px" Width="156px" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged" RepeatDirection="Horizontal">
-                            <asp:ListItem Value="VISA" >VISA</asp:ListItem>
-                            <asp:ListItem Value="Master" >Master</asp:ListItem>
-                        </asp:RadioButtonList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Choose a card type" ControlToValidate="RadioButtonList1" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
+                            <asp:RadioButtonList ID="RadioButtonList1" runat="server" Height="16px" Width="156px" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged" RepeatDirection="Horizontal">
+                                <asp:ListItem Value="VISA">VISA</asp:ListItem>
+                                <asp:ListItem Value="Master">Master</asp:ListItem>
+                            </asp:RadioButtonList>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell class="auto-style3">Name on Card :</asp:TableCell>
+                        <asp:TableCell class="auto-style3">Name on Card:</asp:TableCell>
                         <asp:TableCell>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is Required" ControlToValidate="txtCCName" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtCCName" CssClass="error" Display="Dynamic" ErrorMessage="Name " ValidationExpression="^.+$">*</asp:RegularExpressionValidator>
-                            <asp:TextBox ID="txtCCName" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Name on card is required" ControlToValidate="txtCCName" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtCCName" CssClass="error" Display="Dynamic" ErrorMessage="Name should be alphabet only" ValidationExpression="^[A-Za-z ]+$">*</asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtCCName" runat="server"></asp:TextBox>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell class="auto-style3">Card Number :</asp:TableCell>
+                        <asp:TableCell class="auto-style3">Card Number:</asp:TableCell>
                         <asp:TableCell>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Card Number is Required" ControlToValidate="txtCCNumber" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
-                            <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="txtCCNumber" CssClass="error" ErrorMessage="Enter correct card format" OnServerValidate="CustomValidator1_ServerValidate">*</asp:CustomValidator>
-                            <asp:TextBox ID="txtCCNumber" runat="server" OnTextChanged="TextBox5_TextChanged"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Card number is required" ControlToValidate="txtCCNumber" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
+                            <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="txtCCNumber" CssClass="error" ErrorMessage="Invalid card number format VISA(10), Master(12)" OnServerValidate="CustomValidator1_ServerValidate">*</asp:CustomValidator>
+                            <asp:TextBox ID="txtCCNumber" runat="server"></asp:TextBox>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell class="auto-style3">Valid Through :</asp:TableCell>
+                        <asp:TableCell class="auto-style3">Valid Through:</asp:TableCell>
                         <asp:TableCell>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="CVT is Required" ControlToValidate="txtCCVT" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
-                            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtCCVT" CssClass="error" EnableTheming="True" ErrorMessage="CompareValidator" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
-                            <asp:TextBox ID="txtCCVT" runat="server" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Valid through is required" ControlToValidate="txtCCVT" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtCCVT" CssClass="error" Display="Dynamic" ErrorMessage="Invalid format (MM/YY)" ValidationExpression="^(0[1-9]|1[0-2])\/\d{2}$">*</asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtCCVT" runat="server"></asp:TextBox>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell class="auto-style3">CVV :</asp:TableCell>
+                        <asp:TableCell class="auto-style3">CVV:</asp:TableCell>
                         <asp:TableCell>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="CVV is Required" ControlToValidate="txtCVV" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCVV" CssClass="error" Display="Dynamic" ErrorMessage="The CVV need to be 3 number." ValidationExpression="^.{3}$">*</asp:RegularExpressionValidator>
-                            <asp:TextBox ID="txtCVV" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="CVV is required" ControlToValidate="txtCVV" CssClass="error" Display="Dynamic">*</asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCVV" CssClass="error" Display="Dynamic" ErrorMessage="CVV must be 3 digits" ValidationExpression="^\d{3}$">*</asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtCVV" runat="server"></asp:TextBox>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell class="auto-style3">&nbsp;</asp:TableCell>
                         <asp:TableCell>
-                            <asp:Button ID="btnCCSubmit" runat="server" Text="Pay Now" OnClick="btnPayNow_Click"/>
+                            <asp:Button ID="btnCCSubmit" runat="server" Text="Pay Now" OnClick="btnPayNow_Click" />
                             &nbsp;&nbsp;
-                            <asp:Button ID="btnCCClear" runat="server" Text="Clear" OnClick="btnClear_Click"/>
+            <asp:Button ID="btnCCClear" runat="server" Text="Clear" OnClick="btnClear_Click" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell class="auto-style3">&nbsp;</asp:TableCell>
                         <asp:TableCell>
-                            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="error" HeaderText="Below are the error:" />
+                            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="error" HeaderText="Below are the errors:" />
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
@@ -258,7 +197,7 @@
                 <asp:Table ID="QRTable" runat="server" visible="false">
                     <asp:TableRow>
                         <asp:TableCell>
-                             <asp:Image ID="qrImage" runat="server" ImageUrl="Images/qrcode.png" AlternateText="QR image"/>
+                             <asp:Image ID="imgQRCode" runat="server"/>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>

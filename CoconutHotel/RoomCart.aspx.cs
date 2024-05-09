@@ -135,7 +135,7 @@ namespace CoconutHotel
                 }
 
                 // Redirect to checkout page or perform other actions
-                Response.Redirect("checkoutpage.aspx");
+                Response.Redirect($"PaymentPage.aspx?bookingID={bookingID}");
             }
             else
             {

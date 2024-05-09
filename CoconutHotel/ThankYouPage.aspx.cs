@@ -13,6 +13,15 @@ namespace CoconutHotel
         {
             if (!IsPostBack)
             {
+                lblPurchaseDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                lblPurchaseTime.Text = DateTime.Now.ToString("HH:mm:ss");
+
+                // Retrieve the TotalPriceSum from the session
+                string totalPriceSum = Session["TotalPriceSum"] != null ? Session["TotalPriceSum"].ToString() : "N/A";
+
+                // Display it on the label
+                lblPurchaseTotal.Text = totalPriceSum;
+
                 if (Session["SelectedValue"] != null)
                 {
                     string selectedValue = Session["SelectedValue"].ToString();

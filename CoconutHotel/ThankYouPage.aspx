@@ -27,7 +27,7 @@
             <tr>
                 <td>Date :</td>
                 <td>
-                    <asp:Label ID="lblPurchaseDate" runat="server" Text="2/11/2024"></asp:Label>
+                    <asp:Label ID="lblPurchaseDate" runat="server"></asp:Label>
                 </td>
 
             </tr>
@@ -35,7 +35,7 @@
             <tr>
                 <td>Time :</td>
                 <td>
-                    <asp:Label ID="lblPurchaseTime" runat="server" Text="12:23:01"></asp:Label>
+                    <asp:Label ID="lblPurchaseTime" runat="server" ></asp:Label>
                 </td>
 
             </tr>
@@ -44,14 +44,14 @@
                 <td>
                     Method :</td>
                 <td>
-                    <asp:Label ID="lblMethodSelected" runat="server" Text="Credit Card"></asp:Label>
+                    <asp:Label ID="lblMethodSelected" runat="server"></asp:Label>
                 </td>
             </tr>
 
             <tr>
                 <td>Total :</td>
                 <td>
-                    <asp:Label ID="lblPurcahseTotal" runat="server" Text="RM123"></asp:Label>
+                    <asp:Label ID="lblPurchaseTotal" runat="server"></asp:Label>
                 </td>
             </tr>
 

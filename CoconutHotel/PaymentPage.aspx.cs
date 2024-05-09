@@ -7,6 +7,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using QRCoder;
+using System.Drawing;
+using System.IO;
 
 namespace CoconutHotel
 {
@@ -15,11 +18,32 @@ namespace CoconutHotel
         private decimal _totalPriceSum = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
+                
+                if (Session["PaymentID"] == null)
+                {
+                    string paymentID = GenerateUniquePaymentID();
+                    Session["PaymentID"] = paymentID;
+                }
+                // Retrieve PaymentID, BookingID, and today's date
+                string paymentIDFromSession = Session["PaymentID"] != null ? Session["PaymentID"].ToString() : "N/A";
+                string bookingIDFromSession = Session["BookingID"] != null ? Session["BookingID"].ToString() : "N/A";
+                string todayDate = DateTime.Now.ToString("dd/MM/yyyy");
+
+                // Display values in labels
+                lblPaymentID.Text = paymentIDFromSession;
+                lblBookingID.Text = bookingIDFromSession;
+                lblDate.Text = todayDate;
+
+                string accountName = Session["UserName"] != null ? Session["UserName"].ToString() : "Guest";
+                string accountID = Session["UserID"] != null ? Session["UserID"].ToString() : "N/A";
+
+                lblAccount.Text = accountName;
+                lblAccountID.Text = accountID;
                 // Initially hide the Proceed button
                 btnProceed.Visible = false;
-
 
                 // If a bookingID query string parameter is provided, use it
                 string bookingID = Request.QueryString["bookingID"];
@@ -33,6 +57,14 @@ namespace CoconutHotel
                     SqlDataSource2.SelectParameters["BookingID"].DefaultValue = "B0006";
                 }
             }
+            else
+            {
+                // Retrieve _totalPriceSum from ViewState on postback
+                if (ViewState["TotalPriceSum"] != null)
+                {
+                    _totalPriceSum = (decimal)ViewState["TotalPriceSum"];
+                }
+            }
 
         }
 
@@ -42,7 +74,10 @@ namespace CoconutHotel
             {
                 // Sum up the TotalPrice column
                 var totalPrice = DataBinder.Eval(e.Row.DataItem, "TotalPrice");
-                _totalPriceSum += Convert.ToDecimal(totalPrice);
+                if (totalPrice != DBNull.Value)
+                {
+                    _totalPriceSum += Convert.ToDecimal(totalPrice);
+                }
             }
             else if (e.Row.RowType == DataControlRowType.Footer)
             {
@@ -50,6 +85,30 @@ namespace CoconutHotel
                 e.Row.Cells[5].Text = _totalPriceSum.ToString("C");
                 e.Row.Cells[4].Text = "Total:";
                 e.Row.Cells[4].HorizontalAlign = HorizontalAlign.Right;
+
+                // Store _totalPriceSum in ViewState
+                ViewState["TotalPriceSum"] = _totalPriceSum;
+
+                // Store _totalPriceSum in Session
+                Session["TotalPriceSum"] = _totalPriceSum.ToString("C");
+            }
+        }
+
+        private void CalculateTotalPriceSum()
+        {
+            _totalPriceSum = 0; // Reset the sum
+
+            foreach (GridViewRow row in GridViewPayment.Rows)
+            {
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    // Extract the TotalPrice value from the current row
+                    var totalPrice = DataBinder.Eval(row.DataItem, "TotalPrice");
+                    if (totalPrice != DBNull.Value)
+                    {
+                        _totalPriceSum += Convert.ToDecimal(totalPrice);
+                    }
+                }
             }
         }
 
@@ -90,45 +149,140 @@ namespace CoconutHotel
 
         protected void btnProceed_Click(object sender, EventArgs e)
         {
-            // Redirect to another page
+            // Retrieve _totalPriceSum from ViewState
+            if (ViewState["TotalPriceSum"] != null)
+            {
+                _totalPriceSum = (decimal)ViewState["TotalPriceSum"];
+            }
 
+            // Log the recalculated value of _totalPriceSum
+            System.Diagnostics.Debug.WriteLine("Total Payment Sum: " + _totalPriceSum);
+
+            // Get the booking ID from the query string
+            string bookingID = Request.QueryString["bookingID"];
+            if (string.IsNullOrEmpty(bookingID))
+            {
+                bookingID = "B0006"; // Default for testing purposes
+            }
+
+            // Get the payment method from the dropdown
+            string paymentMethod = Session["SelectedValue"] != null ? Session["SelectedValue"].ToString() : "Cash";
+
+            // Generate a unique payment ID
+            string paymentID = GenerateUniquePaymentID();
+
+            // Get the current date and time
+            DateTime now = DateTime.Now;
+            string paymentDate = now.ToString("yyyy-MM-dd");
+            string paymentTime = now.ToString("HH:mm:ss");
+
+            // Insert the payment data into the database
+            InsertPaymentIntoDatabase(paymentID, bookingID, paymentMethod, paymentDate, paymentTime, _totalPriceSum);
+
+            // Redirect to a thank-you page
             Response.Redirect("ThankYouPage.aspx");
-
-            //// Generate a unique payment ID
-            //string paymentID = GenerateUniquePaymentID();
-
-            //// Get the current date and time
-            //DateTime now = DateTime.Now;
-            //string paymentDate = now.ToString("yyyy-MM-dd");
-            //string paymentTime = now.ToString("HH:mm:ss");
-
-            //// Insert the payment data into the database
-            //InsertPaymentIntoDatabase(paymentID, paymentDate, paymentTime, 100.00m, "Pending");
 
         }
 
         protected void btnPayNow_Click(object sender, EventArgs e)
         {
-            // Redirect to another page
+
+            // Retrieve _totalPriceSum from ViewState
+            if (ViewState["TotalPriceSum"] != null)
+            {
+                _totalPriceSum = (decimal)ViewState["TotalPriceSum"];
+            }
+
+            // Log the recalculated value of _totalPriceSum
+            System.Diagnostics.Debug.WriteLine("Total Payment Sum: " + _totalPriceSum);
+
+            // Get the booking ID from the query string
+            string bookingID = Request.QueryString["bookingID"];
+            if (string.IsNullOrEmpty(bookingID))
+            {
+                bookingID = "B0006"; // Default for testing purposes
+            }
+
+            // Get the payment method from the dropdown
+            string paymentMethod = Session["SelectedValue"] != null ? Session["SelectedValue"].ToString() : "Cash";
+
+            // Generate a unique payment ID
+            string paymentID = GenerateUniquePaymentID();
+
+            // Get the current date and time
+            DateTime now = DateTime.Now;
+            string paymentDate = now.ToString("yyyy-MM-dd");
+            string paymentTime = now.ToString("HH:mm:ss");
+
+            // Insert the payment data into the database
+            InsertPaymentIntoDatabase(paymentID, bookingID, paymentMethod, paymentDate, paymentTime, _totalPriceSum);
+
+            // Redirect to a thank-you page
             Response.Redirect("ThankYouPage.aspx");
-
-            //// Generate a unique payment ID
-            //string paymentID = GenerateUniquePaymentID();
-
-            //// Get the current date and time
-            //DateTime now = DateTime.Now;
-            //string paymentDate = now.ToString("yyyy-MM-dd");
-            //string paymentTime = now.ToString("HH:mm:ss");
-
-            //// Insert the payment data into the database
-            //InsertPaymentIntoDatabase(paymentID, paymentDate, paymentTime, 100.00m, "Pending");
         }
 
-        //private string GenerateUniquePaymentID()
-        //{
-        //    // Generate a unique payment ID, e.g., using a GUID
-        //    return "P" + Guid.NewGuid().ToString("N").Substring(0, 8).ToUpper();
-        //}
+        private string GenerateUniquePaymentID()
+        {
+            string lastPaymentID = GetLastPaymentIDFromDatabase();
+            if (string.IsNullOrEmpty(lastPaymentID))
+            {
+                return "P0001";
+            }
+
+            int lastNumericPart = int.Parse(lastPaymentID.Substring(1));
+            int nextNumericPart = lastNumericPart + 1;
+            return "P" + nextNumericPart.ToString().PadLeft(4, '0');
+        }
+
+        private string GetLastPaymentIDFromDatabase()
+        {
+            string lastPaymentID = "";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+            string query = "SELECT TOP 1 paymentID FROM Payment ORDER BY paymentID DESC";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        lastPaymentID = result.ToString();
+                    }
+                }
+            }
+
+            return lastPaymentID;
+        }
+
+        private void InsertPaymentIntoDatabase(string paymentID, string bookingID, string paymentMethod, string paymentDate, string paymentTime, decimal totalPayment)
+        {
+            decimal totalPaymentDecimal = Convert.ToDecimal(totalPayment);
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            string insertQuery = @"
+            INSERT INTO Payment (paymentID, bookingID, paymentMethod, paymentDate, paymentTime, totalPayment)
+            VALUES (@PaymentID, @BookingID, @PaymentMethod, @PaymentDate, @PaymentTime, @TotalPayment)";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@PaymentID", paymentID);
+                    cmd.Parameters.AddWithValue("@BookingID", bookingID);
+                    cmd.Parameters.AddWithValue("@PaymentMethod", paymentMethod);
+                    cmd.Parameters.AddWithValue("@PaymentDate", paymentDate);
+                    cmd.Parameters.AddWithValue("@PaymentTime", paymentTime);
+                    cmd.Parameters.AddWithValue("@TotalPayment", totalPaymentDecimal);
+
+                    conn.Open();
+                    int result = cmd.ExecuteNonQuery();
+                    System.Diagnostics.Debug.WriteLine("Rows affected: " + result);
+                }
+            }
+        }
+    
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
@@ -165,30 +319,29 @@ namespace CoconutHotel
         }
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            // Get the selected card type
             string cardType = RadioButtonList1.SelectedValue;
+            string cardNumber = txtCCNumber.Text;
 
-            // Get the card number entered by the user
-            string cardNumber = txtCCNumber.Text.Trim();
-
-            // Validation logic based on card type
-            if (cardType == "VISA")
+            if (cardType == "VISA" && cardNumber.Length == 10 && IsNumeric(cardNumber))
             {
-                // Visa should have 12 characters
-                args.IsValid = cardNumber.Length == 12;
+                args.IsValid = true;
             }
-            else if (cardType == "Master")
+            else if (cardType == "Master" && cardNumber.Length == 12 && IsNumeric(cardNumber))
             {
-                // Master should have 14 characters
-                args.IsValid = cardNumber.Length == 14;
+                args.IsValid = true;
             }
             else
             {
-                // If no card type is selected, mark as invalid
                 args.IsValid = false;
             }
 
-            
+
         }
+
+        private bool IsNumeric(string input)
+        {
+            return long.TryParse(input, out _);
+        }
+
     }
 }

@@ -89,9 +89,13 @@ namespace CoconutHotel
                 }
                 else
                 {
+
+                    
+
                     UserDetails userDetails = GetUserDetails(email);
 
-                   
+                    Session["UserName"] = userDetails.UserName;
+                    Session["UserID"] = userDetails.UserID;
                     Session["LoggedInUser"] = userDetails;
 
                     
