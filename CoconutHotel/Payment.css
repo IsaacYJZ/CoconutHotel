@@ -1,13 +1,4 @@
-﻿/*h1.payment-header {
-    color: black;
-    font-family: 'courier new, courier, monospace';
-    text-align: center;
-    margin:0px;
-    background-color : silver;
-    padding: 10px 0px 10px 0px;
-
-}
-*/
+﻿
 
 #form1 {
     background-color: #c9d6ff;
@@ -34,7 +25,6 @@
     flex-direction: column;
     padding: 0 40px;
     height: 80%;
-
 }
 
 .parent-container h3 {
@@ -61,11 +51,11 @@
     table-layout: fixed;
 }
 
-.payment-detail-container th, .payment-detail-container td {
+.payment-detail-container th,
+.payment-detail-container td {
     text-align: center; /* Centers text horizontally */
     vertical-align: middle; /* Centers text vertically */
 }
-
 
 .payment-detail-container th {
     background-color: black; /* Black background */
@@ -75,7 +65,7 @@
 
 .payment-detail-container table {
     margin-left: 60px;
-    border:30px;
+    border: 30px;
     display: block;
 }
 
@@ -89,24 +79,6 @@
     padding: 30px 10px 0px 10px;
 }
 
-/*.payment-detail-container h3 {
-    margin: 0 !important;
-    padding: 0px 0px 10px 0px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.payment-container h3 {
-    margin: 0 !important;
-    padding: 0px 0px 10px 0px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: underline;
-}*/
-
 .inline {
     display: inline !important;
 }
@@ -115,7 +87,6 @@
     display: inline !important;
     text-align: right;
     vertical-align: middle;
-
 }
 
 .product-price {
@@ -123,6 +94,7 @@
     text-align: right;
     vertical-align: text-top;
 }
+
 .total-text {
     display: inline !important;
     text-align: right;
@@ -170,3 +142,83 @@ p.total-price {
     padding-left: 20px;
 }
 
+/* Chat bot button and chat window */
+#chatBotButton {
+    position: fixed;
+    display: none;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #28a745;
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    #chatBotButton:hover {
+        background-color: #218838;
+    }
+
+#chatBotWindow {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    max-width: 100%;
+    padding: 20px;
+    padding-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: block; /* Keep it visible */
+}
+
+    #chatBotWindow h1,
+    #chatBotWindow h3 {
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    #chatBotWindow textarea,
+    #chatBotWindow input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    #chatBotWindow input[type="submit"],
+    .btnAsk,
+    .btnHistory {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
+
+        #chatBotWindow input[type="submit"]:hover,
+        .btnAsk:hover,
+        .btnHistory:hover {
+            background-color: #218838;
+        }
+
+.lblResponse {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+    display: block; /* Keep the label visible */
+}

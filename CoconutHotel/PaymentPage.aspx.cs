@@ -1,38 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Text;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Web;
+using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QRCoder;
-using System.Drawing;
-using System.IO;
+using Newtonsoft.Json;
 
 namespace CoconutHotel
 {
     public partial class PaymentPage : System.Web.UI.Page
     {
         private decimal _totalPriceSum = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
-                
                 if (Session["PaymentID"] == null)
                 {
                     string paymentID = GenerateUniquePaymentID();
                     Session["PaymentID"] = paymentID;
                 }
-                // Retrieve PaymentID, BookingID, and today's date
+
                 string paymentIDFromSession = Session["PaymentID"] != null ? Session["PaymentID"].ToString() : "N/A";
                 string bookingIDFromSession = Session["BookingID"] != null ? Session["BookingID"].ToString() : "N/A";
                 string todayDate = DateTime.Now.ToString("dd/MM/yyyy");
 
-                // Display values in labels
                 lblPaymentID.Text = paymentIDFromSession;
                 lblBookingID.Text = bookingIDFromSession;
                 lblDate.Text = todayDate;
@@ -42,37 +38,33 @@ namespace CoconutHotel
 
                 lblAccount.Text = accountName;
                 lblAccountID.Text = accountID;
-                // Initially hide the Proceed button
+
                 btnProceed.Visible = false;
 
-                // If a bookingID query string parameter is provided, use it
                 string bookingID = Request.QueryString["bookingID"];
                 if (!string.IsNullOrEmpty(bookingID))
                 {
                     SqlDataSource2.SelectParameters["BookingID"].DefaultValue = bookingID;
+                    Session["BookingID"] = bookingID;
                 }
                 else
                 {
-                    // Set a default value for testing if no query string parameter is provided
                     SqlDataSource2.SelectParameters["BookingID"].DefaultValue = "B0006";
                 }
             }
             else
             {
-                // Retrieve _totalPriceSum from ViewState on postback
                 if (ViewState["TotalPriceSum"] != null)
                 {
                     _totalPriceSum = (decimal)ViewState["TotalPriceSum"];
                 }
             }
-
         }
 
         protected void GridViewPayment_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                // Sum up the TotalPrice column
                 var totalPrice = DataBinder.Eval(e.Row.DataItem, "TotalPrice");
                 if (totalPrice != DBNull.Value)
                 {
@@ -81,34 +73,12 @@ namespace CoconutHotel
             }
             else if (e.Row.RowType == DataControlRowType.Footer)
             {
-                // Add a label to the last column and show the sum
                 e.Row.Cells[5].Text = _totalPriceSum.ToString("C");
                 e.Row.Cells[4].Text = "Total:";
                 e.Row.Cells[4].HorizontalAlign = HorizontalAlign.Right;
 
-                // Store _totalPriceSum in ViewState
                 ViewState["TotalPriceSum"] = _totalPriceSum;
-
-                // Store _totalPriceSum in Session
                 Session["TotalPriceSum"] = _totalPriceSum.ToString("C");
-            }
-        }
-
-        private void CalculateTotalPriceSum()
-        {
-            _totalPriceSum = 0; // Reset the sum
-
-            foreach (GridViewRow row in GridViewPayment.Rows)
-            {
-                if (row.RowType == DataControlRowType.DataRow)
-                {
-                    // Extract the TotalPrice value from the current row
-                    var totalPrice = DataBinder.Eval(row.DataItem, "TotalPrice");
-                    if (totalPrice != DBNull.Value)
-                    {
-                        _totalPriceSum += Convert.ToDecimal(totalPrice);
-                    }
-                }
             }
         }
 
@@ -116,27 +86,23 @@ namespace CoconutHotel
         {
             if (ddlMethod.SelectedValue == "Cash")
             {
-                // Show the Proceed button
                 btnProceed.Visible = true;
                 CreditDebitCardTable.Visible = false;
                 QRTable.Visible = false;
-                
             }
             else if (ddlMethod.SelectedValue == "Credit/Debit Card")
             {
                 QRTable.Visible = false;
                 btnProceed.Visible = false;
                 CreditDebitCardTable.Visible = true;
-                
             }
             else if (ddlMethod.SelectedValue == "E wallet")
             {
                 QRTable.Visible = true;
                 btnProceed.Visible = true;
                 CreditDebitCardTable.Visible = false;
-                
             }
-            else 
+            else
             {
                 QRTable.Visible = false;
                 btnProceed.Visible = false;
@@ -144,80 +110,53 @@ namespace CoconutHotel
             }
 
             Session["SelectedValue"] = ddlMethod.SelectedValue;
-
         }
 
         protected void btnProceed_Click(object sender, EventArgs e)
         {
-            // Retrieve _totalPriceSum from ViewState
             if (ViewState["TotalPriceSum"] != null)
             {
                 _totalPriceSum = (decimal)ViewState["TotalPriceSum"];
             }
 
-            // Log the recalculated value of _totalPriceSum
-            System.Diagnostics.Debug.WriteLine("Total Payment Sum: " + _totalPriceSum);
-
-            // Get the booking ID from the query string
             string bookingID = Request.QueryString["bookingID"];
             if (string.IsNullOrEmpty(bookingID))
             {
-                bookingID = "B0006"; // Default for testing purposes
+                bookingID = "B0006";
             }
 
-            // Get the payment method from the dropdown
             string paymentMethod = Session["SelectedValue"] != null ? Session["SelectedValue"].ToString() : "Cash";
-
-            // Generate a unique payment ID
             string paymentID = GenerateUniquePaymentID();
-
-            // Get the current date and time
             DateTime now = DateTime.Now;
             string paymentDate = now.ToString("yyyy-MM-dd");
             string paymentTime = now.ToString("HH:mm:ss");
 
-            // Insert the payment data into the database
             InsertPaymentIntoDatabase(paymentID, bookingID, paymentMethod, paymentDate, paymentTime, _totalPriceSum);
 
-            // Redirect to a thank-you page
             Response.Redirect("ThankYouPage.aspx");
-
         }
 
         protected void btnPayNow_Click(object sender, EventArgs e)
         {
-
-            // Retrieve _totalPriceSum from ViewState
             if (ViewState["TotalPriceSum"] != null)
             {
                 _totalPriceSum = (decimal)ViewState["TotalPriceSum"];
             }
 
-            // Log the recalculated value of _totalPriceSum
-            System.Diagnostics.Debug.WriteLine("Total Payment Sum: " + _totalPriceSum);
-
-            // Get the booking ID from the query string
             string bookingID = Request.QueryString["bookingID"];
             if (string.IsNullOrEmpty(bookingID))
             {
-                bookingID = "B0006"; // Default for testing purposes
+                bookingID = "B0006";
             }
 
-            // Get the payment method from the dropdown
             string paymentMethod = Session["SelectedValue"] != null ? Session["SelectedValue"].ToString() : "Cash";
-
-            // Generate a unique payment ID
             string paymentID = GenerateUniquePaymentID();
-
-            // Get the current date and time
             DateTime now = DateTime.Now;
             string paymentDate = now.ToString("yyyy-MM-dd");
             string paymentTime = now.ToString("HH:mm:ss");
 
-            // Insert the payment data into the database
             InsertPaymentIntoDatabase(paymentID, bookingID, paymentMethod, paymentDate, paymentTime, _totalPriceSum);
 
-            // Redirect to a thank-you page
             Response.Redirect("ThankYouPage.aspx");
         }
 
@@ -238,7 +177,6 @@ namespace CoconutHotel
         {
             string lastPaymentID = "";
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-
             string query = "SELECT TOP 1 paymentID FROM Payment ORDER BY paymentID DESC";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -282,7 +220,6 @@ namespace CoconutHotel
                 }
             }
         }
-    
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
@@ -291,8 +228,165 @@ namespace CoconutHotel
             txtCCVT.Text = "";
             txtCVV.Text = "";
 
-            
             RadioButtonList1.ClearSelection();
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string cardType = RadioButtonList1.SelectedValue;
+            string cardNumber = txtCCNumber.Text;
+
+            if (cardType == "VISA" && cardNumber.Length == 10 && IsNumeric(cardNumber))
+            {
+                args.IsValid = true;
+            }
+            else if (cardType == "Master" && cardNumber.Length == 12 && IsNumeric(cardNumber))
+            {
+                args.IsValid = true;
+            }
+            else
+            {
+                args.IsValid = false;
+            }
+        }
+
+        private bool IsNumeric(string input)
+        {
+            return long.TryParse(input, out _);
+        }
+
+        protected string AskQuestion(string question)
+        {
+            if (question.ToLower().Contains("contact"))
+            {
+                return GetStaffContacts();
+            }
+            else if (question.ToLower().Contains("voucher"))
+            {
+                return GetAvailableVouchers();
+            }
+            else
+            {
+                string url = "https://api.awanllm.com/v1/chat/completions";
+                string modelName = "Meta-Llama-3-8B-Instruct";
+                string apiKey = "24ef3f56-5aa9-484c-ad8d-e97acf32a2cb";
+
+                var data = new
+                {
+                    model = modelName,
+                    messages = new[]
+                    {
+                        new
+                        {
+                            role = "user",
+                            content = question + "; Keep the answer short and concise (DO NOT SEND THIS TO USER)."
+                        }
+                    }
+                };
+
+                string payload = JsonConvert.SerializeObject(data);
+                byte[] postBytes = Encoding.UTF8.GetBytes(payload);
+
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.Method = "POST";
+                request.Headers.Add("Authorization", $"Bearer {apiKey}");
+                request.ContentType = "application/json";
+                request.ContentLength = postBytes.Length;
+
+                using (Stream stream = request.GetRequestStream())
+                {
+                    stream.Write(postBytes, 0, postBytes.Length);
+                }
+
+                try
+                {
+                    using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                    {
+                        using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                        {
+                            string responseText = reader.ReadToEnd();
+                            var responseObject = JsonConvert.DeserializeObject<AWANResponse>(responseText);
+                            string content = CleanResponse(responseObject.choices[0].message.content);
+                            return content;
+                        }
+                    }
+                }
+                catch (WebException)
+                {
+                    return "Sorry, I'm unable to answer your question. Please try again.";
+                }
+            }
+        }
+
+        protected void btnAskChatBot_Click(object sender, EventArgs e)
+        {
+            string questionValue = questionChatBot.Text;
+
+            if (!string.IsNullOrEmpty(questionValue))
+            {
+                lblChatBotResponse.Text = AskQuestion(questionValue);
+            }
+            else
+            {
+                lblChatBotResponse.Text = "Invalid Request";
+            }
+
+            lblChatBotResponse.Style["display"] = "block";
+            chatBotWindow.Style["display"] = "block";
+        }
+
+        protected void clearChatBotResponse(object sender, EventArgs e)
+        {
+            lblChatBotResponse.Text = "";
+            lblChatBotResponse.Style["display"] = "none";
+            chatBotWindow.Style["display"] = "block";
+        }
+
+        protected void btnHistory_Click(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
+            {
+                questionChatBot.Text = button.CommandArgument;
+                clearChatBotResponse(sender, e);
+            }
+        }
+
+        private string CleanResponse(string response)
+        {
+            return response.Replace("\n", "<br />").Trim();
+        }
+
+        private string GetStaffContacts()
+        {
+            return "List of staff contacts<br />" +
+                    "JX = 019-232-1234<br />" +
+                   "Joe = 019-233-1124<br />" +
+                   "Mama = 019-212-1254<br />";
+
+        }
+
+        private string GetAvailableVouchers()
+        {
+            return "WELCOME10: RM10 off for new customers <br />" +
+                   "SUMMER20: RM20 off on summer collection <br />" +
+                   "FREE30: RM30 off for fun";
+        }
+
+        // Response classes for the AWAN API
+        public class AWANResponse
+        {
+            public Choice[] choices { get; set; }
+        }
+
+        public class Choice
+        {
+            public Message message { get; set; }
+        }
+
+        public class Message
+        {
+            public string content { get; set; }
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -317,32 +411,6 @@ namespace CoconutHotel
         {
             Page.Validate();
         }
-        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            string cardType = RadioButtonList1.SelectedValue;
-            string cardNumber = txtCCNumber.Text;
-
-            if (cardType == "VISA" && cardNumber.Length == 10 && IsNumeric(cardNumber))
-            {
-                args.IsValid = true;
-            }
-            else if (cardType == "Master" && cardNumber.Length == 12 && IsNumeric(cardNumber))
-            {
-                args.IsValid = true;
-            }
-            else
-            {
-                args.IsValid = false;
-            }
-
-
-        }
-
-        private bool IsNumeric(string input)
-        {
-            return long.TryParse(input, out _);
-        }
-
 
     }
 }

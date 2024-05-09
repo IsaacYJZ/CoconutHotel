@@ -407,6 +407,7 @@
       <DependentUpon>PaymentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Voucher.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Masterpage1.Master" />

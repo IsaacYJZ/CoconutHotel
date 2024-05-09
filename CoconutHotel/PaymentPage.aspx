@@ -10,16 +10,11 @@
             }
     */
     </style>
+    <link href="Payment.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-
-
     <form id="form1" runat="server">
-
-        <link href="Payment.css" rel="stylesheet" type="text/css" />
-
         <h1 class="payment-header">Payment Page</h1>
         <div class="parent-container">
             <div class="payment-detail-container">
@@ -64,10 +59,9 @@
                 </asp:SqlDataSource>
 
             </div>
-
             
             <div class="payment-container">
-                <h3 class=" payment-method ">Payment Information </h3>
+                <h3 class="payment-method">Payment Information</h3>
 
                 <table>
                     <tbody>
@@ -76,7 +70,8 @@
                                 <p>Account Name:</p>
                             </td>
                             <td>
-                                <asp:Label ID="lblAccount" runat="server" CssClass="inline"></asp:Label></td>
+                                <asp:Label ID="lblAccount" runat="server" CssClass="inline"></asp:Label>
+                            </td>
                         </tr>
 
                         <tr>
@@ -84,7 +79,8 @@
                                 <p>Account Id:</p>
                             </td>
                             <td>
-                                <asp:Label ID="lblAccountID" runat="server" CssClass="inline" OnDisposed="Page_Load"></asp:Label></td>
+                                <asp:Label ID="lblAccountID" runat="server" CssClass="inline" OnDisposed="Page_Load"></asp:Label>
+                            </td>
                         </tr>
 
                         <tr>
@@ -92,7 +88,8 @@
                                 <p>Payment Id :</p>
                             </td>
                             <td>
-                                <asp:Label ID="lblPaymentID" runat="server">123456789</asp:Label></td>
+                                <asp:Label ID="lblPaymentID" runat="server"></asp:Label>
+                            </td>
                         </tr>
 
                         <tr>
@@ -100,14 +97,16 @@
                                 <p>Booking Id :</p>
                             </td>
                             <td>
-                                <asp:Label ID="lblBookingID" runat="server">123456789</asp:Label></td>
+                                <asp:Label ID="lblBookingID" runat="server"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>Date:</p>
                             </td>
                             <td>
-                                <asp:Label ID="lblDate" runat="server">12/12/2024</asp:Label></td>
+                                <asp:Label ID="lblDate" runat="server"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -122,12 +121,11 @@
                                     <asp:ListItem>E wallet</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
-
                         </tr>
                         <tr>
                             <td></td>
                             <td>
-                                <asp:Button ID="btnProceed" runat="server" Text="Proceed" OnClick="btnProceed_Click" OnClientClick="return confirmProceed();" Visible="false"/> 
+                                <asp:Button ID="btnProceed" runat="server" Text="Proceed" OnClick="btnProceed_Click" OnClientClick="return confirmProceed();" Visible="false" /> 
                             </td>
                         </tr>
                     </tbody>
@@ -183,7 +181,7 @@
                         <asp:TableCell>
                             <asp:Button ID="btnCCSubmit" runat="server" Text="Pay Now" OnClick="btnPayNow_Click" />
                             &nbsp;&nbsp;
-            <asp:Button ID="btnCCClear" runat="server" Text="Clear" OnClick="btnClear_Click" />
+                            <asp:Button ID="btnCCClear" runat="server" Text="Clear" OnClick="btnClear_Click" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
@@ -202,20 +200,38 @@
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
-                            <p>Scan the above QRCode for payment </p>
+                            <p>Scan the above QRCode for payment</p>
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
-               
-
             </div>
+        </div>
+
+        <asp:Button ID="chatBotButton" runat="server" OnClientClick="toggleChatBotWindow(); return false;" Text="🤖" CssClass="chatBotButton" />
+        <div id="chatBotWindow" runat="server">
+            <h1>Ask a Question</h1>
+            <label for="questionChatBot">Question:</label>
+            <asp:TextBox ID="questionChatBot" runat="server" TextMode="MultiLine" Rows="3" Columns="40" Placeholder="Type your question here..." OnTextChanged="clearChatBotResponse" AutoPostBack="True"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnAskChatBot" runat="server" Text="Ask" OnClick="btnAskChatBot_Click" CssClass="btnAsk" />
+            <br />
+            <asp:Label ID="lblChatBotResponse" runat="server" Text="" CssClass="lblResponse" />
+            <br />
+            <hr />
+            <h3>Chat History</h3>
+            <asp:Button ID="btnStaffContactHistory" runat="server" Text="Get Staff Contacts" CssClass="btnHistory" OnClick="btnHistory_Click" CommandArgument="Can you provide staff contact information?" />
+            <asp:Button ID="btnVoucherHistory" runat="server" Text="Available Vouchers" CssClass="btnHistory" OnClick="btnHistory_Click" CommandArgument="What vouchers are available?" />
         </div>
     </form>
 
     <script type="text/javascript">
         function confirmProceed() {
-            return confirm('Please visit the front desk for comfirmation');
+            return confirm('Please visit the front desk for confirmation');
+        }
+
+        function toggleChatBotWindow() {
+            var chatWindow = document.getElementById("<%= chatBotWindow.ClientID %>");
+            chatWindow.style.display = chatWindow.style.display === "none" ? "block" : "none";
         }
     </script>
-
 </asp:Content>
