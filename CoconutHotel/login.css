@@ -1,4 +1,11 @@
-﻿.loginForm {
+﻿.error {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.loginForm {
     font-family: Arial, sans-serif;
     background-image: url(image/hotel.jpg);
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(image/hotel.jpg);
@@ -54,7 +61,6 @@
         text-align: center;
     }
 
-    /* Additional Styles for Interactivity */
     .login-container input[type="text"]:focus,
     .login-container input[type="password"]:focus {
         border-color: #4CAF50;
@@ -68,11 +74,11 @@
     }
 
     .login-container a {
-        color: #007bff; /* Blue sign-up link */
+        color: #007bff; 
         text-decoration: none;
     }
 
         .login-container a:hover {
-            color: #28a745; /* Green hover */
+            color: #28a745; 
             text-decoration: underline;
         }

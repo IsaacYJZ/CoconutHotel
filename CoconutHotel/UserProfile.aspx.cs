@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Data.SqlClient;
 
 
 namespace CoconutHotel
@@ -13,39 +14,38 @@ namespace CoconutHotel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    // Populate GridView with fake data
-            //    DataTable dt = GetFakeUserData();
-            //    GridView1.DataSource = dt;
-            //    GridView1.DataBind();
-            //}
+            if (Session["LoggedInUser"] != null)
+            {
+                UserDetails userDetails = (UserDetails)Session["LoggedInUser"];
 
+                lblID.Text = userDetails.UserID;
+                lblName.Text = userDetails.UserName;
+                lblEmail.Text = userDetails.Email;
+                lblPhoneNumber.Text = userDetails.PhoneNum;
+                lblICNum.Text = userDetails.ICNum;
+                lblUserType.Text = userDetails.UserType;
+
+
+            }
+            else
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
         }
-        //private DataTable GetFakeUserData()
-        //{
-        //    DataTable dt = new DataTable();
-        //    dt.Columns.Add("Name", typeof(string));
-        //    dt.Columns.Add("Email", typeof(string));
-        //    dt.Columns.Add("Password", typeof(string));
-        //    dt.Columns.Add("Phone", typeof(string));
 
-        //    // Add some fake data
-        //    dt.Rows.Add("John Doe", "john@example.com", "password123", "123-456-7890");
-        //    dt.Rows.Add("Jane Smith", "jane@example.com", "secret456", "987-654-3210");
-        //    // Add more fake data as needed
-
-        //    return dt;
-        //}
 
         protected void btnEditProfile_Click(object sender, EventArgs e)
         {
             Response.Redirect("EditUserProfile.aspx");
         }
 
-        protected void btnEditName_Click(object sender, EventArgs e)
+        protected void btnLogout_Click(object sender, EventArgs e)
         {
+            // Clear all sessions
+            Session.Clear();
 
+            // Redirect the user to the login page or any other desired page
+            Response.Redirect("login.aspx");
         }
     }
 }

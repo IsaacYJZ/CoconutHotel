@@ -11,8 +11,6 @@ namespace CoconutHotel
     {
         protected void btnGallery_Click(object sender, EventArgs e)
         {
-            // Add your code to handle the button click event
-            // For example, you can redirect the user to the gallery page
             Response.Redirect("gallery.aspx");
         }
     }

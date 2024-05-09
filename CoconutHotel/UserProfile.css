@@ -8,10 +8,7 @@
     background-position: center;
     background-repeat: no-repeat;
 }
-/*.hidden-button {
-    visibility: hidden;
-    position: absolute;
-}*/
+
 .container {
     max-width: 800px;
     margin: 20px auto;

@@ -31,7 +31,7 @@
                             <asp:HyperLink ID="galleryLink" runat="server" NavigateUrl="~/gallery.aspx">GALLERY</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="hypUserProfile" runat="server" NavigateUrl="UserProfile.aspx">
-                    <i class="fas fa-user"></i> <!-- Font Awesome user icon -->
+                    <i class="fas fa-user"></i> 
                             </asp:HyperLink>
                         </li>
                     </ul>
