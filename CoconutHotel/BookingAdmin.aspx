@@ -36,8 +36,9 @@
                                 <label for="paymentType">Payment Type:</label>
                                 <asp:DropDownList ID="paymentType" CssClass="form-control" runat="server">
                                     <asp:ListItem Text="All" Value="" />
-                                    <asp:ListItem Text="Credit Card" Value="Credit Card" />
+                                    <asp:ListItem Text="Credit/Debit Card" Value="Credit/Debit Card" />
                                     <asp:ListItem Text="Cash" Value="Cash" />
+                                    <asp:ListItem Text="E wallet" Value="E wallet" />             
                                 </asp:DropDownList>
                             </div>
                             <div class="col-md-12">

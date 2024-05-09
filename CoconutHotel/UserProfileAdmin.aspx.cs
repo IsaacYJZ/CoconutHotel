@@ -80,6 +80,9 @@ namespace CoconutHotel
             // Retrieve the userID from the hidden field
             string userID = hiddenFieldUserID.Value;
 
+            // Perform the deletion of associated bookings first
+            DeleteAssociatedBookings(userID);
+
             // Perform the deletion of the user profile with the retrieved userID from the database
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -115,6 +118,32 @@ namespace CoconutHotel
             deleteForm.Visible = false;
         }
 
+        private void DeleteAssociatedBookings(string userID)
+        {
+            // Delete associated bookings from BookingRoom table
+            string deleteBookingRoomQuery = "DELETE FROM BookingRoom WHERE bookingID IN (SELECT bookingID FROM Booking WHERE userID = @UserID)";
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                using (SqlCommand deleteBookingRoomCommand = new SqlCommand(deleteBookingRoomQuery, connection))
+                {
+                    connection.Open();
+                    deleteBookingRoomCommand.Parameters.AddWithValue("@UserID", userID);
+                    deleteBookingRoomCommand.ExecuteNonQuery();
+                }
+            }
+
+            // Delete associated bookings from Booking table
+            string deleteBookingsQuery = "DELETE FROM Booking WHERE userID = @UserID";
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                using (SqlCommand deleteBookingsCommand = new SqlCommand(deleteBookingsQuery, connection))
+                {
+                    connection.Open();
+                    deleteBookingsCommand.Parameters.AddWithValue("@UserID", userID);
+                    deleteBookingsCommand.ExecuteNonQuery();
+                }
+            }
+        }
 
 
 
