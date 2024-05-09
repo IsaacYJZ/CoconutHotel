@@ -70,6 +70,26 @@
         .room-info i {
             font-size: 24px; /* Adjust the font size as needed */
         }
+
+        .cart-link-container {
+            position: absolute; /* Position absolutely */
+            right: 50px; /* Adjust the right position */
+            padding: 5px 10px; /* Add padding around the hyperlink */
+            background-color: #007bff; /* Blue background color */
+            border-radius: 5px; /* Optional: Add rounded corners */
+        }
+
+        .cart-link {
+            color: white; /* Text color */
+            text-decoration: none; /* Remove default underline */
+            font-weight: bold; /* Make the text bold */
+            /* Add any other styles you want */
+        }
+
+            /* Optionally, add hover styles */
+            .cart-link:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
     </style>
 
 
@@ -156,6 +176,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="cart-link-container">
+            <asp:HyperLink ID="roomCart" runat="server" NavigateUrl="~/RoomCart.aspx" CssClass="cart-link">Cart</asp:HyperLink>
         </div>
         <!-- Rooms Section Begin -->
         <section class="room-section spad">

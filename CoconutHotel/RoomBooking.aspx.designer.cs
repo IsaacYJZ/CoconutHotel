@@ -123,6 +123,15 @@ namespace CoconutHotel
         protected global::System.Web.UI.WebControls.Button submitBtn;
 
         /// <summary>
+        /// roomCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink roomCart;
+
+        /// <summary>
         /// RoomRepeater control.
         /// </summary>
         /// <remarks>

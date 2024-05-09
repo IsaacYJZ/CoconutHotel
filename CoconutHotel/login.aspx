@@ -36,8 +36,10 @@
             <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-primary" OnClick="btnLogin_Click" />
             <p>
                 Don't have an account?
+       
                 <asp:HyperLink ID="registerLink" runat="server" NavigateUrl="register.aspx">Sign Up</asp:HyperLink>
-                <asp:HyperLink ID="adminLogin" runat="server" NavigateUrl="AdminLogin.aspx">Sign Up</asp:HyperLink>
+                <br />
+                <asp:HyperLink ID="adminLogin" runat="server" NavigateUrl="AdminLogin.aspx">Login As Admin</asp:HyperLink>
         </div>
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="error" HeaderText="The following error have encountered" />
 
