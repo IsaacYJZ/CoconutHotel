@@ -78,15 +78,18 @@ namespace CoconutHotel
 
             // Query to fetch available rooms based on the selected date and occupancy
             string query = @"SELECT Room.roomID, RoomType.roomType, RoomType.roomName, RoomType.roomDesc, 
-                    Room.occupancy, Room.roomImg, Room.roomPrice, Room.roomStatus 
-                    FROM Room 
-                    JOIN RoomType ON Room.roomType = RoomType.roomType 
-                    WHERE Room.roomStatus = 'Available' 
-                    AND Room.occupancy >= @totalGuests 
-                    AND Room.roomID NOT IN 
-                    (SELECT Booking.roomID FROM Booking 
-                    WHERE (@checkInDate BETWEEN Booking.checkInDate AND Booking.checkOutDate) 
-                    OR (@checkOutDate BETWEEN Booking.checkInDate AND Booking.checkOutDate))";
+             Room.occupancy, Room.roomImg, Room.roomPrice, Room.roomStatus 
+             FROM Room 
+             JOIN RoomType ON Room.roomType = RoomType.roomType 
+             WHERE Room.roomStatus = 'Available' 
+             AND Room.roomID NOT IN 
+             (SELECT BookingRoom.roomID FROM BookingRoom 
+             JOIN Booking ON BookingRoom.bookingID = Booking.bookingID
+             WHERE ((@checkInDate BETWEEN Booking.checkInDate AND Booking.checkOutDate) 
+             OR (@checkOutDate BETWEEN Booking.checkInDate AND Booking.checkOutDate))
+             AND Booking.bookingStatus <> 'Cancelled')";
+
+
 
             // Establish connection and execute the query
             using (SqlConnection connection = new SqlConnection(connectionString))
