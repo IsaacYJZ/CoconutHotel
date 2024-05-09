@@ -27,35 +27,35 @@ namespace CoconutHotel
 
             string hashedPassword = HashPassword(password);
 
-            //if (password.Length < 6)
-            //{
-            //    ClientScript.RegisterStartupScript(this.GetType(), "PasswordLengthScript", "alert('Password must be at least six characters long!');", true);
-            //    return;
-            //}
+            if (password.Length < 6)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "PasswordLengthScript", "alert('Password must be at least six characters long!');", true);
+                return;
+            }
 
-            //if (UsernameTaken(name))
-            //{
-            //    ClientScript.RegisterStartupScript(this.GetType(), "UsernameTakenScript", "document.getElementById('usernameTakenMessage').innerText = 'The username is already taken. Please choose a different one.'; document.getElementById('usernameTakenMessage').style.display = 'block';", true);
-            //    return;
-            //}
+            if (UsernameTaken(name))
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "UsernameTakenScript", "document.getElementById('usernameTakenMessage').innerText = 'The username is already taken. Please choose a different one.'; document.getElementById('usernameTakenMessage').style.display = 'block';", true);
+                return;
+            }
 
-            //if (ICNumberTaken(icNum))
-            //{
-            //    ClientScript.RegisterStartupScript(this.GetType(), "ICNumberTakenScript", "document.getElementById('icNumberTakenMessage').innerText = 'The IC number is already taken. Please try again.'; document.getElementById('icNumberTakenMessage').style.display = 'block';", true);
-            //    return;
-            //}
+            if (ICNumberTaken(icNum))
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "ICNumberTakenScript", "document.getElementById('icNumberTakenMessage').innerText = 'The IC number is already taken. Please try again.'; document.getElementById('icNumberTakenMessage').style.display = 'block';", true);
+                return;
+            }
 
-            //if (EmailTaken(email))
-            //{
-            //    ClientScript.RegisterStartupScript(this.GetType(), "EmailTakenScript", "document.getElementById('emailTakenMessage').innerText = 'The email is already taken. Please try again.'; document.getElementById('emailTakenMessage').style.display = 'block';", true);
-            //    return;
-            //}
+            if (EmailTaken(email))
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "EmailTakenScript", "document.getElementById('emailTakenMessage').innerText = 'The email is already taken. Please try again.'; document.getElementById('emailTakenMessage').style.display = 'block';", true);
+                return;
+            }
 
-            //if (PhoneNumberTaken(phoneNum))
-            //{
-            //    ClientScript.RegisterStartupScript(this.GetType(), "PhoneNumberTakenScript", "document.getElementById('phoneNumberTakenMessage').innerText = 'The phone number is already taken. Please try again.'; document.getElementById('phoneNumberTakenMessage').style.display = 'block';", true);
-            //    return;
-            //}
+            if (PhoneNumberTaken(phoneNum))
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "PhoneNumberTakenScript", "document.getElementById('phoneNumberTakenMessage').innerText = 'The phone number is already taken. Please try again.'; document.getElementById('phoneNumberTakenMessage').style.display = 'block';", true);
+                return;
+            }
 
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             string getLastUserIDQuery = "SELECT TOP 1 userID FROM [dbo].[User] ORDER BY userID DESC;";

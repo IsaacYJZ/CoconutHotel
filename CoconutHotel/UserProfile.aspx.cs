@@ -81,7 +81,7 @@ namespace CoconutHotel
             Session.Clear();
 
             // Redirect the user to the login page or any other desired page
-            Response.Redirect("login.aspx");
+            Response.Redirect("home.aspx");
         }
     }
 }

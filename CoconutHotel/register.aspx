@@ -40,7 +40,7 @@
                         <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email" ClientIDMode="Static"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Email is required" CssClass="error" Text="*" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegexValidatorEmail" runat="server" ControlToValidate="txtEmail"
-                            ErrorMessage="Please enter a valid email address" ValidationExpression="\w+([-+.']\w+)@\w+([-.]\w+)\.\w+([-.]\w+)*" CssClass="error-message"></asp:RegularExpressionValidator>
+                            ErrorMessage="Please enter a valid email address" ValidationExpression="\w+@\w+\.\w+" CssClass="error-message"></asp:RegularExpressionValidator>
 
                         <div id="emailTakenMessage" class="error" style="display: none;"></div>
                     </div>
@@ -76,4 +76,3 @@
 
     </form>
 </asp:Content>
-

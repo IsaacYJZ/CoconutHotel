@@ -26,11 +26,11 @@ namespace CoconutHotel
                 }
 
                 string paymentIDFromSession = Session["PaymentID"] != null ? Session["PaymentID"].ToString() : "N/A";
-                string bookingIDFromSession = Session["BookingID"] != null ? Session["BookingID"].ToString() : "N/A";
+
                 string todayDate = DateTime.Now.ToString("dd/MM/yyyy");
 
                 lblPaymentID.Text = paymentIDFromSession;
-                lblBookingID.Text = bookingIDFromSession;
+
                 lblDate.Text = todayDate;
 
                 string accountName = Session["UserName"] != null ? Session["UserName"].ToString() : "Guest";
@@ -41,16 +41,11 @@ namespace CoconutHotel
 
                 btnProceed.Visible = false;
 
-                string bookingID = Request.QueryString["bookingID"];
-                if (!string.IsNullOrEmpty(bookingID))
-                {
-                    SqlDataSource2.SelectParameters["BookingID"].DefaultValue = bookingID;
-                    Session["BookingID"] = bookingID;
-                }
-                else
-                {
-                    SqlDataSource2.SelectParameters["BookingID"].DefaultValue = "B0006";
-                }
+                string bookingID = Request.QueryString["bookingID"] ?? "B0006";
+                lblBookingID.Text = bookingID;
+
+                // Set the value for the SQL Data Source
+                SqlDataSource2.SelectParameters["BookingID"].DefaultValue = bookingID;
             }
             else
             {
