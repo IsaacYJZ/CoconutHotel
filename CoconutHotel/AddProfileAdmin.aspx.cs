@@ -42,11 +42,13 @@ namespace CoconutHotel
             string password = txtPassword.Text.Trim();
             string userType = ddlUserType.SelectedValue;
             string userStatus = ddlUserStatus.SelectedValue;
+            string hashedPassword = HashPassword(password);
 
             // Validate form data (add more validation as needed)
 
             // Insert data into database
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -73,7 +75,7 @@ namespace CoconutHotel
                     command.Parameters.AddWithValue("@ICNumber", icNumber);
                     command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                     command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@Password", hashedPassword);
                     command.Parameters.AddWithValue("@UserType", userType);
                     command.Parameters.AddWithValue("@UserStatus", userStatus);
 
@@ -105,6 +107,17 @@ namespace CoconutHotel
             }
         }
 
+        private string HashPassword(string password)
+        {
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                // ComputeHash - returns byte array
+                byte[] bytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+
+                // Convert byte array to a string
+                return Convert.ToBase64String(bytes);
+            }
+        }
         // Method to generate a unique userID
         private string GenerateUniqueUserID(SqlConnection connection, string userType)
         {

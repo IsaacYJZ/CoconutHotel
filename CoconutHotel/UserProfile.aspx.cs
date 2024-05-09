@@ -25,11 +25,46 @@ namespace CoconutHotel
                 lblICNum.Text = userDetails.ICNum;
                 lblUserType.Text = userDetails.UserType;
 
+                GetBookingDetails(userDetails.UserID);
 
             }
             else
             {
                 Response.Redirect("LoginPage.aspx");
+            }
+        }
+        
+
+        private void GetBookingDetails(string userID)
+        {
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True;";
+            string query = "SELECT b.bookingID, u.UserName, u.Email, br.roomType, br.roomID, b.bookingDate, b.checkInDate, b.checkOutDate " +
+                           "FROM Booking b " +
+                           "INNER JOIN BookingRoom br ON b.bookingID = br.bookingID " +
+                           "INNER JOIN [User] u ON b.userID = u.userID " +
+                           "WHERE b.userID = @UserID";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", userID);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            rptBookingHistory.DataSource = reader;
+                            rptBookingHistory.DataBind();
+                        }
+                        else
+                        {
+                            // If no booking details found, display a message
+                            rptBookingHistory.Visible = false;
+                            lblNoBookingMessage.Visible = true;
+                        }
+                    }
+                }
             }
         }
 

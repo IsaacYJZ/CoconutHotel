@@ -24,13 +24,13 @@
                         <li>
                             <asp:HyperLink ID="facilitiesLink" runat="server" NavigateUrl="~/facilities.aspx">FACILITIES</asp:HyperLink></li>
                         <li>
-                            <asp:HyperLink ID="bookinglink" runat="server" NavigateUrl="~/CheckAvailability.aspx">BOOK A ROOM</asp:HyperLink></li>
+                            <asp:HyperLink ID="bookinglink" runat="server" NavigateUrl="~/RoomBooking.aspx">BOOK A ROOM</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="contactLink" runat="server" NavigateUrl="~/contact.aspx">CONTACT</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="galleryLink" runat="server" NavigateUrl="~/gallery.aspx">GALLERY</asp:HyperLink></li>
                         <li>
-                            <asp:HyperLink ID="hypUserProfile" runat="server" NavigateUrl="UserProfile.aspx">
+                            <asp:HyperLink ID="hypUserProfile" runat="server" NavigateUrl="~/UserProfile.aspx">
                     <i class="fas fa-user"></i> 
                             </asp:HyperLink>
                         </li>

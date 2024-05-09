@@ -71,28 +71,38 @@
 
             <div class="booking-history">
                 <h2>Booking History</h2>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Room Type</th>
-                        <th>Payment Method</th>
-                        <th>Payment Date</th>
-                        <th>Payment Time</th>
-                    </tr>
-                    <%--<asp:Repeater ID="rptBookingHistory" runat="server">
-                        <ItemTemplate>
+                <asp:Repeater ID="rptBookingHistory" runat="server">
+                    <HeaderTemplate>
+                        <table>
                             <tr>
-                                <td><%# Eval("Name") %></td>
-                                <td><%# Eval("Phone") %></td>
-                                <td><%# Eval("RoomType") %></td>
-                                <td><%# Eval("PaymentMethod") %></td>
-                                <td><%# Eval("PaymentDate", "{0:yyyy-MM-dd}") %></td>
-                                <td><%# Eval("PaymentTime", "{0:HH:mm}") %></td>
+                                <th>Booking ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Room Type</th>
+                                <th>Room ID</th>
+                                <th>Booking Date</th>
+                                <th>Check In Date</th>
+                                <th>Check Out Date</th>
                             </tr>
-                        </ItemTemplate>
-                    </asp:Repeater>--%>
-                </table>
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <tr>
+                            <td><%# Eval("bookingID") %></td>
+                            <td><%# Eval("UserName") %></td>
+                            <td><%# Eval("Email") %></td>
+                            <td><%# Eval("roomType") %></td>
+                            <td><%# Eval("roomID") %></td>
+                            <td><%# Eval("bookingDate") %></td>
+                            <td><%# Eval("checkInDate") %></td>
+                            <td><%# Eval("checkOutDate") %></td>
+                        </tr>
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        </table>
+                    </FooterTemplate>
+                </asp:Repeater>
+                <asp:Label ID="lblNoBookingMessage" runat="server" Text="No booking history available." Visible="false"></asp:Label>
+
             </div>
         </div>
         <div class="logout-btn">
