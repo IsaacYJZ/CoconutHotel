@@ -11,6 +11,8 @@
 
     <h1 class="text-left mt-5 mb-4">Room</h1>
 
+    <asp:Label ID="lblMessage" runat="server" Visible="false" Text="No rooms found." CssClass="text-danger"></asp:Label>
+
     <!-- GridView to display room data -->
     <div class="container">
         <div class="row justify-content-center">

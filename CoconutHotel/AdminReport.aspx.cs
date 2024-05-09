@@ -21,167 +21,134 @@ namespace CoconutHotel
 
         private void BindReportData()
         {
-            try
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            string query = @"
+            SELECT
+                u.userName,
+                p.paymentDate,
+                DATEDIFF(day, b.checkInDate, b.checkOutDate) AS day,
+                rt.roomName AS roomName,
+                r.roomImg AS roomImg,
+                p.paymentMethod,
+                p.totalPayment
+            FROM
+                Booking b
+            INNER JOIN
+                [User] u ON b.userID = u.userID
+            INNER JOIN
+                Payment p ON b.bookingID = p.bookingID
+            INNER JOIN
+                BookingRoom br ON b.bookingID = br.bookingID
+            INNER JOIN
+                Room r ON br.roomID = r.roomID
+            INNER JOIN
+                RoomType rt ON br.roomType = rt.roomType";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-
-                // Get the search criteria and input from the query string
-                string searchCriteria = Request.QueryString["criteria"];
-                string searchInput = Request.QueryString["input"];
-
-                // Construct the SQL query dynamically based on the search criteria and input
-                string query = ConstructQuery(searchCriteria, searchInput);
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        connection.Open();
-                        SqlDataAdapter adapter = new SqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
 
-                        if (dataTable.Rows.Count > 0)
-                        {
-                            gridViewReport.DataSource = dataTable;
-                            gridViewReport.DataBind();
-                        }
-                        else
-                        {
-                            // Display a message if no data is found
-                        }
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        gridViewReport.DataSource = dataTable;
+                        gridViewReport.DataBind();
+                        lblMessage.Visible = false;// Hide the message label if there are bookings
+                    }
+                    else
+                    {
+                        // Display a message when no rooms are found
+                        lblMessage.Visible = true;
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                // Handle any exceptions
-            }
         }
-
- [WebMethod]
-public static string SearchData(string searchCriteria, string searchInput)
-{
-    try
-    {
-        // Construct the SQL query dynamically based on the search criteria and input
-        string query = @"
-            SELECT 
-                u.userName AS UserName,
-                p.paymentDate AS PaymentDate,
-                rt.roomName AS RoomName,
-                p.paymentMethod AS PaymentMethod,
-                r.roomPrice AS RoomPrice
-            FROM 
-                Booking b
-            INNER JOIN 
-                Payment p ON b.paymentID = p.paymentID
-            INNER JOIN 
-                [User] u ON b.userID = u.userID
-            INNER JOIN 
-                Room r ON b.roomID = r.roomID
-            INNER JOIN 
-                RoomType rt ON r.roomType = rt.roomType";
-
-        // Add WHERE clause based on the selected search criteria and input
-        switch (searchCriteria)
+        protected void SearchButton_Click(object sender, EventArgs e)
         {
-            case "Name":
-                query += " WHERE u.userName LIKE '%" + searchInput + "%'";
-                break;
-            case "PaymentDate":
-                query += " WHERE CONVERT(date, p.paymentDate) = CONVERT(date, '" + searchInput + "')";
-                break;
-            case "RoomName":
-                query += " WHERE rt.roomName LIKE '%" + searchInput + "%'";
-                break;
-            case "PaymentMethod":
-                query += " WHERE p.paymentMethod LIKE '%" + searchInput + "%'";
-                break;
-            case "RoomPrice":
-                query += " WHERE r.roomPrice = '" + searchInput + "'";
-                break;
-            default:
-                break;
-        }
-
-        // Execute the query and return the HTML content to update the GridView
-        DataTable dataTable = new DataTable();
-        using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
-        {
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                connection.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(dataTable);
-            }
-        }
-
-        // Render the DataTable as HTML
-        using (StringWriter sw = new StringWriter())
-        {
-            using (HtmlTextWriter hw = new HtmlTextWriter(sw))
-            {
-                GridView gridView = new GridView();
-                gridView.DataSource = dataTable;
-                gridView.DataBind();
-                gridView.RenderControl(hw);
-                return sw.ToString();
-            }
-        }
-    }
-    catch (Exception ex)
-    {
-        return ex.Message; // Return error message if any
-    }
-}
-
-
-
-        // Method to construct the SQL query dynamically based on the search criteria and input
-        private string ConstructQuery(string searchCriteria, string searchInput)
-        {
+            // Construct the SQL query dynamically based on the search criteria
             string query = @"
-                SELECT 
-                    u.userName AS UserName,
-                    p.paymentDate AS PaymentDate,
-                    rt.roomName AS RoomName,
-                    p.paymentMethod AS PaymentMethod,
-                    r.roomPrice AS RoomPrice
-                FROM 
-                    Booking b
-                INNER JOIN 
-                    Payment p ON b.paymentID = p.paymentID
-                INNER JOIN 
-                    [User] u ON b.userID = u.userID
-                INNER JOIN 
-                    Room r ON b.roomID = r.roomID
-                INNER JOIN 
-                    RoomType rt ON r.roomType = rt.roomType";
+            SELECT
+                u.userName,
+                p.paymentDate,
+                DATEDIFF(day, b.checkInDate, b.checkOutDate) AS day,
+                rt.roomName AS roomName,
+                r.roomImg AS roomImg,
+                p.paymentMethod,
+                p.totalPayment
+            FROM
+                Booking b
+            INNER JOIN
+                [User] u ON b.userID = u.userID
+            INNER JOIN
+                Payment p ON b.bookingID = p.bookingID
+            INNER JOIN
+                BookingRoom br ON b.bookingID = br.bookingID
+            INNER JOIN
+                Room r ON br.roomID = r.roomID
+            INNER JOIN
+                RoomType rt ON br.roomType = rt.roomType
+            WHERE 1 = 1"; // Start with a condition that is always true
 
-            // Add WHERE clause based on the selected search criteria and input
-            switch (searchCriteria)
+            // Add conditions based on the provided search criteria
+            if (!string.IsNullOrEmpty(userName.Text))
             {
-                case "Name":
-                    query += " WHERE u.userName LIKE '%" + searchInput + "%'";
-                    break;
-                case "PaymentDate":
-                    query += " WHERE CONVERT(date, p.paymentDate) = CONVERT(date, '" + searchInput + "')";
-                    break;
-                case "RoomName":
-                    query += " WHERE rt.roomName LIKE '%" + searchInput + "%'";
-                    break;
-                case "PaymentMethod":
-                    query += " WHERE p.paymentMethod LIKE '%" + searchInput + "%'";
-                    break;
-                case "RoomPrice":
-                    query += " WHERE r.roomPrice = '" + searchInput + "'";
-                    break;
-                default:
-                    break;
+                query += " AND u.userName LIKE @UserName";
             }
 
-            return query;
+            if (roomType.SelectedValue != "")
+            {
+                query += " AND rt.roomName = @RoomName";
+            }
+
+            if (!string.IsNullOrEmpty(paymentType.SelectedValue))
+            {
+                query += " AND p.paymentMethod = @PaymentMethod";
+            }
+
+            // Execute the query and bind the results to the GridView
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Set parameter values based on the provided search criteria
+                    if (!string.IsNullOrEmpty(userName.Text))
+                    {
+                        command.Parameters.AddWithValue("@UserName", "%" + userName.Text + "%");
+                    }
+
+                    if (roomType.SelectedValue != "")
+                    {
+                        command.Parameters.AddWithValue("@RoomName", roomType.SelectedValue);
+                    }
+
+                    if (!string.IsNullOrEmpty(paymentType.SelectedValue))
+                    {
+                        command.Parameters.AddWithValue("@PaymentMethod", paymentType.SelectedValue);
+                    }
+
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        gridViewReport.DataSource = dataTable;
+                        gridViewReport.DataBind();
+                        lblMessage.Visible = false;// Hide the message label if there are bookings
+                    }
+                    else
+                    {
+                        lblMessage.Visible = true; // Show the message label if no bookings are found
+                    }
+                }
+            }
         }
     }
 }
+        

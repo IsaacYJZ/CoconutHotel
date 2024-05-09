@@ -15,13 +15,13 @@ namespace CoconutHotel
     {
 
         /// <summary>
-        /// roomId control.
+        /// roomID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox roomId;
+        protected global::System.Web.UI.WebControls.TextBox roomID;
 
         /// <summary>
         /// occupancy control.
@@ -40,6 +40,15 @@ namespace CoconutHotel
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SearchButton;
+
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
         /// gridViewRooms control.

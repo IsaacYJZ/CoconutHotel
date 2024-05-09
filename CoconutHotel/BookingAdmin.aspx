@@ -52,6 +52,7 @@
 </section>
 
 
+    <asp:Label ID="lblMessage" runat="server" Visible="false" Text="No bookings found." CssClass="text-danger"></asp:Label>
 
 
     <div class="container-fluid">
@@ -61,13 +62,16 @@
                     <asp:GridView ID="gridViewBookings" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="false" DataKeyNames="bookingID">
                         <Columns>
                             <asp:BoundField DataField="bookingID" HeaderText="BookingID" />
-                            <asp:BoundField DataField="UserName" HeaderText="User Name" />
+                            <asp:BoundField DataField="userName" HeaderText="User Name" />
                             <asp:BoundField DataField="roomName" HeaderText="Room Type" />
                             <asp:BoundField DataField="bookingDate" HeaderText="Booking Date" />
                             <asp:BoundField DataField="checkInDate" HeaderText="Check In Date" />
                             <asp:BoundField DataField="checkOutDate" HeaderText="Check Out Date" />
-                            <asp:BoundField DataField="numOfAdult" HeaderText="Number of Adult" />
-                            <asp:BoundField DataField="numOfChild" HeaderText="Number of Child" />
+                            <asp:TemplateField HeaderText="Occupancy">
+                                <ItemTemplate>
+                                    <%# GetOccupancy(Eval("numOfAdult"), Eval("numOfChild")) %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:BoundField DataField="paymentMethod" HeaderText="Payment Type" />
                             <asp:BoundField DataField="bookingStatus" HeaderText="Booking Status" />
                         </Columns>
