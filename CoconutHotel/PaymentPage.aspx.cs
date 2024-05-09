@@ -12,6 +12,7 @@ namespace CoconutHotel
 {
     public partial class PaymentPage : System.Web.UI.Page
     {
+        private decimal _totalPriceSum = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -33,6 +34,23 @@ namespace CoconutHotel
                 }
             }
 
+        }
+
+        protected void GridViewPayment_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // Sum up the TotalPrice column
+                var totalPrice = DataBinder.Eval(e.Row.DataItem, "TotalPrice");
+                _totalPriceSum += Convert.ToDecimal(totalPrice);
+            }
+            else if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                // Add a label to the last column and show the sum
+                e.Row.Cells[5].Text = _totalPriceSum.ToString("C");
+                e.Row.Cells[4].Text = "Total:";
+                e.Row.Cells[4].HorizontalAlign = HorizontalAlign.Right;
+            }
         }
 
         protected void ddlMethod_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,14 +93,42 @@ namespace CoconutHotel
             // Redirect to another page
 
             Response.Redirect("ThankYouPage.aspx");
-            
+
+            //// Generate a unique payment ID
+            //string paymentID = GenerateUniquePaymentID();
+
+            //// Get the current date and time
+            //DateTime now = DateTime.Now;
+            //string paymentDate = now.ToString("yyyy-MM-dd");
+            //string paymentTime = now.ToString("HH:mm:ss");
+
+            //// Insert the payment data into the database
+            //InsertPaymentIntoDatabase(paymentID, paymentDate, paymentTime, 100.00m, "Pending");
+
         }
 
         protected void btnPayNow_Click(object sender, EventArgs e)
         {
             // Redirect to another page
             Response.Redirect("ThankYouPage.aspx");
+
+            //// Generate a unique payment ID
+            //string paymentID = GenerateUniquePaymentID();
+
+            //// Get the current date and time
+            //DateTime now = DateTime.Now;
+            //string paymentDate = now.ToString("yyyy-MM-dd");
+            //string paymentTime = now.ToString("HH:mm:ss");
+
+            //// Insert the payment data into the database
+            //InsertPaymentIntoDatabase(paymentID, paymentDate, paymentTime, 100.00m, "Pending");
         }
+
+        //private string GenerateUniquePaymentID()
+        //{
+        //    // Generate a unique payment ID, e.g., using a GUID
+        //    return "P" + Guid.NewGuid().ToString("N").Substring(0, 8).ToUpper();
+        //}
 
         protected void btnClear_Click(object sender, EventArgs e)
         {

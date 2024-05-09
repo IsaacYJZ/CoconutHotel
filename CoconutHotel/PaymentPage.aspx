@@ -24,7 +24,8 @@
                 <h3>Payment Summary</h3>
 
                 <asp:GridView ID="GridViewPayment" runat="server" AutoGenerateColumns="False"
-                    CssClass="table table-bordered table-striped" DataSourceID="SqlDataSource2">
+                    CssClass="table table-bordered table-striped" DataSourceID="SqlDataSource2"
+                    ShowFooter="True" OnRowDataBound="GridViewPayment_RowDataBound">
                     <Columns>
                         <asp:BoundField DataField="roomName" HeaderText="Room Name" />
                         <asp:BoundField DataField="roomType" HeaderText="Room Type" />
@@ -32,7 +33,7 @@
                             ControlStyle-Width="100px" ControlStyle-Height="75px" />
                         <asp:BoundField DataField="Days" HeaderText="Days" />
                         <asp:BoundField DataField="PricePerDay" HeaderText="Price per Day" DataFormatString="{0:C}" />
-                        <asp:BoundField DataField="TotalPrice" HeaderText="Total Price" DataFormatString="{0:C}" />
+                        <asp:BoundField DataField="TotalPrice" HeaderText="Total Room Price" DataFormatString="{0:C}" />
                     </Columns>
                 </asp:GridView>
 
@@ -59,6 +60,7 @@
                         <asp:QueryStringParameter Name="BookingID" QueryStringField="bookingID" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
+
             </div>
 
 <%--                <table>
