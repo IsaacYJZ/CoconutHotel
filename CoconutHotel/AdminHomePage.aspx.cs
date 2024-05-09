@@ -135,11 +135,11 @@ namespace CoconutHotel
                 rt.roomName, 
                 rt.roomDesc, 
                 rt.roomImage, 
-                COUNT(b.roomID) AS RoomBookings
+                COUNT(br.roomID) AS RoomBookings
             FROM 
-                Booking b
+                BookingRoom br
             INNER JOIN 
-                Room r ON b.roomID = r.roomID
+                Room r ON br.roomID = r.roomID
             INNER JOIN 
                 RoomType rt ON r.roomType = rt.roomType
             GROUP BY 
@@ -192,31 +192,28 @@ namespace CoconutHotel
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             string query = @"
         SELECT 
-            rt.roomName, 
-            rt.roomDesc,  
-            rt.roomImage, 
-            COUNT(r.roomID) - COUNT(b.bookingID) AS AvailableRooms
+        rt.roomName, 
+        rt.roomDesc,  
+        rt.roomImage, 
+        COUNT(r.roomID) - COUNT(b.bookingID) AS AvailableRooms
         FROM 
             RoomType rt 
         INNER JOIN 
             Room r ON rt.roomType = r.roomType 
         LEFT JOIN 
-            Booking b ON r.roomID = b.roomID 
-                  AND (b.checkInDate >= @CheckOutDate OR b.checkOutDate <= @CheckInDate)
+            BookingRoom br ON r.roomID = br.roomID 
+        LEFT JOIN 
+            Booking b ON br.bookingID = b.bookingID 
+                      AND b.bookingStatus = 'Booked'
         GROUP BY 
-            rt.roomName, rt.roomDesc, rt.roomPrice, rt.roomImage 
+            rt.roomName, rt.roomDesc, rt.roomImage 
         ORDER BY 
-            rt.roomPrice";
-
-            DateTime checkInDate = DateTime.Now.Date; // You can set this dynamically based on user input if needed
-            DateTime checkOutDate = checkInDate.AddDays(1); // Adjust this according to your requirements
+            rt.roomImage";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@CheckInDate", checkInDate);
-                    command.Parameters.AddWithValue("@CheckOutDate", checkOutDate);
 
                     connection.Open();
                     SqlDataAdapter adapter = new SqlDataAdapter(command);

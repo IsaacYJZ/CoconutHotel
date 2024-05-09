@@ -17,8 +17,8 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="roomId">Room ID:</label>
-                                <asp:TextBox ID="roomId" CssClass="form-control" runat="server" />
+                                <label for="roomID">Room ID:</label>
+                                <asp:TextBox ID="roomID" CssClass="form-control" runat="server" />
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -38,6 +38,8 @@
             </div>
         </div>
     </section>
+
+    <asp:Label ID="lblMessage" runat="server" Visible="false" Text="No rooms found." CssClass="text-danger"></asp:Label>
 
     <!-- GridView to display room data -->
     <div class="container">

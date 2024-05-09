@@ -5,65 +5,65 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
 
-    <div class="container mt-6">
-        <div class="mb-4 d-flex justify-content-between align-items-center">
-            <div class="position-relative">            
-                <span>Filters <i class="fa fa-angle-down"></i></span>
-                <i class="fa fa-ellipsis-h ms-3"></i>
-                <span class="position-absolute search-icon"><i class="fa fa-search"></i></span>
-                <input class="form-control" placeholder="Search..." id="searchInput">
-                <select class="form-select mt-2" id="searchCriteria">
-                    <option value="Name">Name</option>
-                    <option value="Year">Year</option>
-                    <option value="Month">Month</option>
-                    <option value="Day">Day</option>
-                    <option value="PaymentMethod">Payment Method</option>
-                </select>
+<section class="content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="userName">User Name:</label>
+                                <asp:TextBox ID="userName" CssClass="form-control" runat="server" />
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="roomType">Room Type:</label>
+                                <asp:DropDownList ID="roomType" CssClass="form-control" runat="server">
+                                    <asp:ListItem Text="All" Value="" />
+                                    <asp:ListItem Text="Standard" Value="Standard" />
+                                    <asp:ListItem Text="Luxury" Value="Luxury" />
+                                    <asp:ListItem Text="Junior" Value="Junior" />
+                                    <asp:ListItem Text="Executive" Value="Executive" />
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="paymentType">Payment Type:</label>
+                                <asp:DropDownList ID="paymentType" CssClass="form-control" runat="server">
+                                    <asp:ListItem Text="All" Value="" />
+                                    <asp:ListItem Text="Credit Card" Value="Credit Card" />
+                                    <asp:ListItem Text="Cash" Value="Cash" />
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col-md-12">
+                                <asp:Button ID="SearchButton" runat="server" Text="Search" OnClick="SearchButton_Click" CssClass="btn btn-primary btn-block" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+</section>
+
+        <asp:Label ID="lblMessage" runat="server" Visible="false" Text="No Reports found." CssClass="text-danger"></asp:Label>
+
         <div class="table-responsive">
-            <asp:GridView ID="gridViewReport" runat="server" CssClass="table table-hover table-bordered small-font" AutoGenerateColumns="False">
+            <asp:GridView ID="gridViewReport" runat="server" CssClass="table table-hover table-bordered small-font" AutoGenerateColumns="false">
                 <Columns>
                     <asp:BoundField DataField="userName" HeaderText="Name" />
                     <asp:BoundField DataField="paymentDate" HeaderText="Date" />
-                    <asp:BoundField DataField="roomName" HeaderText="Room" />
-                    <asp:BoundField DataField="paymentMethod" HeaderText="Payment" />
-                    <asp:BoundField DataField="roomPrice" HeaderText="Price" />
+                    <asp:BoundField DataField="day" HeaderText="Day" />
+                    <asp:BoundField DataField="roomName" HeaderText="Room Name" />
+                    <asp:TemplateField HeaderText="Image">
+                        <ItemTemplate>
+                            <asp:Image ID="roomImg" runat="server" ImageUrl='<%# Eval("roomImg") %>' Height="100" Width="100" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="paymentMethod" HeaderText="Payment Method" />
+                    <asp:BoundField DataField="totalPayment" HeaderText="Total Payment" />
                 </Columns>
             </asp:GridView>
         </div>
     </div>
-
-<script>
-    // JavaScript function to handle search
-    function search() {
-        var searchInput = document.getElementById('searchInput').value;
-        var searchCriteria = document.getElementById('searchCriteria').value;
-
-        // Call server-side method to bind filtered data
-        PageMethods.SearchData(searchCriteria, searchInput, OnSuccess, OnFailure);
-    }
-
-    // Callback function for successful search
-    function OnSuccess(result) {
-        // Clear the GridView before updating with the filtered data
-        document.getElementById('<%= gridViewReport.ClientID %>').innerHTML = "";
-
-    // Update the GridView with the filtered data
-        document.getElementById('<%= gridViewReport.ClientID %>').innerHTML = result;
-    }
-
-
-    // Callback function for failed search
-    function OnFailure(error) {
-        console.log(error);
-    }
-
-    // Add event listeners for search input and criteria
-    document.getElementById('searchInput').addEventListener('input', search);
-    document.getElementById('searchCriteria').addEventListener('change', search);
-</script>
-
 </asp:Content>

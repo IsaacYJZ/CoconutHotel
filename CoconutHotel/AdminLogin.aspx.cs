@@ -7,7 +7,7 @@ namespace CoconutHotel
     public partial class AdminLogin : System.Web.UI.Page
     {
         // Connection string for your database
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True;";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -69,6 +69,9 @@ namespace CoconutHotel
 
         private bool ValidateAdmin(string email, string password)
         {
+            // Hash the provided password
+            string hashedPassword = HashPassword(password);
+
             // Validate if the user is an admin (user ID starts with "A") with the provided credentials
             string query = "SELECT COUNT(*) FROM [User] WHERE email = @Email AND password = @Password AND userID LIKE 'A%'";
 
@@ -77,7 +80,7 @@ namespace CoconutHotel
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@Password", hashedPassword); // Compare with hashed password
 
                     connection.Open();
                     int count = (int)command.ExecuteScalar();
@@ -87,5 +90,19 @@ namespace CoconutHotel
                 }
             }
         }
+
+        // Method to hash the password using SHA-256 algorithm
+        private string HashPassword(string password)
+        {
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                // ComputeHash - returns byte array
+                byte[] bytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+
+                // Convert byte array to a string
+                return Convert.ToBase64String(bytes);
+            }
+        }
+
     }
 }

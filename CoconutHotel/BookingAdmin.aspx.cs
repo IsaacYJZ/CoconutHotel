@@ -21,13 +21,12 @@ namespace CoconutHotel
         private void BindGridView()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            string query = "SELECT b.bookingID, u.userName AS UserName, rt.roomName AS RoomName, b.bookingDate, b.checkInDate, b.checkOutDate, b.numOfAdult, b.numOfChild, b.bookingStatus, p.paymentMethod " +
+            string query = "SELECT b.bookingID, u.userName AS UserName, rt.roomName AS RoomName, b.bookingDate, b.checkInDate, b.checkOutDate, b.numOfAdult, b.numOfChild, p.paymentMethod, b.bookingStatus " +
                            "FROM Booking b " +
                            "INNER JOIN [User] u ON b.userID = u.userID " +
-                           "INNER JOIN Room r ON b.roomID = r.roomID " +
-                           "INNER JOIN RoomType rt ON r.roomType = rt.roomType " +
-                           "INNER JOIN Payment p ON b.paymentID = p.paymentID";
-
+                           "INNER JOIN BookingRoom br ON b.bookingID = br.bookingID " +
+                           "INNER JOIN RoomType rt ON br.roomType = rt.roomType " +
+                           "INNER JOIN Payment p ON b.bookingID = p.bookingID";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -42,25 +41,33 @@ namespace CoconutHotel
                     {
                         gridViewBookings.DataSource = dataTable;
                         gridViewBookings.DataBind();
+                        lblMessage.Visible = false; // Hide the message label if there are bookings
                     }
                     else
                     {
-                        // Display a message when no bookings are found
-                        // You can add a label or handle this case as needed
+                        lblMessage.Visible = true; // Show the message label if no bookings are found
                     }
                 }
             }
         }
 
+        protected string GetOccupancy(object numOfAdult, object numOfChild)
+        {
+            int adult = Convert.ToInt32(numOfAdult);
+            int child = Convert.ToInt32(numOfChild);
+            int occupancy = adult + child;
+            return occupancy.ToString();
+        }
+
         protected void SearchButton_Click(object sender, EventArgs e)
         {
             // Construct the SQL query dynamically based on the search criteria
-            string query = "SELECT b.bookingID, u.userName AS UserName, rt.roomName AS RoomName, b.bookingDate, b.checkInDate, b.checkOutDate, b.numOfAdult, b.numOfChild, b.bookingStatus, p.paymentMethod " +
+            string query = "SELECT b.bookingID, u.userName AS UserName, rt.roomName AS RoomName, b.bookingDate, b.checkInDate, b.checkOutDate, b.numOfAdult, b.numOfChild, p.paymentMethod, b.bookingStatus " +
                            "FROM Booking b " +
                            "INNER JOIN [User] u ON b.userID = u.userID " +
-                           "INNER JOIN Room r ON b.roomID = r.roomID " +
-                           "INNER JOIN RoomType rt ON r.roomType = rt.roomType " +
-                           "INNER JOIN Payment p ON b.paymentID = p.paymentID " +
+                           "INNER JOIN BookingRoom br ON b.bookingID = br.bookingID " +
+                           "INNER JOIN RoomType rt ON br.roomType = rt.roomType " +
+                           "INNER JOIN Payment p ON b.bookingID = p.bookingID " +
                            "WHERE 1 = 1"; // Start with a condition that is always true
 
             // Add conditions based on the provided search criteria
@@ -110,16 +117,15 @@ namespace CoconutHotel
                     {
                         gridViewBookings.DataSource = dataTable;
                         gridViewBookings.DataBind();
+                        lblMessage.Visible = false;// Hide the message label if there are bookings
                     }
                     else
                     {
-                        // Display a message when no bookings are found
-                        // You can add a label or handle this case as needed
+                        lblMessage.Visible = true; // Show the message label if no bookings are found
                     }
                 }
             }
         }
-
 
     }
 }

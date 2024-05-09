@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web.UI;
 
 namespace CoconutHotel
@@ -19,9 +21,10 @@ namespace CoconutHotel
             string password = txtPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
             string userType = "Customer"; 
-            string userStatus = "Valid"; 
+            string userStatus = "Valid";
 
-            
+            string hashedPassword = HashPassword(password);
+
             if (password.Length < 6)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "PasswordLengthScript", "alert('Password must be at least six characters long!');", true);
@@ -52,7 +55,7 @@ namespace CoconutHotel
                 return;
             }
 
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True;";
             string getLastUserIDQuery = "SELECT TOP 1 userID FROM [dbo].[User] ORDER BY userID DESC;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -76,7 +79,7 @@ namespace CoconutHotel
                         insertCommand.Parameters.AddWithValue("@ICNum", icNum);
                         insertCommand.Parameters.AddWithValue("@PhoneNum", phoneNum);
                         insertCommand.Parameters.AddWithValue("@Email", email);
-                        insertCommand.Parameters.AddWithValue("@Password", password);
+                        insertCommand.Parameters.AddWithValue("@Password", hashedPassword);
                         insertCommand.Parameters.AddWithValue("@UserType", userType);
                         insertCommand.Parameters.AddWithValue("@UserStatus", userStatus);
 
@@ -98,7 +101,7 @@ namespace CoconutHotel
 
         private bool UsernameTaken(string name)
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True;";
             string checkUsernameQuery = "SELECT COUNT(*) FROM [dbo].[User] WHERE userName = @UserName;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -125,7 +128,7 @@ namespace CoconutHotel
 
         private bool ICNumberTaken(string icNum)
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True;";
             string checkICNumberQuery = "SELECT COUNT(*) FROM [dbo].[User] WHERE icNum = @ICNum;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -152,7 +155,7 @@ namespace CoconutHotel
 
         private bool EmailTaken(string email)
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True;";
             string checkEmailQuery = "SELECT COUNT(*) FROM [dbo].[User] WHERE email = @Email;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -179,7 +182,7 @@ namespace CoconutHotel
 
         private bool PhoneNumberTaken(string phoneNum)
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\source\\repos\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Asus\\Source\\Repos\\IsaacYJZ\\CoconutHotel\\CoconutHotel\\App_Data\\CoconutHotel.mdf;Integrated Security=True;";
             string checkPhoneNumberQuery = "SELECT COUNT(*) FROM [dbo].[User] WHERE phoneNum = @PhoneNum;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -203,5 +206,22 @@ namespace CoconutHotel
                 }
             }
         }
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // ComputeHash - returns byte array
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                // Convert byte array to a string
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
     }
+
 }

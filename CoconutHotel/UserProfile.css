@@ -4,7 +4,7 @@
     padding: 0;
     background-color: #f9f9f9;
     background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url('image/hotel.jpg');
-    background-size: cover;
+    background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -65,12 +65,14 @@ h2 {
 
 .booking-history {
     margin-top: 40px;
+    overflow-x: auto; /* Add horizontal scroll if necessary */
 }
 
     .booking-history table {
         width: 100%;
         border-collapse: collapse;
     }
+
 
     .booking-history th, .booking-history td {
         padding: 12px;

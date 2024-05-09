@@ -20,47 +20,55 @@ namespace CoconutHotel
                 {
                     Session["SelectedRoomName"] = selectedRoomName;
                 }
+
+                // Validate and sanitize input parameters before passing them to BindGridView
+                string roomIDValue = string.IsNullOrEmpty(roomID.Text) ? null : roomID.Text;
+                string occupancyValue = string.IsNullOrEmpty(occupancy.Text) ? null : occupancy.Text;
+
                 // Bind the grid view with rooms filtered by the selected room name or search criteria
-                BindGridView(selectedRoomName, roomId.Text, occupancy.Text);
+                BindGridView(selectedRoomName, roomIDValue, occupancyValue);
             }
         }
 
         protected void SearchButton_Click(object sender, EventArgs e)
         {
             // Get the search criteria and bind the grid view accordingly
-            BindGridView(Request.QueryString["roomName"], roomId.Text, occupancy.Text);
+            BindGridView(Request.QueryString["roomName"], roomID.Text, occupancy.Text);
         }
 
-        private void BindGridView(string selectedRoomName, string roomId, string occupancy)
+        private void BindGridView(string selectedRoomName, string roomID, string occupancy)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             string query = @"
-            SELECT 
+            SELECT
                 r.roomID, 
                 r.occupancy, 
                 b.checkInDate,
                 b.checkOutDate,
                 r.roomPrice, 
-                CASE 
-                    WHEN EXISTS (
-                        SELECT 1 
-                        FROM Booking b 
-                        WHERE b.roomID = r.roomID AND b.bookingStatus = 'Booked'
+                CASE
+                    WHEN EXISTS(
+                        SELECT 1
+                        FROM BookingRoom br
+                        INNER JOIN Booking b ON br.bookingID = b.bookingID
+                        WHERE br.roomID = r.roomID AND b.bookingStatus = 'Booked'
                     ) THEN 'Booked'
                     ELSE 'Available'
                 END AS roomStatus, 
                 r.roomImg
-            FROM 
-                Room r 
-            INNER JOIN 
-                RoomType rt ON r.roomType = rt.roomType 
+            FROM
+                Room r
+            INNER JOIN
+                RoomType rt ON r.roomType = rt.roomType
             LEFT JOIN
-                Booking b ON r.roomID = b.roomID
-            WHERE 
+                BookingRoom br ON r.roomID = br.roomID
+            LEFT JOIN
+                Booking b ON br.bookingID = b.bookingID
+            WHERE
                 1 = 1"; // Start with a condition that is always true
 
             // Add filters based on the provided search criteria
-            if (!string.IsNullOrEmpty(roomId))
+            if (!string.IsNullOrEmpty(roomID))
             {
                 query += " AND r.roomID = @RoomID";
             }
@@ -76,13 +84,16 @@ namespace CoconutHotel
                 query += " AND rt.roomName = @RoomName"; // Filter by room type
             }
 
+            // Append the ORDER BY clause
+            query += " ORDER BY r.roomID";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    if (!string.IsNullOrEmpty(roomId))
+                    if (!string.IsNullOrEmpty(roomID))
                     {
-                        command.Parameters.AddWithValue("@RoomID", roomId);
+                        command.Parameters.AddWithValue("@RoomID", roomID);
                     }
 
                     if (!string.IsNullOrEmpty(occupancy))
@@ -105,16 +116,17 @@ namespace CoconutHotel
                     {
                         gridViewRooms.DataSource = dataTable;
                         gridViewRooms.DataBind();
+                        lblMessage.Visible = false;// Hide the message label if there are bookings
                     }
                     else
                     {
                         // Display a message when no rooms are found
                         // You can add a label or handle this case as needed
+                        lblMessage.Visible = true;
                     }
                 }
             }
         }
-
 
     }
 }
