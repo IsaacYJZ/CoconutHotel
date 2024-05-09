@@ -77,7 +77,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <h5>Top 3 Selling Room Type</h5>
+                <h5>Top Selling Room Type</h5>
                 <div id="topSellingRoomsContainer" runat="server">
                     <!-- Top-selling rooms will be dynamically added here -->
                 </div>

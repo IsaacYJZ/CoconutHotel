@@ -102,7 +102,6 @@
                                 <asp:BoundField DataField="icNum" HeaderText="IC Number" />
                                 <asp:BoundField DataField="phoneNum" HeaderText="Phone Number" />
                                 <asp:BoundField DataField="email" HeaderText="Email" />
-                                <asp:BoundField DataField="password" HeaderText="Password" />
                                 <asp:BoundField DataField="userType" HeaderText="User Type" />
                                 <asp:BoundField DataField="userStatus" HeaderText="User Status" />
                                 <asp:TemplateField HeaderText="Control">

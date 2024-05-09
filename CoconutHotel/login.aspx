@@ -12,14 +12,14 @@
             color: green;
             text-align: center;
             font-weight: bold;
-            justify-content:center;
+            justify-content: center;
         }
 
         .error {
             color: red;
             text-align: center;
             font-weight: bold;
-            justify-content:center;
+            justify-content: center;
         }
     </style>
     <form id="form1" runat="server" class="loginForm">
@@ -37,6 +37,7 @@
             <p>
                 Don't have an account?
                 <asp:HyperLink ID="registerLink" runat="server" NavigateUrl="register.aspx">Sign Up</asp:HyperLink>
+                <asp:HyperLink ID="adminLogin" runat="server" NavigateUrl="AdminLogin.aspx">Sign Up</asp:HyperLink>
         </div>
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="error" HeaderText="The following error have encountered" />
 

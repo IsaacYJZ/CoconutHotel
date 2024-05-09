@@ -131,7 +131,7 @@ namespace CoconutHotel
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 string query = @"
-            SELECT TOP 3 
+            SELECT TOP 4 
                 rt.roomName, 
                 rt.roomDesc, 
                 rt.roomImage, 

@@ -19,7 +19,7 @@ namespace CoconutHotel
         }
         protected void bookBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CheckAvailability.aspx");
+            Response.Redirect("RoomBooking.aspx");
         }
     }
 }
